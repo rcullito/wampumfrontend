@@ -3,7 +3,14 @@
     <h1><img src="/ui/wampumfrontend/app/images/wampumlogo7.png" width="153" height="80">Wampum</h1>
     <p>Wampum is an outpost you can send your old clothes to.</p>
     <p>We send you a box, and keep you updated on your clothing's journey to its next home.</p>
-    <p><a class="btn btn-primary btn-lg lucida">Request an invite</a></p>
+    <p ng-show="request == 'pending'">
+      <a ng-click="update()" href="#" class="btn btn-primary btn-lg lucida">Request an invite</a>
+    </p>
+    <div ng-show="request == 'underway'">
+      <input ng-model="current_email" class="form-control">  
+      <button ng-click="submitEmail(current_email)" class="btn btn-primary">Submit</button>
+    </div>
+    <p ng-show="request == 'completed'">Thanks for signing up! You'll be hearing from us shortly.</p>
   </div>
 </div>
 
