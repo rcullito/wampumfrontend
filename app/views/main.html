@@ -13,10 +13,6 @@
         </span>
       </div><!-- /input-group -->
     </div>
-
-
-
-
   </div>
 </div>
 
@@ -25,7 +21,12 @@
     <li>about</li>
     <li>how it works</li>
     <li>mailing list</li>
-    <li>blog</li>
+    <li ng-click="show_blog()">blog</li>
   </ul>
+</div>
+
+
+<div ng-if="blog">
+This is the wampum blog right here.
 </div>
 

@@ -8,10 +8,6 @@ angular.module('wampumfrontendApp', ['ngRoute'])
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/ui/wampumfrontend/blog', {
-        templateUrl: '/ui/wampumfrontend/app/views/blog.html',
-        controller: 'BlogCtrl'
-      })
       .otherwise({
         redirectTo: '/ui/wampumfrontend/home'
       });

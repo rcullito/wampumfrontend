@@ -2,16 +2,9 @@
 
 angular.module('wampumfrontendApp')
   .controller('MainCtrl', function ($scope, emailService) {
-    $scope.request = "pending";
 
-    $scope.update = function() {
-        $scope.request = "underway";
+    $scope.show_blog = function() {
+        $scope.blog = !$scope.blog;
     };
-
-    $scope.submitEmail = function(current_email) {
-      alert(current_email);
-      $scope.request = "completed";
-    }
-
 
   });
