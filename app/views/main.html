@@ -5,9 +5,9 @@
     <p>Wampum will fish the answer out for you. Just let us know what you've got.</p>
     <div id="main-search-field" class="col-sm-offset-2 col-sm-8">
       <div class="input-group">
-        <input type="text" class="form-control">
+        <input disabled type="text" value="Still under contruction... Coming Soon" class="form-control">
         <span class="input-group-btn">
-          <button class="btn btn-primary" type="button">GO</button>
+          <button disabled class="btn btn-primary" type="button">GO</button>
         </span>
       </div><!-- /input-group -->
     </div>
@@ -16,15 +16,71 @@
 
 <div id="navigationhorizontal">
   <ul class="horizontal-list">
-    <li>about</li>
+
+<!--     <li>about</li>
     <li>how it works</li>
-    <li>mailing list</li>
+    <li>mailing list</li> -->
     <li ng-click="show_blog()">blog</li>
   </ul>
 </div>
 
+<!-- <div ng-if="blog" class="container lower"> -->
+<div class="container lower">
 
-<div ng-if="blog" class="container lower">
-This is the wampum blog right here.
+
+
+<!-- <h3>What era do we live in? 11/24/13</h3>
+
+<h3>Users, accounts, and thinking about the early days of an app.</h3>
+<p>It seems like a ton of overhead for the makers, and the users of a site</p>
+
+
+<h3>What Database Part II</h3>
+
+
+<p>So the two discussion points in my mind are, does it make sense for the modern startup to just immediately begin thinking about beyond sql?</p>
+
+<p>And secondly, I decided not to use any of the above database technologies? Any guesses as to which one I went with? I'll reveal in the comments</p>
+
+<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wampum'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+
+<h3>What Database? 11/24/13</h3>
+<p>It is quite a chilly and dry day here in Acton, MA as I sit down to write this initial blog post for Wampum. I thought an appropriately dry topic to start things off(haha!) would be some of the thoughts surrounding database selection over the past few weeks and months as this project has continued to crystalize. Partly over boredom with mysql/postgresql, and partly over an actual uncertainty around schema definitions at the outset of an uncertain project, I really only considered nosql options for the database(es) that would back wampum.<p> 
+
+<p>I felt like Riak, in a sense, was the home team. I've heard from a bunch of meetups people that their Clojure meetups are pretty good, and I found it to be a warm and inviting atmosphere at Basho the one time I randomly dropped by their offices in central square in Cambridge. Not to mention its sort of cool that the company is named after a 14th century Japanese poet. So if at this point you're thinking, "none of those reasons have anythign to do with the actualy data strucutre of your application", you are entirely correct. But in my own defense, my short list at first was really just a key value store, as I envisioned phase 1 of this project being an email collection phase, followed by simple CRUD operations for users, and maybe the types of items that they had.(More on this line of thinking in the next post.</p>
+
+<p>So for this short list, I looked at 4 key value stores: Riak, Redis, Cassandra, and MongoDB?</p>
+<p>Cassandra seemed really chill, but seemed optimized for really fast writing, which is awesome in some applications but wasn't necessarily the need of a still to be determined web app. It also seemed to have a lot of overhead of setting up. Next up was mongodb, which for myself and many people seems to be the first look at nosql out in the wild. It was fairly cool, but it seemed that they had reinvented a dsl which at the end of the day was a lot like sql. Granted, the lack of needing to define a schema up front seems great for prototyping(it's a little bit of a rush in the sense of "no parents home, we can do whatever we want!"). And oh, mongo's method of generating unique id's is actually very cool, as you can extract date/time, machine id, etc... out of them. Check out specifics <a href="http://docs.mongodb.org/manual/reference/object-id/">here</a>. Conclusion on mongo: I could have gone with it and probably been fine but it didn't really leave me feeling to jazzed. Next up was Redis, which is in memory, but still thought I would explore as an option given that seome people seem to have 20GB redis instances out there. Ultimately though, I felt like I would be more at ease with something a little more persistent. Although as many of you I'm sure know, redis is the sort of thing that you can always add in for caching, or just about any other scenario, to make your application run a bit more smoothly. 
+
+<p>Okay so back to Riak, I began diving into that, but I'll continue the specifics in the next post.</p>
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'wampum'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 </div>
 
