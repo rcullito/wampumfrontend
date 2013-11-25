@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('wampumfrontendApp', ['ngRoute'])
+angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
+    $locationProvider;
     $routeProvider
       .when('/ui/wampumfrontend/home', {
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
