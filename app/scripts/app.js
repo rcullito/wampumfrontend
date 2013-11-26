@@ -2,13 +2,13 @@
 
 angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider;
+    $locationProvider.html5Mode(true);
     $routeProvider
-      .when('/ui/wampumfrontend/home', {
+      .when('/', {
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({
-        redirectTo: '/ui/wampumfrontend/home'
+        redirectTo: '/'
       });
   });
