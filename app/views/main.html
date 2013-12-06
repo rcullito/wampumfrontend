@@ -29,19 +29,18 @@
 
 
 
-<!-- <h3>What era do we live in? 11/24/13</h3>
+<h3>No User Accounts Allowed</h3>
 
-<h3>Users, accounts, and thinking about the early days of an app.</h3>
-<p>It seems like a ton of overhead for the makers, and the users of a site</p>
+<p>As we race towards the 1.0 release of Wampum, I've been thinking a lot about how to keep the site lean and ununcembered by the usual web app clutter.
+One of the guiding principles has been a familiar axiom from programming "do one thing well". Wampum will be about search, it won't be about socially connecting with others looking for the same thing. It won't ask you to check in at your own recycling bin or any of that mumbo jumbo.</p>
 
+<p>More importantly, we won't ask you to provide a ton of personal information just to get up and running with our search. In fact, we won't require any personal information at all. With  Weekend Swap, I was surprised at how wary people were of giving out personal information. I know this point should be fairly obvious given today's political climate. But when building a site, it is easy to fall back on the assumption that collecting more information will benefit the user, when in practice the opposite seems true. With too many form fields, you're basically pushing the hard problem of figuring out what is important off of your shoulders, and onto the user's. One of the cornerstones of Weekend Swap's(include link here) model was that people who lent out their gear would get paid. Users of the site were fine putting in a plethora of detail about their Garmin GPS, but when it came time to put in their method of actually getting paid they got spooked!!</p>
 
-<h3>What Database Part II</h3>
+<p>Wampum will be different. You'll come to the site, and with one search get a pretty good sense of whether or not we have anything to offer you. Out of the gate, however, there is one place where I think it would be downright cool to ask for an email. With Elasticsearch, you can save searches and then watch as content that is added in the future matches those predefined searches. This is the opposite of what we usually come to expect with search(where you store a ton of information, and then search).</p>
 
+<p>As a user, if Wampum didn't match anything you searched for, you could then be notified in the future when we had the search inventory to find a match for you. But, alas, I've revealed Wampum is using Elasticsearch! And that is something that warrants a seperate blog post. I am also realizing this post deviated from the title, but eh, the title was kind of boring anyway.</p>
+ <div disqus="id"></div>
 
-<p>So the two discussion points in my mind are, does it make sense for the modern startup to just immediately begin thinking about beyond sql?</p>
-
-<p>And secondly, I decided not to use any of the above database technologies? Any guesses as to which one I went with? I'll reveal in the comments</p>
- -->
 
 <h3>Four Databases, Three Seasons 11/24/13</h3>
 <p>It is quite a chilly and dry day here in Acton, MA as I sit down to write this initial blog post for Wampum! Wampum is a project that I've been kicking around since the summer. As to what specifically it is, hopefullyt that part will become clear over the course of these posts. I thought an appropriately dry topic to start things off would be some of my thoughts surrounding database selection. Over the past few weeks and months as this project has continued to crystalize, I've flip flopped quite a bit over architecture. I really only considered nosql options for the database(es) that would back wampum. For an idea that is still in the prototyping phase, I felt like I just couldn't shackle myself with a  standard schema.<p> 
