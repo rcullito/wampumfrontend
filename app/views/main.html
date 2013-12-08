@@ -5,9 +5,9 @@
     <p>Wampum will fish out the answer for you. Just let us know what you've got.</p>
     <div id="main-search-field" class="col-sm-offset-2 col-sm-8">
       <div class="input-group">
-        <input disabled type="text" value="Still under contruction... Coming Soon" class="form-control">
+        <input type="text" ng-model="term" placeholder="search term" class="form-control">
         <span class="input-group-btn">
-          <button disabled class="btn btn-primary" type="button">GO</button>
+          <button ng-click="search(term)" class="btn btn-primary" type="button">GO</button>
         </span>
       </div><!-- /input-group -->
     </div>
