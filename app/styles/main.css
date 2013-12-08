@@ -1,3 +1,7 @@
+h1 {
+	font-family: "hill-house";
+}
+
 body {
 	/*background: #fafafa;*/
 	/*background-image:url('http://7428.net/wp-content/uploads/2013/07/Dynamic-3D-Angular-Background.jpg');*/
@@ -13,17 +17,9 @@ body {
 
 /* yeomans default font is helvetica neue which looks pretty nice*/
 
-.hero-unit {
-	margin: 50px auto 0 auto;
-	width: 300px;
+.results p {
 	font-size: 18px;
-	font-weight: 200;
-	line-height: 30px;
-	background-color: #eee;
-	border-radius: 6px;
-	padding: 60px;
 }
-
 
 .lower {
 	background-color: #eee;
@@ -31,16 +27,6 @@ body {
 	padding: 60px;
 }
 
-
-.hero-unit h1 {
-	font-size: 60px;
-	line-height: 1;
-	letter-spacing: -1px;
-}
-
-h1 {
-	font-family: "hill-house";
-}
 
 #navigationhorizontal {
 	text-align: center;
@@ -50,7 +36,7 @@ h1 {
 	display: inline;
 	list-style-type: none;
 	padding-right: 20px;
-	font-size: 170%;
+	font-size: 20px;
 	font-family: "Lucida Grande";
 }
 

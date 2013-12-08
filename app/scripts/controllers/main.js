@@ -8,7 +8,7 @@ angular.module('wampumfrontendApp')
   	$scope.search = function(term) {
   		esQueryService.prefixQuery(term)
   			.success(function(data) {
-  				console.log(data);
+  				$scope.results = data;
   			});
   	};
 
