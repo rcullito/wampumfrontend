@@ -27,10 +27,34 @@ body {
 	padding: 60px;
 }
 
-
-#navigationhorizontal {
-	text-align: center;
+ul {
+	padding-left: 0px;
 }
+
+.currentlink {
+	color: #6c6c6c;
+}
+
+
+a:link {
+	color: #939393;
+	text-decoration: none;
+}
+
+
+a:visited {
+	color: #939393;;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #6c6c6c;
+}
+
+.current-true a {
+	color: #6c6c6c;
+}
+
 
 .horizontal-list li {
 	display: inline;

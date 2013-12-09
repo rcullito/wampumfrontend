@@ -1,11 +1,12 @@
 <div class="jumbotron">
   <div class="container">
-    <div class="col-sm-7 col-sm-offset-5" id="navigationhorizontal">
+    <div class="col-sm-6 col-sm-offset-6">
       <ul class="horizontal-list">
-        <li>about</li>
-        <li>how it works</li>
-        <li>mailing list</li>
-        <li ng-click="show_blog()">blog</li>
+      <!-- condense this to np-repeat -->
+        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">about</a></li>
+        <li ng-class="'current-' + (suburl == 'how')"><a href="/how">how it works</a></li>
+        <li ng-class="'current-' + (suburl == 'mail')"><a href="/mail">mailing list</a></li>
+        <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">blog</a></li>
       </ul>
     </div>
     <h1><img src="/ui/wampumfrontend/app/images/wampumlogo7.png" width="153" height="80">Wampum</h1>
@@ -14,9 +15,9 @@
 <!-- consider dropping the opacity on sections where there is negative space -->
     <div class="row">
       <div id="description" class="col-sm-6 col-sm-offset-6">
-        <p>What should you do with your old clothes?</p>
+        <p>What should you do with your old stuff?</p>
         <p>Wampum will give you suggestions.</p>
-        <p> Just enter the item you no longer need.</p>
+        <p> Just enter the item you're no longer using.</p>
       </div>
     </div>
 
@@ -36,8 +37,6 @@
   </div>
 </div>
 
-
-
 <div class="container lower results">
   <div class="row" ng-repeat="result in results">
     <span class="col-sm-2"><h3>{{result.item}}</h3></span>
@@ -49,33 +48,5 @@
 </div>
 
 <!-- <div ng-if="blog" class="container lower"> -->
-<div class="container lower">
 
-
-
-<h3>Less Boilerplate, More Action 12/6/13</h3>
-
-<p>As we race towards the 1.0 release of Wampum, I've been thinking a lot about how to keep the site lean and ununcembered by the usual web app clutter.
-One of the guiding principles has been a familiar axiom from programming "do one thing well". Wampum will be about search, it won't be about socially connecting with others looking for the same thing. It won't ask you to check in at your own recycling bin or any of that mumbo jumbo.</p>
-
-<p>More importantly, we won't ask you to provide a ton of personal information just to get up and running with the site. In fact, we won't require any personal information at all. With  <a href="http://news.discovery.com/tech/gear-and-gadgets/borrow-or-lend-your-outdoor-gear-at-weekend-swap.htm">Weekend Swap</a>, I was surprised at how wary people were of giving out personal information. I know this point should be fairly obvious given today's political climate. But when building a site, it is easy to fall back on the assumption that collecting more information will benefit the user, when in practice the opposite seems true. With too many form fields, you're basically pushing the hard problem of figuring out what is important off of your shoulders, and onto the user's. One of the cornerstones of Weekend Swap's model was that people who lent out their gear would get paid. Users of the site were fine putting in a plethora of detail about their Garmin GPS, but when it came time to put in their method of actually getting paid... they got spooked!!</p>
-
-<p>Wampum will be different. You'll come to the site, and with one search get a pretty good sense of whether or not we have anything to offer you. Out of the gate, however, there is one place where I think it would be downright cool to ask for an email. With Elasticsearch, you can save searches and then watch as content that is added in the future matches those predefined searches. This is the opposite of what we usually come to expect with search(where you store a ton of information, and then search).</p>
-
-<p>As a user, if Wampum didn't match anything you searched for, you could then be notified in the future when we had the search results to find a match for you. But, alas, I've revealed Wampum is using Elasticsearch! And that is something that warrants a seperate blog post.</p>
- <div disqus="id"></div>
-
-
-<h3>Four Databases, Three Seasons 11/24/13</h3>
-<p>It is quite a chilly and dry day here in Acton, MA as I sit down to write this initial blog post for Wampum! Wampum is a project that I've been kicking around since the summer. As to what specifically it is, hopefullyt that part will become clear over the course of these posts. I thought an appropriately dry topic to start things off would be some of my thoughts surrounding database selection. Over the past few weeks and months as this project has continued to crystalize, I've flip flopped quite a bit over architecture. I really only considered nosql options for the database(es) that would back wampum. For an idea that is still in the prototyping phase, I felt like I just couldn't shackle myself with a  standard schema.<p> 
-
-<p>Riak, in a sense, was the home team. I've heard from a fair amount of  people that their Clojure meetups are pretty good, and I found it to be a warm and inviting atmosphere at Basho the one time I randomly dropped by their offices in Central Square in Cambridge. If you ever find yourself there, definitely check out 1369 Coffee right across the street on Mass Ave. Not to mention its sort of cool that the company behind Riak(Basho) is named after a 14th century Japanese poet. So if at this point you're thinking, "none of those reasons have anything to do with the actual data structure of your application", you are entirely correct.  My short list at first was really just limited to key value stores. I envisioned phase 1 of this project being email collection, followed by simple CRUD(create, read, update, delete... for any non techies :) ) operations. But out of all the databases, for some reason I started with Cassandra.</p>
-
-<p>Cassandra seemed to have incredible performance. But fast writing, which is essential in some applications, wasn't necessarily the need of a still TBD web app. It also seemed to have a lot of overhead for getting started, onward we go. 
-
-Next up was mongodb, which for myself and many people seems to be the first look at nosql out in the wild. It was fairly cool, but it seemed that they had reinvented a dsl which at the end of the day was a lot like sql. Granted, the lack of needing to define a schema up front seems great for iterating through ideas. And mongo's method of generating unique id's is actually very cool, as you can extract date/time, machine id, etc... out of them. Check out specifics <a href="http://docs.mongodb.org/manual/reference/object-id/">here</a>. Conclusion on mongo: I could have gone with it and probably been fine but it didn't really leave me feeling overly excited about moving forward.</p>
-
-<p>Almost lastly was Redis, which is in memory, and worth exploring given that seome people seem to have 20GB redis instances out there. Ultimately though, I felt like I would only be able to sleep at night with something more persistent.
-<p>I began diving into Riak, but I'll continue with the specifics in the next post.</p>
- <div disqus="id"></div>
-</div>
+<div ng-if="blog" ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>
