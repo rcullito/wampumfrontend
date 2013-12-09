@@ -24,9 +24,5 @@ angular.module('wampumfrontendApp')
   			});
   	};
 
-    $scope.show_blog = function() {
-        $scope.blog = !$scope.blog;
-    };
-
 
 });

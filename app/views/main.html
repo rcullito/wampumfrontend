@@ -55,6 +55,6 @@
   </div>
 </div>
 
-<!-- <div ng-if="blog" class="container lower"> -->
-
-<div ng-if="blog" ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>
+<!-- if about and also there aren't any search results -->
+<div ng-if="suburl == 'about'" ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>
+<div ng-if="suburl == 'blog'" ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>
