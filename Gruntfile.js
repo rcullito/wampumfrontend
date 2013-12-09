@@ -82,6 +82,7 @@ module.exports = function (grunt) {
           }
         }
       },
+      git_clean: {},
       test: {
         options: {
           middleware: function (connect) {
