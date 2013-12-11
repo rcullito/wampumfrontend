@@ -1,1 +1,1 @@
-1. clean up front end around ng-show and display of search results
+1. separate blogs on each page

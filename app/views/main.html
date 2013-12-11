@@ -8,44 +8,33 @@
       </div>
     </div>
 
-        <!-- search content goes here -->
-        <div class="row">
-          <div id="main-search-field" class="col-sm-6">
-            <p>Get <b>suggestions</b> on what to do with your old stuff.</p>
-            <div class="input-group">
-              <input type="text" ng-model="term" placeholder="jeans, shoes, you name it" class="form-control input-lg">
-              <span class="input-group-btn">
-              <!-- make sure enter automatically starts search -->
-                <button ng-click="search(term)" class="btn btn-primary btn-lg" type="button">
-                  <span class="glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-            </div><!-- /input-group -->
-          </div> <!--end of search field -->
-          <div class="col-sm-3 col-sm-offset-3">
-          <!-- TODO have arrow pointing left like on hicksdesign -->
-            <ul style="margin-top:20px; margin-left:50px;" class="horizontal-list">
-            <!-- condense this to np-repeat -->
-              <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
-              <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">BLOG</a></li>
-              <li ng-class="'current-' + (suburl == 'mail')"><a href="/mail">CONTACT</a></li>
-            </ul>
-          </div>
-        </div>
-   
-
-      <!-- we really want this line and the input to be centered -->
-        
-
-
-
-
-
-
+    <div class="row">
+      <div id="main-search-field" class="col-sm-6">
+        <p>Get <b>suggestions</b> on what to do with your old stuff.</p>
+        <div class="input-group">
+          <input type="text" ng-model="term" placeholder="jeans, shoes, you name it" class="form-control input-lg">
+          <span class="input-group-btn">
+          <!-- make sure enter automatically starts search -->
+            <button ng-click="search(term)" class="btn btn-primary btn-lg" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div><!-- /input-group -->
+      </div> <!--end of search field -->
+      <div class="col-sm-3 col-sm-offset-3">
+      <!-- TODO have arrow pointing left like on hicksdesign -->
+        <ul style="margin-top:35px; margin-left:50px;" class="horizontal-list">
+        <!-- condense this to np-repeat -->
+          <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
+          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">BLOG</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="container lower results">
+<!-- ng -if should be here -->
+<div ng-if="results" class="container lower results">
   <div class="row" ng-repeat="result in results">
     <span class="col-sm-2"><h3>{{result.item}}</h3></span>
     <span class="col-sm-10">

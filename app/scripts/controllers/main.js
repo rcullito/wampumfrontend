@@ -14,13 +14,18 @@ angular.module('wampumfrontendApp')
       $scope.suburl = 'about';
     }
 
-  	// disqusService.loadDisqus()
+    if ($scope.suburl === 'blog') {
+      disqusService.loadDisqus();
+    }
+
+  	
 
 
   	$scope.search = function(term) {
   		esQueryService.prefixQuery(term)
   			.success(function(data) {
   				$scope.results = data;
+          $scope.suburl = undefined;
   			});
   	};
 
