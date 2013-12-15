@@ -35,11 +35,12 @@
 
 <!-- ng -if should be here -->
 <div ng-if="results" class="container lower results">
+  <p>WARNING: We are still in a high state of flux, for now treat all search results as experimental. Thanks - Wampum</p>
   <div class="row" ng-repeat="result in results">
-    <span class="col-sm-2"><h3>{{result.item}}</h3></span>
+    <span class="col-sm-2"><h3>{{result.title}}</h3></span>
     <span class="col-sm-10">
-      <p>Recipient: {{result.destination}}</p>
-      <p>Location: {{result.near}}</p>
+      <p>Recipient: {{result.address_1}}</p>
+      <p>Location: {{result.address_2}}</p>
     </span>
   </div>
 </div>
