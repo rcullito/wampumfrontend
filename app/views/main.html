@@ -39,8 +39,12 @@
   <div class="row" ng-repeat="result in results">
     <span class="col-sm-2"><h3>{{result.title}}</h3></span>
     <span class="col-sm-10">
-      <p>Recipient: {{result.address_1}}</p>
-      <p>Location: {{result.address_2}}</p>
+      <p>{{result.byline}}</p>
+      <p>{{result.accepts}}</p>
+      <p>{{result.dropoff_instructions}}</p>
+      <p>{{result.shipping_instructions}}</p>
+      <p>{{result.shipping_address}}</p>
+      <p ng-if="result.actions"><span ng-repeat="action in result.actions"><button ng-click="takeAction(action)" class="btn btn-default">{{action}}</button></p>
     </span>
   </div>
 </div>

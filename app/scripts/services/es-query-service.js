@@ -4,10 +4,10 @@ angular.module('wampumfrontendApp')
   .service('esQueryService', function ($http) {
 
 
-    var prefixQuery = function(prefix_term) {
+    var prefixQuery = function(index, prefix_term) {
       return $http({
         method: 'GET',
-        url: '/prefixQuery/stuff/' + prefix_term,
+        url: '/prefixQuery/' + index + '/' + prefix_term,
       });
     };
 
