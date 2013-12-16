@@ -35,6 +35,9 @@
 
 <!-- ng -if should be here -->
 <div ng-if="results" class="container lower results">
+  <a href="/">
+    <button class="btn btn-default col-sm-offset-10">Clear Results</button>
+  </a>
   <p>WARNING: We are still in a high state of flux, for now treat all search results as experimental. Thanks - Wampum</p>
   <div class="row" ng-repeat="result in results">
     <span class="col-sm-2"><h3>{{result.title}}</h3></span>

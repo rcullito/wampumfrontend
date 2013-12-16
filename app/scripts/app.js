@@ -8,6 +8,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/search/:query', {
+        templateUrl: '/ui/wampumfrontend/app/views/main.html',
+        controller: 'MainCtrl'
+      })
       .when('/blog/:blogindex', {
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
