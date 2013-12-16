@@ -21,12 +21,16 @@ angular.module('wampumfrontendApp')
 
   	
   	$scope.search = function(term) {
-  		esQueryService.prefixQuery('organizations', term)
-  			.success(function(data) {
-  				$scope.results = data;
-          $scope.suburl = undefined;
-  			});
+      $location.path('/search/' + term);
   	};
+
+    if ($routeParams.query) {
+      esQueryService.prefixQuery('organizations', $routeParams.query)
+        .success(function(data) {
+          $scope.results = data;
+          $scope.suburl = undefined;
+        });
+    }
 
     $scope.takeAction = function(action) {
       alert('whoops, this feature is coming soon!');
