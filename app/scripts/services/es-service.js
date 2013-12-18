@@ -12,7 +12,6 @@ angular.module('wampumfrontendApp')
     };
 
     var eventCollector = function(raw_event) {
-      console.log(raw_event);
       return $http({
         method: 'POST',
         url: '/eventcollector',

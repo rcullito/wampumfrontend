@@ -46,6 +46,7 @@ angular.module('wampumfrontendApp')
         workflow: 'searching',
       };
 
+
       esService.eventCollector(raw_event)
         .success(function(data) {
           console.log('event collected!')
@@ -56,19 +57,23 @@ angular.module('wampumfrontendApp')
           console.log(data);
         });
 
+      esService.prefixQuery('organizations', term)
+        .success(function(data) {
+
+          $scope.results = data;
+          console.log($scope.results);
+          $scope.suburl = undefined;
+        });
+
 
 
   	};
 
 
 
-    if ($routeParams.query) {
-      esService.prefixQuery('organizations', $routeParams.query)
-        .success(function(data) {
-          $scope.results = data;
-          $scope.suburl = undefined;
-        });
-    }
+
+
+
 
     $scope.takeAction = function(action) {
       alert('whoops, this feature is coming soon!');
