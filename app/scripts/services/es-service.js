@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .service('esQueryService', function ($http) {
+  .service('esService', function ($http) {
 
 
     var prefixQuery = function(index, prefix_term) {
@@ -11,7 +11,17 @@ angular.module('wampumfrontendApp')
       });
     };
 
+    var eventCollector = function(raw_event) {
+      console.log(raw_event);
+      return $http({
+        method: 'POST',
+        url: '/eventcollector',
+        data: raw_event,
+      });
+    };
+
     return {
       prefixQuery: prefixQuery,
+      eventCollector: eventCollector,
     };
   });

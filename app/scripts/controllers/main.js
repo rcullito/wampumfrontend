@@ -1,11 +1,24 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $routeParams, $location, esQueryService, disqusService) {
+  .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService, disqusService) {
+
+    var raw_event = {workflow: 'pageload'};
+
+    esService.eventCollector(raw_event)
+      .success(function(data) {
+        console.log('event collected!')
+        console.log(data);
+      })
+      .error(function(data) {
+        console.log('something went wrong');
+        console.log(data);
+      });
+
+
 
     var path = $location.path().split('/');
     var suburl = _.last(path);
-    console.log(suburl);
 
     var sub_urls = ['about', 'how', 'mail', 'blog', '1'];
 
@@ -21,11 +34,36 @@ angular.module('wampumfrontendApp')
 
   	
   	$scope.search = function(term) {
-      $location.path('/search/' + term);
+      // find a better way to update the url without reloading the page
+      // $location.path('/search/' + term);
+
+      // fire off an async request to the raw events here that the user has searched for something
+      // time stamp,
+      // location
+      var raw_event = {
+        search_term: term,
+        referrer_url: document.referrer,
+        workflow: 'searching',
+      };
+
+      esService.eventCollector(raw_event)
+        .success(function(data) {
+          console.log('event collected!')
+          console.log(data);
+        })
+        .error(function(data) {
+          console.log('something went wrong');
+          console.log(data);
+        });
+
+
+
   	};
 
+
+
     if ($routeParams.query) {
-      esQueryService.prefixQuery('organizations', $routeParams.query)
+      esService.prefixQuery('organizations', $routeParams.query)
         .success(function(data) {
           $scope.results = data;
           $scope.suburl = undefined;
