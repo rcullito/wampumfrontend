@@ -29,7 +29,7 @@ angular.module('wampumfrontendApp')
       $scope.suburl = '3';
     }
 
-    if ($scope.suburl === '3') {
+    if ($scope.suburl != 'about') {
       disqusService.loadDisqus();
     }
 
