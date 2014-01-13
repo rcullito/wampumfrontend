@@ -25,10 +25,10 @@ angular.module('wampumfrontendApp')
     if (_.contains(sub_urls), suburl) {
       $scope.suburl = suburl;
     } else {
-      $scope.suburl = 'about';
+      $scope.suburl = '0';
     }
 
-    if ($scope.suburl === '1') {
+    if ($scope.suburl === '0') {
       disqusService.loadDisqus();
     }
 

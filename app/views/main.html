@@ -13,10 +13,10 @@
         <p>Get <b>suggestions</b> on what to do with your old stuff.</p>
         <form ng-submit="search(term)">
         <div class="input-group">
-          <input type="text" ng-model="term" placeholder="jeans, shoes, you name it" class="form-control input-lg">
+          <input disabled type="text" ng-model="term" placeholder="currently under development" class="form-control input-lg">
           <span class="input-group-btn">
           <!-- make sure enter automatically starts search -->
-            <button class="btn btn-primary btn-lg" type="submit">
+            <button disabled class="btn btn-primary btn-lg" type="submit">
               <span class="glyphicon glyphicon-search"></span>
             </button>
           </span>
@@ -28,7 +28,7 @@
         <ul style="margin-top:35px; margin-left:50px;" class="horizontal-list">
         <!-- condense this to np-repeat -->
           <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
-          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog/1">BLOG</a></li>
+          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog/0">BLOG</a></li>
         </ul>
       </div>
     </div>
@@ -56,5 +56,6 @@
 
 <!-- if about and also there aren't any search results -->
 <div ng-if="suburl == 'about'" ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>
+<div ng-if="suburl == '0'" ng-include src="'/ui/wampumfrontend/app/views/blog0.html'"></div>
 <div ng-if="suburl == '1'" ng-include src="'/ui/wampumfrontend/app/views/blog1.html'"></div>
 <div ng-if="suburl == '2'" ng-include src="'/ui/wampumfrontend/app/views/blog2.html'"></div>
