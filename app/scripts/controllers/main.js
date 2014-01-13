@@ -3,6 +3,7 @@
 angular.module('wampumfrontendApp')
   .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService, disqusService) {
 
+
     var raw_event = {workflow: 'pageload'};
 
     esService.eventCollector(raw_event)
@@ -25,10 +26,10 @@ angular.module('wampumfrontendApp')
     if (_.contains(sub_urls), suburl) {
       $scope.suburl = suburl;
     } else {
-      $scope.suburl = '0';
+      $scope.suburl = '3';
     }
 
-    if ($scope.suburl === '0') {
+    if ($scope.suburl === '3') {
       disqusService.loadDisqus();
     }
 
