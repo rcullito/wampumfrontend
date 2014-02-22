@@ -12,15 +12,20 @@
       <div id="main-search-field" class="col-sm-6">
         <p>Get <b>suggestions</b> on what to do with your old stuff.</p>
         <form ng-submit="search(term)">
-        <div class="input-group">
-          <input disabled type="text" ng-model="term" placeholder="currently under development" class="form-control input-lg">
-          <span class="input-group-btn">
+
+
+
+          <input type="text" ng-model="term" placeholder="currently under development" class="form-control input-lg">
+ 
           <!-- make sure enter automatically starts search -->
-            <button disabled class="btn btn-primary btn-lg" type="submit">
+            <button class="btn btn-primary btn-lg" type="submit">
               <span class="glyphicon glyphicon-search"></span>
             </button>
-          </span>
-        </div><!-- /input-group -->
+
+
+
+
+
         </form>
       </div> <!--end of search field -->
       <div class="col-sm-3 col-sm-offset-3">
