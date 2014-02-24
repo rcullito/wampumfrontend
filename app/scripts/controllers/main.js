@@ -26,10 +26,10 @@ angular.module('wampumfrontendApp')
     if (_.contains(sub_urls), suburl) {
       $scope.suburl = suburl;
     } else {
-      $scope.suburl = '3';
+      $scope.suburl = '4';
     }
 
-    if ($scope.suburl === '3') {
+    if ($scope.suburl === '4') {
       disqusService.loadDisqus();
     }
 
