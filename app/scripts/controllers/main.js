@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService, disqusService) {
+  .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService, blogService, disqusService) {
 
 
     var raw_event = {workflow: 'pageload'};
@@ -32,6 +32,15 @@ angular.module('wampumfrontendApp')
     if ($scope.suburl === '4') {
       disqusService.loadDisqus();
     }
+
+    blogService.blogList()
+      .success(function (blogs) {
+        $scope.blogs = blogs;
+        console.log($scope.blogs);
+      })
+      .error(function (error) {
+        console.log(error);
+      });
 
   	
   	$scope.search = function(term) {

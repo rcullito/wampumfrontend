@@ -45,7 +45,7 @@
         <ul id="navigation" style="margin-top:35px; margin-left:50px;" class="horizontal-list">
         <!-- condense this to np-repeat -->
           <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
-          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog/3">BLOG</a></li>
+          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blogs">BLOG</a></li>
         </ul>
       </div>
     </div>
@@ -73,6 +73,9 @@
 
 <!-- if about and also there aren't any search results -->
 <div ng-if="suburl == 'about'" ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>
+<div ng-if="suburl == 'blogs'" ng-include src="'/ui/wampumfrontend/app/views/blogs.html'"></div>
+
+
 <div ng-if="suburl == '1'" ng-include src="'/ui/wampumfrontend/app/views/blog1.html'"></div>
 <div ng-if="suburl == '2'" ng-include src="'/ui/wampumfrontend/app/views/blog2.html'"></div>
 <div ng-if="suburl == '3'" ng-include src="'/ui/wampumfrontend/app/views/blog3.html'"></div>

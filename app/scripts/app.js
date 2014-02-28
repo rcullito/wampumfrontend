@@ -20,6 +20,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/blogs', {
+        templateUrl: '/ui/wampumfrontend/app/views/main.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
