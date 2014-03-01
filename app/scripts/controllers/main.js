@@ -6,41 +6,36 @@ angular.module('wampumfrontendApp')
 
     var raw_event = {workflow: 'pageload'};
 
-    esService.eventCollector(raw_event)
-      .success(function(data) {
-        console.log('event collected!')
-        console.log(data);
-      })
-      .error(function(data) {
+    esService.eventCollector(raw_event, function (err, status) {
+      if (err) {
         console.log('something went wrong');
-        console.log(data);
-      });
-
-
+        console.log(err);
+      } else {
+        console.log('event collected');
+        console.log(status);
+      }
+    });
 
     var path = $location.path().split('/');
     var suburl = _.last(path);
+    // console.log(suburl);
 
-    var sub_urls = ['about', 'how', 'mail', 'blog', '1'];
-
-    if (_.contains(sub_urls), suburl) {
-      $scope.suburl = suburl;
-    } else {
-      $scope.suburl = '4';
+    if (!suburl) {
+      $scope.suburl = 'about';
     }
 
-    if ($scope.suburl === '4') {
-      disqusService.loadDisqus();
-    }
+
+    disqusService.loadDisqus();
+
 
     blogService.blogList()
       .success(function (blogs) {
         $scope.blogs = blogs;
-        console.log($scope.blogs);
       })
       .error(function (error) {
         console.log(error);
       });
+
 
   	
   	$scope.search = function(term) {
@@ -55,7 +50,6 @@ angular.module('wampumfrontendApp')
         referrer_url: document.referrer,
         workflow: 'searching',
       };
-
 
       esService.eventCollector(raw_event)
         .success(function(data) {
@@ -74,20 +68,8 @@ angular.module('wampumfrontendApp')
           console.log($scope.results);
           $scope.suburl = undefined;
         });
-
-
-
   	};
 
-
-
-
-
-
-
-    $scope.takeAction = function(action) {
-      alert('whoops, this feature is coming soon!');
-    }
 
 
 });
