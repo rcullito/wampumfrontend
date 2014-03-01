@@ -20,7 +20,9 @@ angular.module('wampumfrontendApp')
     var suburl = _.last(path);
     // console.log(suburl);
 
-    if (!suburl) {
+    if (suburl === 'blog') {
+      $scope.suburl = 'blog';
+    } else if (!suburl || suburl === 'about') {
       $scope.suburl = 'about';
     }
 

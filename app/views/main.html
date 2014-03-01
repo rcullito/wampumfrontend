@@ -33,7 +33,7 @@
       <!-- TODO have arrow pointing left like on hicksdesign -->
         <ul id="navigation" style="margin-top:35px; margin-left:50px;" class="horizontal-list">
           <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
-          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blogs">BLOG</a></li>
+          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">BLOG</a></li>
         </ul>
       </div>
     </div>
@@ -60,4 +60,4 @@
 
 <!-- if about and also there aren't any search results -->
 <div ng-if="suburl == 'about'" ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>
-<div ng-if="suburl == 'blogs'" ng-include src="'/ui/wampumfrontend/app/views/blogs.html'"></div>
+<div ng-if="suburl == 'blog'" ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>
