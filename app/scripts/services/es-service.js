@@ -8,7 +8,7 @@ angular.module('wampumfrontendApp')
         .get('/prefixQuery/' + index + '/' + prefix_term)
         .end(function(err, superagent_res) {
           if (err) {
-            return callback(err)
+            return callback(err);
           }
           return callback(null, superagent_res);
         });      

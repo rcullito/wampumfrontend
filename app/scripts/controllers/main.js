@@ -30,13 +30,18 @@ angular.module('wampumfrontendApp')
     disqusService.loadDisqus();
 
 
-    blogService.blogList()
-      .success(function (blogs) {
+    // cut this over to callback based
+    blogService.blogList(function (err, blogs) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(blogs);
         $scope.blogs = blogs;
-      })
-      .error(function (error) {
-        console.log(error);
-      });
+      }
+    });
+    // if ($scope.suburl = 'blog') {
+
+    // }
 
 
   	
