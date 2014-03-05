@@ -1,7 +1,7 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div style="text-align:center;">
         <span>
         <h1><img src="/ui/wampumfrontend/app/images/Windego2.png" width="108" height="93">
           <span style="padding-left: 5px; color: #939393;">Wampum</span>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="row">
-      <div id="main-search-field" class="col-sm-6">
+      <div id="main-search-field" class="col-sm-8 col-sm-offset-2">
         <p>Get <b>suggestions</b> on what to do with your old stuff.</p>
 
         <form class="form-horizontal" ng-submit="search(term)">
@@ -24,19 +24,27 @@
               <span class="glyphicon glyphicon-search"></span>
             </button> -->
             <div class="col-sm-3">
-              <a href="#" type="submit" class="button button-3d-primary button-rounded">Go</a>
+              <!-- <a href="#" type="submit" class="button button-3d-primary button-rounded">Go</a> -->
+              <a href="#" class="button button-border-primary button-rounded button-large">Go</a>
+              <!-- <a href="#" class="button button-rounded button-border-primary">Click Me</a> -->
+              <!-- <a style="margin-top:5px;" href="#" class="button button-rounded button-flat-primary button-large">Go</a> -->
             </div>
           </div>
         </form>
       </div> <!--end of search field -->
-      <div class="col-sm-3 col-sm-offset-3">
-      <!-- TODO have arrow pointing left like on hicksdesign -->
-        <ul id="navigation" style="margin-top:35px; margin-left:50px;" class="horizontal-list">
-          <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
-          <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">BLOG</a></li>
-        </ul>
-      </div>
     </div>
+
+
+    <div class="row">
+      <ul id="navigation" class="horizontal-list">
+        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">ABOUT</a></li>
+        <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">BLOG</a></li>
+      </ul>
+    </div>
+
+
+
+
   </div>
 </div>
 

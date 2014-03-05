@@ -1,18 +1,29 @@
-h1 {
-	font-family: "hill-house";
-}
+
 
 body {
 	/*background: #fafafa;*/
-	/*background-image:url('http://7428.net/wp-content/uploads/2013/07/Dynamic-3D-Angular-Background.jpg');*/
-	background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	/*color: #333;*/
+	/*background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');*/
+	font-family: "ff-dagny-web-pro",sans-serif;
+	color: #696969;
 }
+
+h1 {
+	font-family: "ff-dagny-web-pro",sans-serif;
+	font-style: normal;
+	font-weight: 200;
+	color: #696969;
+}
+
+
 
 #main-search-field {
 	margin-top: 15px;
 	margin-bottom: 10px;
+}
+
+.main-content {
+ margin:0 auto;
+ float:none;
 }
 
 /* yeomans default font is helvetica neue which looks pretty nice*/
@@ -57,7 +68,7 @@ ul {
 
 
 .horizontal-list li {
-/*	display: inline;*/
+	display: inline;
 	list-style-type: none;
 	padding-right: 20px;
 	font-size: 19px;
