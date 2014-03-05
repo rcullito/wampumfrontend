@@ -3,12 +3,13 @@
 body {
 	/*background: #fafafa;*/
 	/*background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');*/
-	font-family: "Avenir Next W01 Light", Baskerville, sans-serif;
+	/*font-family: "Avenir Next W01 Light", Baskerville, sans-serif;*/
+	font-family:'Avenir Next LT W01 Demi';
 	color: #696969;
 }
 
 h1 {
-	font-family: "Avenir Next W01 Light", Baskerville, sans-serif;
+	font-family:'Avenir Next W01 Thin';
 	font-style: normal;
 	font-weight: 200;
 	color: #696969;
