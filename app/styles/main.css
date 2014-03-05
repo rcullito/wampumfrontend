@@ -3,18 +3,16 @@
 body {
 	/*background: #fafafa;*/
 	/*background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');*/
-	font-family: "ff-dagny-web-pro",sans-serif;
+	font-family: "Avenir Next W01 Light", Baskerville, sans-serif;
 	color: #696969;
 }
 
 h1 {
-	font-family: "ff-dagny-web-pro",sans-serif;
+	font-family: "Avenir Next W01 Light", Baskerville, sans-serif;
 	font-style: normal;
 	font-weight: 200;
 	color: #696969;
 }
-
-
 
 #main-search-field {
 	margin-top: 15px;
