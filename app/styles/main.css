@@ -2,9 +2,8 @@
 
 body {
 	/*background: #fafafa;*/
-	/*background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');*/
-	/*font-family: "Avenir Next W01 Light", Baskerville, sans-serif;*/
-	font-family:'Avenir Next LT W01 Demi';
+	background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');
+	font-family:'Avenir Next W01 Light';
 	color: #696969;
 }
 
@@ -24,8 +23,6 @@ h1 {
  margin:0 auto;
  float:none;
 }
-
-/* yeomans default font is helvetica neue which looks pretty nice*/
 
 .results p {
 	font-size: 18px;
@@ -72,9 +69,4 @@ ul {
 	padding-right: 20px;
 	font-size: 19px;
 	line-height: 30px;
-	font-family: "Lucida Grande";
-}
-
-.lucida {
-	font-family: "Lucida Grande";
 }
