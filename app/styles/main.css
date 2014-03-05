@@ -7,7 +7,11 @@ body {
 	color: #696969;
 }
 
-h1 {
+.emphasis {
+	font-family:'Avenir Next W01 Light';
+}
+
+h2 {
 	font-family:'Avenir Next W01 Thin';
 	font-style: normal;
 	font-weight: 200;
