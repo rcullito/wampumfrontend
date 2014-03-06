@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService, blogService, disqusService) {
-
+  .controller('MainCtrl', function ($scope, $sce, $window, $routeParams, $location, esService, blogService, disqusService) {
 
     var raw_event = {workflow: 'pageload'};
 
@@ -20,6 +19,20 @@ angular.module('wampumfrontendApp')
     var suburl = _.last(path);
     // console.log(suburl);
 
+
+    blogService.blogTitle('The_Winter_Olympics_2.23.14', function (err, blog) {
+      // $scope.blog = blog;
+      $scope.blog = $sce.trustAsHtml(blog);
+    });
+
+    blogService.blogList(function (err, blogs) {
+      $scope.blogs = blogs;
+    });
+
+
+
+      
+
     if (suburl === 'blog') {
       $scope.suburl = 'blog';
     } else if (!suburl || suburl === 'about') {
@@ -27,21 +40,10 @@ angular.module('wampumfrontendApp')
     }
 
 
-    disqusService.loadDisqus();
+    // disqusService.loadDisqus();
 
 
-    // cut this over to callback based
-    blogService.blogList(function (err, blogs) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(blogs);
-        $scope.blogs = blogs;
-      }
-    });
-    // if ($scope.suburl = 'blog') {
 
-    // }
 
 
   	

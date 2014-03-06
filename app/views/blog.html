@@ -6,14 +6,15 @@ p {
 
 <div class="container lower">
   <span class="row">
-    <span class="col-sm-8">
-      <!-- include most recent blog here -->
+    <span class="col-sm-3">
+      <h4 style="text-transform:underline;">Archive</h4>
+    		<div ng-repeat="blog in blogs">
+          <p>{{ blog.title }}</p>
+          <!-- <p style="padding:0">{{ blog.date }}</p> -->
+        </div>
     </span>
-    <span class="col-sm-4">
-      <h4>Archive</h4>
-    	<ul>
-    		<li ng-repeat="blog in blogs">{{ blog.title }} - {{ blog.date }}</li>
-    	</ul>
-    </span>
+    <span ng-bind-html="blog" class="col-sm-9"></span>
   </span>
 </div>
+
+

@@ -10,7 +10,7 @@
     "es5-shim": "~2.0.8",
     "angular-resource": "~1.0.7",
     "angular-cookies": "~1.0.7",
-    "angular-sanitize": "~1.0.7",
+    "angular-sanitize": "~1.2.14",
     "angular-disqus": "~1.1.0",
     "lodash": "~2.4.1",
     "Buttons": "*",
