@@ -17,10 +17,6 @@ angular.module('wampumfrontendApp')
       $scope.blogs = blogs;
     });
 
-
-
-      
-
     if (suburl === 'blog') {
       $scope.suburl = 'blog';
       disqusService.loadDisqus();
@@ -29,13 +25,7 @@ angular.module('wampumfrontendApp')
     }
 
 
-    
-  	
   	$scope.search = function(term) {
-      // fire off an async request to the raw events here that the user has searched for something
-      // time stamp,
-      // location
-
       esService.prefixQuery('organizations', term)
         .success(function(data) {
 
@@ -44,7 +34,4 @@ angular.module('wampumfrontendApp')
           $scope.suburl = undefined;
         });
   	};
-
-
-
 });

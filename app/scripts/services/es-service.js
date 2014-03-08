@@ -14,21 +14,8 @@ angular.module('wampumfrontendApp')
         });      
     };
 
-    var eventCollector = function (raw_event, callback) {
-      superagent
-        .post('/eventcollector')
-        .send(raw_event)
-        .end(function (err, superagent_res) {
-          if (err) {
-            return callback(err)
-          }
-          return callback(null, superagent_res);
-        });
-    };
-
     return {
-      prefixQuery: prefixQuery,
-      eventCollector: eventCollector,
+      prefixQuery: prefixQuery
     };
 
   });
