@@ -3,10 +3,10 @@
     <div class="row" style="margin-bottom:70px;">
       <span class="col-sm-4">
         <!-- <img src="/ui/wampumfrontend/app/images/Windego2.png" width="108" height="93"> -->
-        <img src="/ui/wampumfrontend/app/images/Windego2.png" width="76" height="65">
+        <a href="/"><img src="/ui/wampumfrontend/app/images/Windego2.png" width="76" height="65"></a>
       </span>
       <span class="col-sm-8">
-        <h2 style="text-align:right; color: #939393;">Wampum</h2>
+        <h2 style="text-align:right;"><a style="color: #939393;" href="/">Wampum</a></h2>
       </span>
     </div>
 
@@ -34,12 +34,11 @@
 
     <div class="row">
       <ul id="navigation" class="horizontal-list" style="text-align:center;">
-        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">About</a></li>
-        <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog">Blog</a></li>
+        <li ng-class="'current-' + (suburl == 'about')"><a href="#" ng-click="showabout()">About</a></li>
+        <li ng-class="'current-' + (suburl == 'blog')"><a  href="#" ng-click="showblog()">Blog</a></li>
         <li><a href="">Results</a></li>
       </ul>
     </div>
-
   </div>
 </div>
 
