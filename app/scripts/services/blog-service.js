@@ -25,7 +25,6 @@ angular.module('wampumfrontendApp')
         });
     };
 
-
     return {
       blogList: blogList,
       blogTitle: blogTitle,

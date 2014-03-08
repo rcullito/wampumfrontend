@@ -5,11 +5,10 @@ angular.module('wampumfrontendApp')
 
     var path = $location.path().split('/');
     var suburl = _.last(path);
-    // console.log(suburl);
 
+    var showTitle = 'The_Winter_Olympics_2.23.14'
 
-    blogService.blogTitle('The_Winter_Olympics_2.23.14', function (err, blog) {
-      // $scope.blog = blog;
+    blogService.blogTitle(showTitle, function (err, blog) {
       $scope.blog = $sce.trustAsHtml(blog);
     });
 
@@ -23,6 +22,13 @@ angular.module('wampumfrontendApp')
     } else if (!suburl || suburl === 'about') {
       $scope.suburl = 'about';
     }
+
+    $scope.showTitle = function (title) {
+      blogService.blogTitle(title, function (err, blog) {
+        $scope.blog = $sce.trustAsHtml(blog);
+        $scope.$apply();
+      });
+    };
 
 
   	$scope.search = function(term) {

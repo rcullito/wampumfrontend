@@ -9,7 +9,7 @@ p {
     <span class="col-sm-3">
       <h4 style="text-transform:underline;">Archive</h4>
     		<div ng-repeat="blog in blogs">
-          <p>{{ blog.title }}</p>
+          <p><a class="blog-link" href="#" ng-click="showTitle(blog.written)">{{ blog.title }}</a></p>
           <!-- <p style="padding:0">{{ blog.date }}</p> -->
         </div>
     </span>

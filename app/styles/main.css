@@ -42,6 +42,11 @@ ul {
 	padding-left: 0px;
 }
 
+
+.blog-link {
+	color: #696969;
+}
+
 .currentlink {
 	color: #6c6c6c;
 }
@@ -65,7 +70,6 @@ ul {
 .current-true a {
 	color: #6c6c6c;
 }
-
 
 .horizontal-list li {
 	display: inline;
