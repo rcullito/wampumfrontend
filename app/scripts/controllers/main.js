@@ -32,6 +32,27 @@ angular.module('wampumfrontendApp')
     //   console.log(newVal);
     // });
 
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(60, 30);
+      context.lineTo(52, 60);
+      context.lineWidth = 9;
+      context.strokeStyle = 'blue';
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(64, 30);
+      context.lineTo(68, 60);
+      context.lineWidth = 9;
+      context.strokeStyle = 'blue';
+      context.stroke();
+
+
+
+
+
 
 
     // Search
