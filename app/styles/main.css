@@ -11,11 +11,8 @@ body {
 	font-family:'Avenir Next W01 Light';
 }
 
-h2 {
-	font-family:'Avenir Next W01 Thin';
-	font-style: normal;
-	font-weight: 200;
-	color: #696969;
+h1 {
+	font-family: "hill-house";
 }
 
 #main-search-field {
