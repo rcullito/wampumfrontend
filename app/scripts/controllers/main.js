@@ -33,13 +33,13 @@ angular.module('wampumfrontendApp')
     // });
       var stage = new Kinetic.Stage({
         container: 'kinetic',
-        width: 578,
+        width: 800,
         height: 200
       });
 
       var layer = new Kinetic.Layer();
 
-      var poly = new Kinetic.Line({
+      var jeans = new Kinetic.Line({
         // x y, x y, 
         points: [ 30, 30, // starting point
                   20, 60, // left leg
@@ -53,20 +53,48 @@ angular.module('wampumfrontendApp')
         closed: true
       });
 
-      layer.add(poly);
+      var black_jeans = new Kinetic.Line({
+        points: [ 30, 30, // starting point
+                  20, 60, // left leg
+                  40, 60, // right cuff of left leg
+                  50, 40, // crotch
+                  60, 60, // left cuff of right leg
+                  80, 60, // right cuff of right leg
+                  70, 30 ], // right waist
+        fill: '#000',
+        strokeWidth: 5,
+        closed: true
+      });
+
+      layer.add(jeans);
+      layer.add(black_jeans);
       stage.add(layer);
 
-      var tween = new Kinetic.Tween({
-        node: poly,
-        duration: 3,
-        x: 400,
+      var tween1 = new Kinetic.Tween({
+        node: jeans,
+        duration: 6,
+        x: 700,
         y: 30,
-        rotation: 360
+        rotation: 10
+      });
+
+      var tween2 = new Kinetic.Tween({
+        node: black_jeans,
+        duration: 6,
+        x: 700,
+        y: 150,
+        rotation: 60
       });
 
       setTimeout(function() {
-        tween.play();
+        tween1.play();
       }, 1000);
+
+      setTimeout(function() {
+        tween2.play();
+      }, 2000);
+
+      // would be great to follow an ellipt
 
 
 
