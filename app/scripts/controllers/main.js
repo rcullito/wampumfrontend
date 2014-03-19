@@ -31,24 +31,34 @@ angular.module('wampumfrontendApp')
     // $scope.$watch('suburl', function(newVal, oldVal) {
     //   console.log(newVal);
     // });
+      var stage = new Kinetic.Stage({
+        container: 'kinetic',
+        width: 578,
+        height: 200
+      });
 
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
+      var layer = new Kinetic.Layer();
 
-      context.beginPath();
-      context.moveTo(60, 30);
-      context.lineTo(52, 60);
-      context.lineWidth = 9;
-      context.strokeStyle = 'blue';
-      context.stroke();
+      var poly = new Kinetic.Line({
+        // x y, x y, 
+        points: [ 30, 30, // starting point
+                  20, 60, // left leg
+                  40, 60, // right cuff of left leg
+                  50, 40, // crotch
+                  60, 60, // left cuff of right leg
+                  80, 60, // right cuff of right leg
+                  70, 30 ], // right waist
+        fill: '#00D2FF',
+        // stroke: 'black',
+        strokeWidth: 5,
+        closed: true
+      });
 
-      context.beginPath();
-      context.moveTo(64, 30);
-      context.lineTo(68, 60);
-      context.lineWidth = 9;
-      context.strokeStyle = 'blue';
-      context.stroke();
+      // add the shape to the layer
+      layer.add(poly);
 
+      // add the layer to the stage
+      stage.add(layer);
 
 
 
