@@ -49,19 +49,24 @@ angular.module('wampumfrontendApp')
                   80, 60, // right cuff of right leg
                   70, 30 ], // right waist
         fill: '#00D2FF',
-        // stroke: 'black',
         strokeWidth: 5,
         closed: true
       });
 
-      // add the shape to the layer
       layer.add(poly);
-
-      // add the layer to the stage
       stage.add(layer);
 
+      var tween = new Kinetic.Tween({
+        node: poly,
+        duration: 3,
+        x: 400,
+        y: 30,
+        rotation: 360
+      });
 
-
+      setTimeout(function() {
+        tween.play();
+      }, 1000);
 
 
 
