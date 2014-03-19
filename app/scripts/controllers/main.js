@@ -53,22 +53,25 @@ angular.module('wampumfrontendApp')
         closed: true
       });
 
-      // var black_jeans = new Kinetic.Line({
-      //   points: [ 30, 30, // starting point
-      //             20, 60, // left leg
-      //             40, 60, // right cuff of left leg
-      //             50, 40, // crotch
-      //             60, 60, // left cuff of right leg
-      //             80, 60, // right cuff of right leg
-      //             70, 30 ], // right waist
-      //   fill: '#000',
-      //   strokeWidth: 5,
-      //   closed: true
-      // });
-
       var group = new Kinetic.Group({
-        x: 220,
-        y: 40
+        x: 20,
+        y: 60
+      });
+
+      var frameLine1 = new Kinetic.Line({
+        points: [50, 50, 35, 35],
+        stroke: 'black',
+        strokeWidth: 2,
+        lineCap: 'round',
+        lineJoin: 'round'
+      });
+
+      var frameLine2 = new Kinetic.Line({
+        points: [70, 50, 55, 35],
+        stroke: 'black',
+        strokeWidth: 2,
+        lineCap: 'round',
+        lineJoin: 'round'
       });
 
       var circle1 = new Kinetic.Circle({
@@ -87,6 +90,8 @@ angular.module('wampumfrontendApp')
 
       group.add(circle1);
       group.add(circle2);
+      group.add(frameLine1);
+      group.add(frameLine2);
 
       layer.add(jeans);
       layer.add(group);
@@ -100,21 +105,20 @@ angular.module('wampumfrontendApp')
         rotation: 10
       });
 
-      // var tween2 = new Kinetic.Tween({
-      //   node: black_jeans,
-      //   duration: 6,
-      //   x: 700,
-      //   y: 150,
-      //   rotation: 60
-      // });
+      var tween2 = new Kinetic.Tween({
+        node: group,
+        duration: 6,
+        x: 700,
+        y: 20
+      });
 
       setTimeout(function() {
         tween1.play();
       }, 1000);
 
-      // setTimeout(function() {
-      //   tween2.play();
-      // }, 2000);
+      setTimeout(function() {
+        tween2.play();
+      }, 1000);
 
 
     // Search
