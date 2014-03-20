@@ -103,11 +103,19 @@ angular.module('wampumfrontendApp')
 
       // // in ms
 
+      var amplitude = stage.width() / 2;
+      var centerX = stage.width() / 2;
+
       var anim = new Kinetic.Animation(function(frame) {
-        jeans.setX(150 * Math.sin(frame.time * 2 * Math.PI / 2000) + 200);
+        // number in between time and pi controls the speed
+
+        // change last part to width x 2 and heigh x 2
+
+        jeans.setX(amplitude * Math.sin(frame.time * .4 * Math.PI / 2000) + centerX);
+        jeans.setY(150 * Math.cos(frame.time * .4 * Math.PI / 2000) - 100);
 
 
-        jeans.setX(150 * frame.time / 2000 + 200);
+        // jeans.setX(150 * frame.time / 2000 + 200);
 
         // come up with a lodash thing in between zero and 1 here
 
