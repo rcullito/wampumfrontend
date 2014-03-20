@@ -55,48 +55,48 @@ angular.module('wampumfrontendApp')
         closed: true
       });
 
-      // var group = new Kinetic.Group({
-      //   x: 20,
-      //   y: 60
-      // });
+      var sunglasses = new Kinetic.Group({
+        x: 100,
+        y: 50
+      });
 
-      // var frameLine1 = new Kinetic.Line({
-      //   points: [50, 50, 35, 35],
-      //   stroke: 'black',
-      //   strokeWidth: 2,
-      //   lineCap: 'round',
-      //   lineJoin: 'round'
-      // });
+      var frameLine1 = new Kinetic.Line({
+        points: [50, 50, 35, 35],
+        stroke: 'black',
+        strokeWidth: 2,
+        lineCap: 'round',
+        lineJoin: 'round'
+      });
 
-      // var frameLine2 = new Kinetic.Line({
-      //   points: [70, 50, 55, 35],
-      //   stroke: 'black',
-      //   strokeWidth: 2,
-      //   lineCap: 'round',
-      //   lineJoin: 'round'
-      // });
+      var frameLine2 = new Kinetic.Line({
+        points: [70, 50, 55, 35],
+        stroke: 'black',
+        strokeWidth: 2,
+        lineCap: 'round',
+        lineJoin: 'round'
+      });
 
-      // var circle1 = new Kinetic.Circle({
-      //   x: 50,
-      //   y: 50,
-      //   radius: 8,
-      //   fill: 'black'
-      // });
+      var circle1 = new Kinetic.Circle({
+        x: 50,
+        y: 50,
+        radius: 8,
+        fill: 'black'
+      });
 
-      // var circle2 = new Kinetic.Circle({
-      //   x: 65,
-      //   y: 50,
-      //   radius: 8,
-      //   fill: 'black'
-      // });
+      var circle2 = new Kinetic.Circle({
+        x: 65,
+        y: 50,
+        radius: 8,
+        fill: 'black'
+      });
 
-      // group.add(circle1);
-      // group.add(circle2);
-      // group.add(frameLine1);
-      // group.add(frameLine2);
+      sunglasses.add(circle1);
+      sunglasses.add(circle2);
+      sunglasses.add(frameLine1);
+      sunglasses.add(frameLine2);
 
       layer.add(jeans);
-      // layer.add(group);
+      layer.add(sunglasses);
       stage.add(layer);
 
 
@@ -106,80 +106,29 @@ angular.module('wampumfrontendApp')
       var amplitude = stage.width() / 2;
       var centerX = stage.width() / 2;
 
-      var anim = new Kinetic.Animation(function(frame) {
+      var speed = .4;
+
+      var anim1 = new Kinetic.Animation(function(frame) {
         // number in between time and pi controls the speed
-
         // change last part to width x 2 and heigh x 2
-
-        jeans.setX(amplitude * Math.sin(frame.time * .4 * Math.PI / 2000) + centerX);
-        jeans.setY(150 * Math.cos(frame.time * .4 * Math.PI / 2000) - 100);
-
-
-        // jeans.setX(150 * frame.time / 2000 + 200);
-
-        // come up with a lodash thing in between zero and 1 here
-
-        // console.log(Math.sin(frame.time * 2 * Math.PI / 2000));
-
-        // console.log(frame.time);
-        // console.log(amplitude * Math.sin(frame.time * 2 * Math.PI / period) + 200);
-
-
-        // jeans.setX(frame.time / period);
+        jeans.setX(amplitude * Math.sin(frame.time * speed * Math.PI / 2000) + centerX);
+        jeans.setY(150 * Math.cos(frame.time * speed * Math.PI / 2000) - 100);
       }, layer);
 
-      anim.start();
+      anim1.start();
 
-      // var tween1 = new Kinetic.Tween({
-      //   node: jeans,
-      //   duration: 6,
-      //   x: 700,
-      //   y: 30,
-      //   rotation: 10
-      // });
+      var anim2 = new Kinetic.Animation(function(frame) {
+        // number in between time and pi controls the speed
+        // change last part to width x 2 and heigh x 2
+        sunglasses.setX(amplitude * Math.sin(frame.time * speed * Math.PI / 2000) + centerX);
+        sunglasses.setY(150 * Math.cos(frame.time * speed * Math.PI / 2000) - 100);
+        // console.log(frame.frameRate);
+      }, layer);
 
-      // var tween2 = new Kinetic.Tween({
-      //   node: group,
-      //   duration: 6,
-      //   x: 700,
-      //   y: 20
-      // });
-
-      // tween1.play();
-      // tween2.play();
-
-      //  var stage = new Kinetic.Stage({
-      //   container: 'kinetic',
-      //   width: 578,
-      //   height: 200
-      // });
-      // var layer = new Kinetic.Layer();
-
-      // var hexagon = new Kinetic.RegularPolygon({
-      //   x: stage.width()/2,
-      //   y: stage.height()/2,
-      //   sides: 6,
-      //   radius: 70,
-      //   fill: 'red',
-      //   stroke: 'black',
-      //   strokeWidth: 4
-      // });
-
-      // layer.add(hexagon);
-      // stage.add(layer);
-
-      // var amplitude = 150;
-      // var period = 2000;
-      // // in ms
-      // var centerX = stage.width()/2;
-
-      // var anim = new Kinetic.Animation(function(frame) {
-      //   hexagon.setX(amplitude * Math.sin(frame.time * 2 * Math.PI / period) + centerX);
-      // }, layer);
-
-      // anim.start();
-
-
+      // wrap this in a setTimeOut
+      setTimeout(function () {
+        anim2.start();
+      }, 2000);
 
 
     // Search
