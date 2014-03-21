@@ -55,10 +55,7 @@ angular.module('wampumfrontendApp')
         closed: true
       });
 
-      var sunglasses = new Kinetic.Group({
-        x: 100,
-        y: 50
-      });
+      var sunglasses = new Kinetic.Group({});
 
       var frameLine1 = new Kinetic.Line({
         points: [50, 50, 35, 35],

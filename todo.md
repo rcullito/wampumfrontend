@@ -3,7 +3,7 @@ shoes
 sunglasses
 backpack
 
-
+get rid of initial flash of sunglasses
 sweater and/or tshirt, jacket, anything with sleeves
 try and get the criss cross effect with different amplitudes
 and occassionally make the time offset small between pairs of items
