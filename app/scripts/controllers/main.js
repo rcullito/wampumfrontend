@@ -99,37 +99,27 @@ angular.module('wampumfrontendApp')
       layer.add(sunglasses);
       stage.add(layer);
 
-
-
-      // // in ms
-
       var amplitude = stage.width() / 2;
       var centerX = stage.width() / 2;
-
       var speed = .4;
+      var jeans_offset = 2200;
 
       var anim1 = new Kinetic.Animation(function(frame) {
-        // number in between time and pi controls the speed
-        // change last part to width x 2 and heigh x 2
-        jeans.setX(amplitude * Math.sin(frame.time * speed * Math.PI / 2000) + centerX);
-        jeans.setY(150 * Math.cos(frame.time * speed * Math.PI / 2000) - 100);
+        jeans.setX(amplitude * Math.sin((frame.time - jeans_offset) * speed * Math.PI / 2000) + centerX);
+        jeans.setY(150 * Math.cos((frame.time - jeans_offset) * speed * Math.PI / 2000) - 100);
       }, layer);
 
       anim1.start();
 
+      var sunglasses_offset = 4200;
+
       var anim2 = new Kinetic.Animation(function(frame) {
-        // number in between time and pi controls the speed
-        // change last part to width x 2 and heigh x 2
-        sunglasses.setX(amplitude * Math.sin(frame.time * speed * Math.PI / 2000) + centerX);
-        sunglasses.setY(150 * Math.cos(frame.time * speed * Math.PI / 2000) - 100);
-        // console.log(frame.frameRate);
+        sunglasses.setX(amplitude * Math.sin((frame.time - sunglasses_offset) * speed * Math.PI / 2000) + centerX);
+        sunglasses.setY(150 * Math.cos((frame.time - sunglasses_offset) * speed * Math.PI / 2000) - 100);         
       }, layer);
 
-      // wrap this in a setTimeOut
-      setTimeout(function () {
-        anim2.start();
-      }, 2000);
-
+      anim2.start();
+  
 
     // Search
   	$scope.search = function(term) {

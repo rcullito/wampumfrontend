@@ -9,7 +9,6 @@ To create custom animations with KineticJS, we can use the Kinetic.Animation con
 
 Two arguments, the required update function and a layer, that will be updated with each animation frame.  
 
-
 The animation function is passed a frame object which contains
     - a time property which is the number of milliseconds that the animation has been running
     - a timeDiff property which is the number of milliseconds that have passed since the last frame
