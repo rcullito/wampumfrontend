@@ -9,6 +9,7 @@ angular.module('wampumfrontendApp')
       // http://docs.disqus.com/help/2/
       window.disqus_shortname = 'wampum';
       window.disqus_url = 'http://wampum.io';
+      var disqus_identifier = 'newid';
        
       // http://docs.disqus.com/developers/universal/
       (function() {
