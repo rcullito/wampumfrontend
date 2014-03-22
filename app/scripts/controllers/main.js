@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $sce, $window, $routeParams, $location, esService, blogService, disqusService) {
+  .controller('MainCtrl', function ($scope, $window, $routeParams, $location, esService) {
 
+    $scope.showAbout = function () {
+      $location.path('/');
+    };
 
       var stage = new Kinetic.Stage({
         container: 'kinetic',

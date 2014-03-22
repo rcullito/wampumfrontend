@@ -3,6 +3,9 @@
 angular.module('wampumfrontendApp')
   .controller('BlogCtrl', function ($scope, $sce, $window, $routeParams, $location, esService, blogService, disqusService) {
 
+    $scope.showAbout = function () {
+      $location.path('/');
+    };
 
     var blogTitle = $routeParams.blogTitle || 'The_Winter_Olympics_2.23.14';
 
