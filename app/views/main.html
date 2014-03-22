@@ -11,7 +11,10 @@
         <form class="form-horizontal" ng-submit="search(term)">
           <div class="form-group">
           <div class="col-sm-9">
-          <input style="margin-top: 5px;" type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="form-control input-lg">
+<!--           <input style="margin-top: 5px;" type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="form-control input-lg">
+          </div> -->
+
+          <input disabled style="margin-top: 5px;" type="text" ng-model="term" placeholder="currently under development..." class="form-control input-lg">
           </div>
 
             <div class="col-sm-3">
@@ -28,9 +31,9 @@
 
     <div class="row">
       <ul id="navigation" class="horizontal-list" style="text-align:center;">
-        <li ng-class="'current-' + (suburl == 'about')"><a href="#" ng-click="showabout()">About</a></li>
-        <li ng-class="'current-' + (suburl == 'blog')"><a  href="#" ng-click="showblog()">Blog</a></li>
-        <li><a href="">Results</a></li>
+        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">About</a></li>
+        <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog/The_Winter_Olympics_2.23.14">Blog</a></li>
+<!--         <li><a href="">Results</a></li> -->
       </ul>
     </div>
   </div>
@@ -55,5 +58,4 @@
 </div>
 
 <!-- if about and also there aren't any search results -->
-<div ng-if="suburl == 'about'" ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>
-<div ng-if="suburl == 'blog'" ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>
+<div ng-include src="'/ui/wampumfrontend/app/views/about.html'"></div>

@@ -8,10 +8,14 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/search/:query', {
-        templateUrl: '/ui/wampumfrontend/app/views/main.html',
-        controller: 'MainCtrl'
+      .when('/blog/:blogTitle', {
+        templateUrl: '/ui/wampumfrontend/app/views/blogmain.html',
+        controller: 'BlogCtrl'
       })
+      // .when('/search/:query', {
+      //   templateUrl: '/ui/wampumfrontend/app/views/main.html',
+      //   controller: 'MainCtrl'
+      // })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,24 @@
+<div class="jumbotron" style="background-color:#fff; padding-top:25px;">
+  <div class="container">
+    <div class="row" style="margin-bottom:30px; text-align:center;">
+        <h1>Wampum</h1>
+    </div>
+
+    <div class="row">
+        <h2 style="text-align:center;" class="emphasis">Suggestions for your old stuff.</h2>
+    </div>
+
+    <div class="row">
+      <ul id="navigation" class="horizontal-list" style="text-align:center;">
+        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">About</a></li>
+        <li ng-class="'current-' + (suburl == 'blog')"><a  href="/blog/The_Winter_Olympics_2.23.14">Blog</a></li>
+<!--         <li><a href="">Results</a></li> -->
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div ng-include src="'/ui/wampumfrontend/app/views/blog.html'"></div>

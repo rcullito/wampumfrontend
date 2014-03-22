@@ -9,13 +9,12 @@ p {
     <span class="col-sm-3">
       <h4 style="text-transform:underline;">Archive</h4>
     		<div ng-repeat="blog in blogs">
-          <p><a class="blog-link" href="#" ng-click="showTitle(blog.written)">{{ blog.title }}</a></p>
-          <!-- <p style="padding:0">{{ blog.date }}</p> -->
+          <p><a class="blog-link" href="/blog/{{ blog.written }}">{{ blog.title }}</a></p>
         </div>
     </span>
     <span ng-bind-html="blog" class="col-sm-9">
     </span>
-    <div disqus="id"></div>
+    <div disqus="disqus_thread"></div>
   </span>
 </div>
 
