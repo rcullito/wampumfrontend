@@ -24,11 +24,13 @@ angular.module('wampumfrontendApp')
 
   // should really be a bezier curve
 
+  var yellowRainJacket = new Kinetic.Group({});
+
   var yellowRainJacketHood = new Kinetic.Shape({
     sceneFunc: function(context) {
       context.beginPath();          
-      context.moveTo(240, 50);
-      context.quadraticCurveTo(260, 10, 280, 50);
+      context.moveTo(40, 50);
+      context.quadraticCurveTo(60, 10, 80, 50);
       context.closePath();
       context.fillStrokeShape(this);
     },
@@ -38,7 +40,7 @@ angular.module('wampumfrontendApp')
   });
 
    var yellowRainJacketBody = new Kinetic.Rect({
-    x: 238,
+    x: 38,
     y: 52,
     width: 44,
     height: 40,
@@ -48,8 +50,8 @@ angular.module('wampumfrontendApp')
   // toggles
 
   var yellowRainJacketLeftArm = new Kinetic.Rect({
-    x: 238,
-    y: 52,
+    x: 38,
+    y: 51,
     width: 15,
     height: 30,
     rotation: 45,
@@ -57,7 +59,7 @@ angular.module('wampumfrontendApp')
   });
 
   var yellowRainJacketRightArm = new Kinetic.Rect({
-    x: 304,
+    x: 104,
     y: 72,
     width: 15,
     height: 30,
@@ -65,12 +67,19 @@ angular.module('wampumfrontendApp')
     fill: '#FFD801',
   });
 
-// try grouping with 3 rectangles
+  var yellowRainJacketZipper = new Kinetic.Line({
+    points: [60, 52, 60, 90],
+    stroke: 'white',
+    strokeWidth: 2,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
 
-
-
-
-
+  yellowRainJacket.add(yellowRainJacketHood);
+  yellowRainJacket.add(yellowRainJacketBody);
+  yellowRainJacket.add(yellowRainJacketLeftArm);
+  yellowRainJacket.add(yellowRainJacketRightArm);
+  yellowRainJacket.add(yellowRainJacketZipper);
 
   var sunglasses = new Kinetic.Group({});
 
@@ -122,11 +131,7 @@ angular.module('wampumfrontendApp')
 
   layer.add(jeans);
   layer.add(sunglasses);
-  // group these
-  layer.add(yellowRainJacketHood);
-  layer.add(yellowRainJacketBody);
-  layer.add(yellowRainJacketLeftArm);
-  layer.add(yellowRainJacketRightArm);
+  layer.add(yellowRainJacket);
   stage.add(layer);
 
   // ANIMATION
@@ -136,12 +141,14 @@ angular.module('wampumfrontendApp')
   var speed = .4;
   var jeans_offset = 2200;
 
+  // split these into functions
+
   var anim1 = new Kinetic.Animation(function(frame) {
     jeans.setX(amplitude * Math.sin((frame.time - jeans_offset) * speed * Math.PI / 2000) + centerX);
     jeans.setY(150 * Math.cos((frame.time - jeans_offset) * speed * Math.PI / 2000) - 100);
   }, layer);
 
-  // anim1.start();
+  anim1.start();
 
   var sunglasses_offset = 4200;
 
@@ -150,6 +157,15 @@ angular.module('wampumfrontendApp')
     sunglasses.setY(150 * Math.cos((frame.time - sunglasses_offset) * speed * Math.PI / 2000) - 100);         
   }, layer);
 
-  // anim2.start();
+  anim2.start();
+
+  var yellowRainJacket_offset = 7200;
+
+  var anim3 = new Kinetic.Animation(function(frame) {
+    yellowRainJacket.setX(amplitude * Math.sin((frame.time - yellowRainJacket_offset) * speed * Math.PI / 2000) + centerX);
+    yellowRainJacket.setY(150 * Math.cos((frame.time - yellowRainJacket_offset) * speed * Math.PI / 2000) - 100);         
+  }, layer);
+
+  anim3.start();
   
   });
