@@ -1,4 +1,3 @@
-jeans
 shoes
 sunglasses
 backpack

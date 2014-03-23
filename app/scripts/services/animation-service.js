@@ -19,6 +19,33 @@ angular.module('wampumfrontendApp')
     closed: true
   });
 
+  // join together a black circle with a yellow border
+  // var yellowRainJacket = new 
+
+  // should really be a bezier curve
+
+var triangle = new Kinetic.Shape({
+        sceneFunc: function(context) {
+          context.beginPath();
+          // context.moveTo(250, 10);
+          // context.lineTo(300, 50);
+          context.moveTo(240, 50);
+          context.quadraticCurveTo(260, 10, 280, 50);
+
+          // context.quadraticCurveTo(200, 50, 300, 50);
+          context.closePath();
+          // KineticJS specific context method
+          context.fillStrokeShape(this);
+        },
+        fill: '#FBB917',
+        stroke: '#FFD801',
+        strokeWidth: 4
+      });
+
+
+
+
+
 
   var sunglasses = new Kinetic.Group({});
 
@@ -70,6 +97,7 @@ angular.module('wampumfrontendApp')
 
   layer.add(jeans);
   layer.add(sunglasses);
+  layer.add(triangle);
   stage.add(layer);
 
   // ANIMATION
@@ -84,7 +112,7 @@ angular.module('wampumfrontendApp')
     jeans.setY(150 * Math.cos((frame.time - jeans_offset) * speed * Math.PI / 2000) - 100);
   }, layer);
 
-  anim1.start();
+  // anim1.start();
 
   var sunglasses_offset = 4200;
 
@@ -93,6 +121,6 @@ angular.module('wampumfrontendApp')
     sunglasses.setY(150 * Math.cos((frame.time - sunglasses_offset) * speed * Math.PI / 2000) - 100);         
   }, layer);
 
-  anim2.start();
+  // anim2.start();
   
   });
