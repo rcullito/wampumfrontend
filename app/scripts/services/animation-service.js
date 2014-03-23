@@ -24,23 +24,48 @@ angular.module('wampumfrontendApp')
 
   // should really be a bezier curve
 
-var triangle = new Kinetic.Shape({
-        sceneFunc: function(context) {
-          context.beginPath();
-          // context.moveTo(250, 10);
-          // context.lineTo(300, 50);
-          context.moveTo(240, 50);
-          context.quadraticCurveTo(260, 10, 280, 50);
+  var yellowRainJacketHood = new Kinetic.Shape({
+    sceneFunc: function(context) {
+      context.beginPath();          
+      context.moveTo(240, 50);
+      context.quadraticCurveTo(260, 10, 280, 50);
+      context.closePath();
+      context.fillStrokeShape(this);
+    },
+    fill: '#FBB917',
+    stroke: '#FFD801',
+    strokeWidth: 4
+  });
 
-          // context.quadraticCurveTo(200, 50, 300, 50);
-          context.closePath();
-          // KineticJS specific context method
-          context.fillStrokeShape(this);
-        },
-        fill: '#FBB917',
-        stroke: '#FFD801',
-        strokeWidth: 4
-      });
+   var yellowRainJacketBody = new Kinetic.Rect({
+    x: 238,
+    y: 52,
+    width: 44,
+    height: 40,
+    fill: '#FFD801',
+  });
+
+  // toggles
+
+  var yellowRainJacketLeftArm = new Kinetic.Rect({
+    x: 238,
+    y: 52,
+    width: 15,
+    height: 30,
+    rotation: 45,
+    fill: '#FFD801',
+  });
+
+  var yellowRainJacketRightArm = new Kinetic.Rect({
+    x: 304,
+    y: 72,
+    width: 15,
+    height: 30,
+    rotation: 135,
+    fill: '#FFD801',
+  });
+
+// try grouping with 3 rectangles
 
 
 
@@ -97,7 +122,11 @@ var triangle = new Kinetic.Shape({
 
   layer.add(jeans);
   layer.add(sunglasses);
-  layer.add(triangle);
+  // group these
+  layer.add(yellowRainJacketHood);
+  layer.add(yellowRainJacketBody);
+  layer.add(yellowRainJacketLeftArm);
+  layer.add(yellowRainJacketRightArm);
   stage.add(layer);
 
   // ANIMATION
