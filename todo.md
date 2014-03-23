@@ -11,6 +11,8 @@ angular router to address blog issue
 
 Next Blog Notes
 
+could be fun for people to submit their own ideas, drawings to include
+
 include photo from moleskin, liken to an old fashioned picture scrolling weel with the spinning effect, even though you can only see a portion at any one point in time.
 
 start includign more photos in blogs in general.
