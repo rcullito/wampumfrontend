@@ -75,6 +75,103 @@ angular.module('wampumfrontendApp')
     lineJoin: 'round'
   });
 
+  var shoe1 = new Kinetic.Group({});
+
+  var shoeBody = new Kinetic.Shape({
+    sceneFunc: function(context) {
+      context.beginPath();          
+      context.moveTo(40, 50);
+      context.lineTo(90, 50);
+      context.quadraticCurveTo(95, 45, 90, 40);
+      context.lineTo(40, 40);
+      context.closePath();
+      context.fillStrokeShape(this);
+    },
+    fill: '#FFFFCC',
+    stroke: '#ccc',
+    strokeWidth: 1
+  });
+
+  var shoeSole = new Kinetic.Shape({
+    sceneFunc: function(context) {
+      context.beginPath();          
+      context.moveTo(40, 40);
+      context.lineTo(40, 25);
+      context.quadraticCurveTo(50, 32, 60, 25);
+      context.lineTo(90, 40);
+      context.closePath();
+      context.fillStrokeShape(this);
+    },
+    fill: 'red',
+    // stroke: '#ccc',
+    // strokeWidth: 1
+  });
+
+    // a black line and an off color white
+  var shoeLine =  new Kinetic.Line({
+    points: [40, 42, 91, 42],
+    stroke: 'black',
+    strokeWidth: 1,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
+
+  var shoe2 = new Kinetic.Group({});
+
+
+    // plus 20, minus 10
+    var shoeBody2 = new Kinetic.Shape({
+    sceneFunc: function(context) {
+      context.beginPath();          
+      context.moveTo(60, 40);
+      context.lineTo(110, 40);
+      context.quadraticCurveTo(115, 35, 110, 30);
+      context.lineTo(60, 30);
+      context.closePath();
+      context.fillStrokeShape(this);
+    },
+    fill: '#FFFFCC',
+    stroke: '#ccc',
+    strokeWidth: 1
+  });
+
+  var shoeSole2 = new Kinetic.Shape({
+    sceneFunc: function(context) {
+      context.beginPath();          
+      context.moveTo(60, 30);
+      context.lineTo(60, 15);
+      context.quadraticCurveTo(70, 22, 80, 15);
+      context.lineTo(110, 30);
+      context.closePath();
+      context.fillStrokeShape(this);
+    },
+    fill: 'red',
+    // stroke: '#ccc',
+    // strokeWidth: 1
+  });
+
+    // a black line and an off color white
+  var shoeLine2 =  new Kinetic.Line({
+    points: [60, 32, 111, 32],
+    stroke: 'black',
+    strokeWidth: 1,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
+
+  // now make a brown lace
+
+  // another one which is just a rectangle with a quadratic curve
+
+  shoe1.add(shoeBody);
+  shoe1.add(shoeSole);
+  shoe1.add(shoeLine);
+
+  shoe2.add(shoeBody2);
+  shoe2.add(shoeSole2);
+  shoe2.add(shoeLine2);
+
+
   yellowRainJacket.add(yellowRainJacketHood);
   yellowRainJacket.add(yellowRainJacketBody);
   yellowRainJacket.add(yellowRainJacketLeftArm);
@@ -127,12 +224,21 @@ angular.module('wampumfrontendApp')
     height: 200
   });
 
+
+  var shoes = new Kinetic.Group({});
+
+  shoes.add(shoe2);
+  shoes.add(shoe1);
+  
+
   var layer = new Kinetic.Layer();
 
   layer.add(jeans);
   layer.add(sunglasses);
   layer.add(yellowRainJacket);
+  layer.add(shoes);
   stage.add(layer);
+
 
   // ANIMATION
 
@@ -159,7 +265,7 @@ angular.module('wampumfrontendApp')
 
   anim2.start();
 
-  var yellowRainJacket_offset = 7200;
+  var yellowRainJacket_offset = 6200;
 
   var anim3 = new Kinetic.Animation(function(frame) {
     yellowRainJacket.setX(amplitude * Math.sin((frame.time - yellowRainJacket_offset) * speed * Math.PI / 2000) + centerX);
@@ -167,5 +273,15 @@ angular.module('wampumfrontendApp')
   }, layer);
 
   anim3.start();
+
+
+  var shoes_offset = 8200;
+
+  var anim4 = new Kinetic.Animation(function(frame) {
+    shoes.setX(amplitude * Math.sin((frame.time - shoes_offset) * speed * Math.PI / 2000) + centerX);
+    shoes.setY(150 * Math.cos((frame.time - shoes_offset) * speed * Math.PI / 2000) - 100);         
+  }, layer);
+
+  anim4.start();
   
   });
