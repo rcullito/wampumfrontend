@@ -217,10 +217,11 @@ angular.module('wampumfrontendApp')
 
   // STAGING
 
-
+  // console.log(document.getElementById('kinetic').offsetWidth);
   var stage = new Kinetic.Stage({
     container: 'kinetic',
-    width: 800,
+    // width: 800,
+    width: document.getElementById('kinetic').offsetWidth,    
     height: 200
   });
 
@@ -241,6 +242,8 @@ angular.module('wampumfrontendApp')
 
 
   // ANIMATION
+
+  // there is a persistent bias to the right
 
   var amplitude = stage.width() / 2;
   var centerX = stage.width() / 2;
