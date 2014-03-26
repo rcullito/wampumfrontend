@@ -217,7 +217,6 @@ angular.module('wampumfrontendApp')
 
   // STAGING
 
-  // console.log(document.getElementById('kinetic').offsetWidth);
   var stage = new Kinetic.Stage({
     container: 'kinetic',
     // width: 800,
@@ -243,10 +242,8 @@ angular.module('wampumfrontendApp')
 
   // ANIMATION
 
-  // there is a persistent bias to the right
-
   var amplitude = stage.width() / 2;
-  var centerX = stage.width() / 2;
+  var centerX = stage.width() / 3;
   var speed = .4;
   var jeans_offset = 2200;
 
