@@ -110,7 +110,7 @@ angular.module('wampumfrontendApp')
     // a black line and an off color white
   var shoeLine =  new Kinetic.Line({
     points: [40, 42, 91, 42],
-    stroke: 'black',
+    stroke: '#000066',
     strokeWidth: 1,
     lineCap: 'round',
     lineJoin: 'round'
@@ -153,7 +153,7 @@ angular.module('wampumfrontendApp')
     // a black line and an off color white
   var shoeLine2 =  new Kinetic.Line({
     points: [60, 32, 111, 32],
-    stroke: 'black',
+    stroke: '#000066',
     strokeWidth: 1,
     lineCap: 'round',
     lineJoin: 'round'
