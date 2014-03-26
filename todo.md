@@ -1,6 +1,7 @@
-shoes
-sunglasses
-backpack
+purple umbrella
+green backpack?
+
+draw canvas directly onto blog post for better resolution
 
 get rid of initial flash of sunglasses
 sweater and/or tshirt, jacket, anything with sleeves

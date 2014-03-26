@@ -75,3 +75,8 @@ ul {
 	font-size: 19px;
 	line-height: 30px;
 }
+
+#rain-jacket {
+	height: 200px;
+	overflow:scroll;
+}
