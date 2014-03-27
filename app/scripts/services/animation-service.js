@@ -8,7 +8,7 @@ angular.module('wampumfrontendApp')
     layer.add(animationObjectsService.sunglasses);
     layer.add(animationObjectsService.yellowRainJacket);
     layer.add(animationObjectsService.shoes);
-    
+
     var stage = new Kinetic.Stage({
       container: 'kinetic',
       // width: 800,
@@ -33,7 +33,6 @@ angular.module('wampumfrontendApp')
     anim1.start();
     var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses, 4200), layer);
     anim2.start();
-    var yellowRainJacket_offset = 6200;
     var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket, 6200), layer);
     anim3.start();
     var anim4 = new Kinetic.Animation(animInput(animationObjectsService.shoes, 8200), layer);
