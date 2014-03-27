@@ -15,9 +15,9 @@ angular.module('wampumfrontendApp')
   var layer = new Kinetic.Layer();
 
   layer.add(animationObjectsService.jeans);
-  layer.add(animationObjectsService.sunglasses);
-  layer.add(animationObjectsService.yellowRainJacket);
-  layer.add(animationObjectsService.shoes);
+  // layer.add(animationObjectsService.sunglasses);
+  // layer.add(animationObjectsService.yellowRainJacket);
+  // layer.add(animationObjectsService.shoes);
   stage.add(layer);
 
 
@@ -32,12 +32,14 @@ angular.module('wampumfrontendApp')
   var speed = .4;
   var jeans_offset = 2200;
 
-  // split these into functions
+  var animInput = function (item, offset) {
+    return function(frame) {
+      item.setX(amplitude * Math.sin((frame.time - offset) * speed * Math.PI / 2000) + centerX);
+      item.setY(200 * Math.cos((frame.time - offset) * speed * Math.PI / 2000) - 100);
+    };
+  };
 
-  var anim1 = new Kinetic.Animation(function(frame) {
-    animationObjectsService.jeans.setX(amplitude * Math.sin((frame.time - jeans_offset) * speed * Math.PI / 2000) + centerX);
-    animationObjectsService.jeans.setY(200 * Math.cos((frame.time - jeans_offset) * speed * Math.PI / 2000) - 100);
-  }, layer);
+  var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans, 2200), layer);
 
   anim1.start();
 
@@ -48,7 +50,7 @@ angular.module('wampumfrontendApp')
     animationObjectsService.sunglasses.setY(150 * Math.cos((frame.time - sunglasses_offset) * speed * Math.PI / 2000) - 100);         
   }, layer);
 
-  anim2.start();
+  // anim2.start();
 
   var yellowRainJacket_offset = 6200;
 
@@ -57,7 +59,7 @@ angular.module('wampumfrontendApp')
     animationObjectsService.yellowRainJacket.setY(150 * Math.cos((frame.time - yellowRainJacket_offset) * speed * Math.PI / 2000) - 100);         
   }, layer);
 
-  anim3.start();
+  // anim3.start();
 
 
   var shoes_offset = 8200;
@@ -67,6 +69,6 @@ angular.module('wampumfrontendApp')
     animationObjectsService.shoes.setY(150 * Math.cos((frame.time - shoes_offset) * speed * Math.PI / 2000) - 100);         
   }, layer);
 
-  anim4.start();
+  // anim4.start();
   
   });
