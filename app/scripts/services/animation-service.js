@@ -51,7 +51,7 @@ angular.module('wampumfrontendApp')
     };
 
     var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans, 2200), layer);
-    anim1.start();
+    // anim1.start();
     var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses, 4200), layer);
     // anim2.start();
     var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket, 6200), layer);

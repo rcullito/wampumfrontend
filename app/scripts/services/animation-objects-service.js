@@ -3,15 +3,21 @@
 angular.module('wampumfrontendApp')
   .service('animationObjectsService', function () {
 
-    // start the object dead center in top left corner
+    var jeansStartingPoint = {
+      x: 0,
+      y: 0
+    };
+
+    // see if there is an odds or evens function for arrays
+
     var jeans = new Kinetic.Line({
-      points: [ -20, -15,
-              -30, 15,
-                -10, 15,
-                0, -5,
-                10, 15,
-                30, 15,
-                20, -15 ],
+      points: [ jeansStartingPoint.x - 20, jeansStartingPoint.y - 15,
+              jeansStartingPoint.x - 30, jeansStartingPoint.y + 15,
+                jeansStartingPoint.x - 10, jeansStartingPoint.y + 15,
+                jeansStartingPoint.x + 0, jeansStartingPoint.y - 5,
+                jeansStartingPoint.x + 10, jeansStartingPoint.y + 15,
+                jeansStartingPoint.x + 30, jeansStartingPoint.y + 15,
+                jeansStartingPoint.x + 20, jeansStartingPoint.y - 15 ],
       fill: '#00D2FF',
       strokeWidth: 5,
       closed: true
