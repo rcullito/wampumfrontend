@@ -20,14 +20,29 @@ angular.module('wampumfrontendApp')
     });
     stage.add(layer);
 
-    var amplitudeX = stage.width() / 2;
-    var amplitudeY = stage.height() / 2;
+    // each item is positioned halfway down and halfway across 0, 0
 
+
+    // half of the width, minus half of the item width so that it doesn't go off screen
+    var amplitudeX = (stage.width() / 2) - 30;
+
+    // since we want the swooping motion to only be visible in the lower half of the circle
+    // we set the amplitude equal to the height, minus half of the item height so that we don't go off the screen
+    var amplitudeY = stage.height() - 15;
+
+
+    // 1. each amplitude is reduced by half of the count, so 30 and 15
+    // 2. amplitude is the same as the height height but we want center y to be at 0
+     
+    // don't mess with this, just centered
     var centerX = stage.width() / 2;
-    var centerY = stage.height() / 2;
-    // the period is there and back again
-    var period = 8000;
 
+    // just feels right visually to pull this up by the same amount as the amplitude adjustment
+    var centerY = -15;
+    // the period is there and back again
+    var period = 30000;
+
+    // we can potentially just put the amplitude offset as an additional argument to this function
     var animInput = function (item, offset) {
       return function(frame) {
         item.setX(amplitudeX * Math.sin((frame.time - offset) * 2 * Math.PI / period) + centerX);
