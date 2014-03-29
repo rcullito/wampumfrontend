@@ -25,6 +25,11 @@ h1 {
  float:none;
 }
 
+#kinetic {
+	background-color: red;
+	padding: 0px;
+}
+
 .results p {
 	font-size: 18px;
 }

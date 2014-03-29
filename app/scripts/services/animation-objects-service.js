@@ -4,13 +4,13 @@ angular.module('wampumfrontendApp')
   .service('animationObjectsService', function () {
 
     var jeans = new Kinetic.Line({
-      points: [ 30, 30, // starting point
-                20, 60, // left leg
-                40, 60, // right cuff of left leg
-                50, 40, // crotch
-                60, 60, // left cuff of right leg
-                80, 60, // right cuff of right leg
-                70, 30 ], // right waist
+      points: [ 10, 0, // starting point
+                0, 30, // left leg
+                20, 30, // right cuff of left leg
+                30, 10, // crotch
+                40, 30, // left cuff of right leg
+                60, 30, // right cuff of right leg
+                50, 0 ], // right waist
       fill: '#00D2FF',
       strokeWidth: 5,
       closed: true
