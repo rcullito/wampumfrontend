@@ -23,6 +23,63 @@ angular.module('wampumfrontendApp')
       closed: true
     });
 
+  var sunglassesStartingPoint = {
+    x: -54,
+    y: -46,
+  };
+
+  // rough width for sunglasses is leftmost edge of the frame line to the rightmost edge of the right circle
+  // leftmost edge is 35, rightmost edge is 73, 
+  // total width is 38, starting point is 35
+  // so starting x shoudl be 35 + 19, or -54
+
+  // rought height for the sunglasses is starts at 35, all the way down to 58
+  // height is 23, starting point is at 35
+  // so y offset is 35 plus half of 23, or 35 + 11, or -46
+
+
+  var sunglasses = new Kinetic.Group({});
+
+  var frameLine1 = new Kinetic.Line({
+    points: [
+      sunglassesStartingPoint.x + sunglassesStartingPoint.y + 50,
+      sunglassesStartingPoint.y + sunglassesStartingPoint.y + 50,
+      sunglassesStartingPoint.x + sunglassesStartingPoint.y + 35,
+      sunglassesStartingPoint.y + sunglassesStartingPoint.y + 35
+    ],
+    stroke: 'black',
+    strokeWidth: 2,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
+
+  var frameLine2 = new Kinetic.Line({
+    points: [sunglassesStartingPoint.x + 70, sunglassesStartingPoint.y + 50, sunglassesStartingPoint.x + 55, sunglassesStartingPoint.y + 35],
+    stroke: 'black',
+    strokeWidth: 2,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
+
+  var circle1 = new Kinetic.Circle({
+    x: sunglassesStartingPoint.x + 50,
+    y: sunglassesStartingPoint.y + 50,
+    radius: 8,
+    fill: 'black'
+  });
+
+  var circle2 = new Kinetic.Circle({
+    x: sunglassesStartingPoint.x + 65,
+    y: sunglassesStartingPoint.y + 50,
+    radius: 8,
+    fill: 'black'
+  });
+
+  sunglasses.add(circle1);
+  sunglasses.add(circle2);
+  sunglasses.add(frameLine1);
+  sunglasses.add(frameLine2);
+
   var yellowRainJacket = new Kinetic.Group({});
 
   var yellowRainJacketHood = new Kinetic.Shape({
@@ -80,42 +137,6 @@ angular.module('wampumfrontendApp')
   yellowRainJacket.add(yellowRainJacketRightArm);
   yellowRainJacket.add(yellowRainJacketZipper);
 
-  var sunglasses = new Kinetic.Group({});
-
-  var frameLine1 = new Kinetic.Line({
-    points: [50, 50, 35, 35],
-    stroke: 'black',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
-
-  var frameLine2 = new Kinetic.Line({
-    points: [70, 50, 55, 35],
-    stroke: 'black',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
-
-  var circle1 = new Kinetic.Circle({
-    x: 50,
-    y: 50,
-    radius: 8,
-    fill: 'black'
-  });
-
-  var circle2 = new Kinetic.Circle({
-    x: 65,
-    y: 50,
-    radius: 8,
-    fill: 'black'
-  });
-
-  sunglasses.add(circle1);
-  sunglasses.add(circle2);
-  sunglasses.add(frameLine1);
-  sunglasses.add(frameLine2);
 
   var shoe1 = new Kinetic.Group({});
 

@@ -4,8 +4,8 @@ angular.module('wampumfrontendApp')
   .service('animationService', function (animationObjectsService) {
 
     var layer = new Kinetic.Layer();
-    layer.add(animationObjectsService.jeans);
-    // layer.add(animationObjectsService.sunglasses);
+    // layer.add(animationObjectsService.jeans);
+    layer.add(animationObjectsService.sunglasses);
     // layer.add(animationObjectsService.yellowRainJacket);
     // layer.add(animationObjectsService.shoes);
 
@@ -50,10 +50,13 @@ angular.module('wampumfrontendApp')
       };
     };
 
+
+    // THE AMPLITUDE ADJUSTMENTS AND THE CENTERY NEED TO BE TIED TO EACH OBJECT INDIVIDUALLY
+
     var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans, 2200), layer);
     // anim1.start();
     var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses, 4200), layer);
-    // anim2.start();
+    anim2.start();
     var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket, 6200), layer);
     // anim3.start();
     var anim4 = new Kinetic.Animation(animInput(animationObjectsService.shoes, 8200), layer);
