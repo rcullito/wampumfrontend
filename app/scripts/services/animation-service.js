@@ -20,16 +20,18 @@ angular.module('wampumfrontendApp')
     });
     stage.add(layer);
 
-    var amplitude = stage.width() / 2;
+    var amplitudeX = stage.width() / 2;
+    var amplitudeY = stage.height() / 2;
 
-    // the jeans are 60 pixels wide, so the offset should either be 60 or 30
-    var centerX = (stage.width() / 2) - 30;
-    var speed = .4;
+    var centerX = stage.width() / 2;
+    var centerY = stage.height() / 2;
+    // the period is there and back again
+    var period = 8000;
 
     var animInput = function (item, offset) {
       return function(frame) {
-        item.setX(amplitude * Math.sin((frame.time - offset) * speed * Math.PI / 2000) + centerX);
-        // item.setY(200 * Math.cos((frame.time - offset) * speed * Math.PI / 2000) - 100);
+        item.setX(amplitudeX * Math.sin((frame.time - offset) * 2 * Math.PI / period) + centerX);
+        item.setY(amplitudeY * Math.cos((frame.time - offset) * 2 * Math.PI / period) + centerY);
       };
     };
 

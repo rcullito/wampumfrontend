@@ -3,14 +3,15 @@
 angular.module('wampumfrontendApp')
   .service('animationObjectsService', function () {
 
+    // start the object dead center in top left corner
     var jeans = new Kinetic.Line({
-      points: [ 10, 0, // starting point
-                0, 30, // left leg
-                20, 30, // right cuff of left leg
-                30, 10, // crotch
-                40, 30, // left cuff of right leg
-                60, 30, // right cuff of right leg
-                50, 0 ], // right waist
+      points: [ -20, -15,
+              -30, 15,
+                -10, 15,
+                0, -5,
+                10, 15,
+                30, 15,
+                20, -15 ],
       fill: '#00D2FF',
       strokeWidth: 5,
       closed: true
