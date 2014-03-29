@@ -40,7 +40,7 @@ angular.module('wampumfrontendApp')
     // just feels right visually to pull this up by the same amount as the amplitude adjustment
     var centerY = -15;
     // the period is there and back again
-    var period = 30000;
+    var period = 8000;
 
     // we can potentially just put the amplitude offset as an additional argument to this function
     var animInput = function (item, offset) {
