@@ -27,7 +27,6 @@ angular.module('wampumfrontendApp')
     x: -54,
     y: -46,
   };
-
   // rough width for sunglasses is leftmost edge of the frame line to the rightmost edge of the right circle
   // leftmost edge is 35, rightmost edge is 73, 
   // total width is 38, starting point is 35
@@ -41,12 +40,7 @@ angular.module('wampumfrontendApp')
   var sunglasses = new Kinetic.Group({});
 
   var frameLine1 = new Kinetic.Line({
-    points: [
-      sunglassesStartingPoint.x + sunglassesStartingPoint.y + 50,
-      sunglassesStartingPoint.y + sunglassesStartingPoint.y + 50,
-      sunglassesStartingPoint.x + sunglassesStartingPoint.y + 35,
-      sunglassesStartingPoint.y + sunglassesStartingPoint.y + 35
-    ],
+    points: [ sunglassesStartingPoint.x + 50, sunglassesStartingPoint.y + 50, sunglassesStartingPoint.x + 35, sunglassesStartingPoint.y + 35 ],
     stroke: 'black',
     strokeWidth: 2,
     lineCap: 'round',
