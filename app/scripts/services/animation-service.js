@@ -6,10 +6,10 @@ angular.module('wampumfrontendApp')
     var stage = animationObjectsService.stage;
 
     var layer = new Kinetic.Layer();
-    layer.add(animationObjectsService.jeans.kinetic);
-    layer.add(animationObjectsService.sunglasses.kinetic);
+    // layer.add(animationObjectsService.jeans.kinetic);
+    // layer.add(animationObjectsService.sunglasses.kinetic);
     layer.add(animationObjectsService.yellowRainJacket.kinetic);
-    layer.add(animationObjectsService.shoes.kinetic);
+    // layer.add(animationObjectsService.shoes.kinetic);
 
     // document.getElementById('kinetic').style.background = 'red';
 
@@ -29,12 +29,12 @@ angular.module('wampumfrontendApp')
     };
 
     var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans.kinetic, 2200, animationObjectsService.jeans.metadata), layer);
-    anim1.start();
+    // anim1.start();
     var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses.kinetic, 4200, animationObjectsService.sunglasses.metadata), layer);
-    anim2.start();
+    // anim2.start();
     var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket.kinetic, 6200, animationObjectsService.yellowRainJacket.metadata), layer);
-    anim3.start();
+    // anim3.start();
     var anim4 = new Kinetic.Animation(animInput(animationObjectsService.shoes.kinetic, 8200, animationObjectsService.shoes.metadata), layer);
-    anim4.start();
+    // anim4.start();
   
   });
