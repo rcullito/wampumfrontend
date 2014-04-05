@@ -7,57 +7,18 @@ angular.module('wampumfrontendApp')
 
     var layer = new Kinetic.Layer();
     layer.add(animationObjectsService.jeans.kinetic);
-    // layer.add(animationObjectsService.sunglasses);
-    layer.add(animationObjectsService.yellowRainJacket);
-    // layer.add(animationObjectsService.shoes);
+    layer.add(animationObjectsService.sunglasses.kinetic);
+    layer.add(animationObjectsService.yellowRainJacket.kinetic);
+    layer.add(animationObjectsService.shoes.kinetic);
 
-
-    // split this out into metadata and actual object
     // document.getElementById('kinetic').style.background = 'red';
 
     stage.add(layer);
 
-    var sunglassesAnimationOptions = {
-      width: 38,
-      height: 23,
-      amplitudeX: (stage.width() / 2) - 19,
-      amplitudeY: stage.height() - 12,
-      centerY: -12
-    };
-
-    var yellowRainJacketAnimationOptions = {
-      width: 88,
-      height: 60,
-      amplitudeX: (stage.width() / 2) - 44,
-      amplitudeY: stage.height() - 30,
-      centerY: -30
-    };
-
-    // each item is positioned halfway down and halfway across 0, 0
-
-
-    // half of the width, minus half of the item width so that it doesn't go off screen
-    var amplitudeX = (stage.width() / 2) - 30;
-
-    // since we want the swooping motion to only be visible in the lower half of the circle
-    // we set the amplitude equal to the height, minus half of the item height so that we don't go off the screen
-    var amplitudeY = stage.height() - 15;
-
-
-    // 1. each amplitude is reduced by half of the count, so 30 and 15
-    // 2. amplitude is the same as the height height but we want center y to be at 0
-     
     // don't mess with this, just centered
     var centerX = stage.width() / 2;
-
-    // just feels right visually to pull this up by the same amount as the amplitude adjustment
-    var centerY = -15;
     // the period is there and back again, should be 8000 by default
     var period = 8000;
-
-    // we can potentially just put the amplitude offset as an additional argument to this function
-
-    // need to call the function with stage once, not inside of the animInput
 
     var animInput = function (item, offset, options) {
       return function(frame) {
@@ -69,12 +30,11 @@ angular.module('wampumfrontendApp')
 
     var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans.kinetic, 2200, animationObjectsService.jeans.metadata), layer);
     anim1.start();
-
-    var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses, 4200, sunglassesAnimationOptions), layer);
-    // anim2.start();
-    var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket, 6200, yellowRainJacketAnimationOptions), layer);
+    var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses.kinetic, 4200, animationObjectsService.sunglasses.metadata), layer);
+    anim2.start();
+    var anim3 = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket.kinetic, 6200, animationObjectsService.yellowRainJacket.metadata), layer);
     anim3.start();
-    var anim4 = new Kinetic.Animation(animInput(animationObjectsService.shoes, 8200), layer);
-    // anim4.start();
+    var anim4 = new Kinetic.Animation(animInput(animationObjectsService.shoes.kinetic, 8200, animationObjectsService.shoes.metadata), layer);
+    anim4.start();
   
   });

@@ -11,8 +11,15 @@ angular.module('wampumfrontendApp')
       height: 200,
     });
 
+    // width and heigh look alright
+    // consider hard coding this into the function
+    // starting points should be offset - 1/2 width
 
-    function metaData (startingX, startingY, width, height) {
+    // offset for x is 40, and half of the width is 37.5
+    // offset for y is 15 and half of the width is 17.5
+
+
+    function metaData (startingX, startingY, width, height, offsetX, offsetY) {
       this.startingX = startingX,
       this.startingY = startingY,
       this.width = width,
@@ -23,7 +30,6 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansMetadata = new metaData(0, 0, 60, 30);
-
     var jeansKinetic = new Kinetic.Line({
       points: [ jeansMetadata.startingX - 20, jeansMetadata.startingY - 15,
               jeansMetadata.startingX - 30, jeansMetadata.startingY + 15,
@@ -36,237 +42,222 @@ angular.module('wampumfrontendApp')
       strokeWidth: 5,
       closed: true
     });
-
     var jeans = {
       metadata: jeansMetadata,
       kinetic: jeansKinetic
     };
 
-  var sunglassesStartingPoint = {
-    xOffset: 35,    
-    yOffset: 35,
+    var sunglassesMetadata = new metaData(-54, -56, 38, 23);
+    var sunglassesKinetic = new Kinetic.Group({});
+
+    var frameLine1 = new Kinetic.Line({
+      points: [ sunglassesMetadata.startingX + 50, sunglassesMetadata.startingY + 50, sunglassesMetadata.startingX + 35, sunglassesMetadata.startingY + 35 ],
+      stroke: 'black',
+      strokeWidth: 2,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
+
+    var frameLine2 = new Kinetic.Line({
+      points: [sunglassesMetadata.startingX + 70, sunglassesMetadata.startingY + 50, sunglassesMetadata.startingX + 55, sunglassesMetadata.startingY + 35],
+      stroke: 'black',
+      strokeWidth: 2,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
+
+    var circle1 = new Kinetic.Circle({
+      x: sunglassesMetadata.startingX + 50,
+      y: sunglassesMetadata.startingY + 50,
+      radius: 8,
+      fill: 'black'
+    });
+
+    var circle2 = new Kinetic.Circle({
+      x: sunglassesMetadata.startingX + 65,
+      y: sunglassesMetadata.startingY + 50,
+      radius: 8,
+      fill: 'black'
+    });
+
+    sunglassesKinetic.add(circle1);
+    sunglassesKinetic.add(circle2);
+    sunglassesKinetic.add(frameLine1);
+    sunglassesKinetic.add(frameLine2);
+
+    var sunglasses = {
+      metadata: sunglassesMetadata,
+      kinetic: sunglassesKinetic      
+    };
 
 
-    x: -54,
-    y: -46,
-  };
-  // rough width for sunglasses is leftmost edge of the frame line to the rightmost edge of the right circle
-  // leftmost edge is 35, rightmost edge is 73, 
-  // total width is 38, starting point is 35
-  // so starting x shoudl be 35 + 19, or -54
+    var yellowRainJacketMetadata = new metaData(-60, -60, 88, 60);
+    var yellowRainJacketKinetic = new Kinetic.Group({});
+    var yellowRainJacketHood = new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath();          
+        context.moveTo(yellowRainJacketMetadata.startingX + 40, yellowRainJacketMetadata.startingY + 50);
+        context.quadraticCurveTo(yellowRainJacketMetadata.startingX + 60, yellowRainJacketMetadata.startingY + 10, yellowRainJacketMetadata.startingX + 80, yellowRainJacketMetadata.startingY + 50);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: '#FBB917',
+      stroke: '#FFD801',
+      strokeWidth: 4
+    });
 
-  // rought height for the sunglasses is starts at 35, all the way down to 58
-  // height is 23, starting point is at 35
-  // so y offset is 35 plus half of 23, or 35 + 11, or -46
+     var yellowRainJacketBody = new Kinetic.Rect({
+      x: yellowRainJacketMetadata.startingX + 38,
+      y: yellowRainJacketMetadata.startingY + 52,
+      width: 44,
+      height: 40,
+      fill: '#FFD801',
+    });
 
+    // toggles
 
-  var sunglasses = new Kinetic.Group({});
+    var yellowRainJacketLeftArm = new Kinetic.Rect({
+      x: yellowRainJacketMetadata.startingX + 38,
+      y: yellowRainJacketMetadata.startingY + 51,
+      width: 15,
+      height: 30,
+      rotation: 45,
+      fill: '#FFD801',
+    });
 
-  var frameLine1 = new Kinetic.Line({
-    points: [ sunglassesStartingPoint.x + 50, sunglassesStartingPoint.y + 50, sunglassesStartingPoint.x + 35, sunglassesStartingPoint.y + 35 ],
-    stroke: 'black',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
+    var yellowRainJacketRightArm = new Kinetic.Rect({
+      x: yellowRainJacketMetadata.startingX + 104,
+      y: yellowRainJacketMetadata.startingY + 72,
+      width: 15,
+      height: 30,
+      rotation: 135,
+      fill: '#FFD801',
+    });
 
-  var frameLine2 = new Kinetic.Line({
-    points: [sunglassesStartingPoint.x + 70, sunglassesStartingPoint.y + 50, sunglassesStartingPoint.x + 55, sunglassesStartingPoint.y + 35],
-    stroke: 'black',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
+    var yellowRainJacketZipper = new Kinetic.Line({
+      points: [yellowRainJacketMetadata.startingX + 60, yellowRainJacketMetadata.startingY + 52, yellowRainJacketMetadata.startingX + 60, yellowRainJacketMetadata.startingY + 90],
+      stroke: 'white',
+      strokeWidth: 2,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
+    yellowRainJacketKinetic.add(yellowRainJacketHood);
+    yellowRainJacketKinetic.add(yellowRainJacketBody);
+    yellowRainJacketKinetic.add(yellowRainJacketLeftArm);
+    yellowRainJacketKinetic.add(yellowRainJacketRightArm);
+    yellowRainJacketKinetic.add(yellowRainJacketZipper);
+    var yellowRainJacket = {
+      metadata: yellowRainJacketMetadata,
+      kinetic: yellowRainJacketKinetic      
+    };
 
-  var circle1 = new Kinetic.Circle({
-    x: sunglassesStartingPoint.x + 50,
-    y: sunglassesStartingPoint.y + 50,
-    radius: 8,
-    fill: 'black'
-  });
+    // width and heigh look alright
+    // consider hard coding this into the function
+    // starting points should be offset - 1/2 width
 
-  var circle2 = new Kinetic.Circle({
-    x: sunglassesStartingPoint.x + 65,
-    y: sunglassesStartingPoint.y + 50,
-    radius: 8,
-    fill: 'black'
-  });
+    // offset for x is 40, and half of the width is 37.5
+    // offset for y is 15 and half of the width is 17.5
 
-  sunglasses.add(circle1);
-  sunglasses.add(circle2);
-  sunglasses.add(frameLine1);
-  sunglasses.add(frameLine2);
+    var shoesMetadata = new metaData(-77.5, -32.5, 75, 35, 40, 15);
 
-  var yellowRainJacket = new Kinetic.Group({});
+    var lowerShoe = new Kinetic.Group({});
 
-  // we need to get it right on the 0,0, the starting point minus half the width and half the height
-  // rightmost edge is 
-  // leftmost edge of the left arm 38, and top of the hood 10
-  // total height is rect plus hood height 40 + 40
-  var yellowRainJacketStartingPoint = {
-    x: -60,
-    y: -60,
-  };
+    var lowerShoeSole = new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath();          
+        context.moveTo(shoesMetadata.startingX + 40, shoesMetadata.startingY + 50);
+        context.lineTo(shoesMetadata.startingX + 90, shoesMetadata.startingY + 50);
+        context.quadraticCurveTo(shoesMetadata.startingX + 95, shoesMetadata.startingY + 45, shoesMetadata.startingX + 90, shoesMetadata.startingY + 40);
+        context.lineTo(shoesMetadata.startingX + 40, shoesMetadata.startingY + 40);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: '#FFFFCC',
+      stroke: '#ccc',
+      strokeWidth: 1
+    });
 
-  //   var yellowRainJacketStartingPoint = {
-  //   x: 0,
-  //   y: 0,
-  // };
+    var lowerShoeBody = new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath();          
+        context.moveTo(shoesMetadata.startingX + 40, shoesMetadata.startingY + 40);
+        context.lineTo(shoesMetadata.startingX + 40, shoesMetadata.startingY + 25);
+        context.quadraticCurveTo(shoesMetadata.startingX + 50, shoesMetadata.startingY + 32, shoesMetadata.startingX + 60, shoesMetadata.startingY + 25);
+        context.lineTo(shoesMetadata.startingX + 90, shoesMetadata.startingY + 40);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: 'red',
+    });
 
-  var yellowRainJacketHood = new Kinetic.Shape({
-    sceneFunc: function(context) {
-      context.beginPath();          
-      context.moveTo(yellowRainJacketStartingPoint.x + 40, yellowRainJacketStartingPoint.y + 50);
-      context.quadraticCurveTo(yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 10, yellowRainJacketStartingPoint.x + 80, yellowRainJacketStartingPoint.y + 50);
-      context.closePath();
-      context.fillStrokeShape(this);
-    },
-    fill: '#FBB917',
-    stroke: '#FFD801',
-    strokeWidth: 4
-  });
+    var lowerShoeLine =  new Kinetic.Line({
+      points: [shoesMetadata.startingX + 40, shoesMetadata.startingY + 42, shoesMetadata.startingX + 91, shoesMetadata.startingY + 42],
+      stroke: '#000066',
+      strokeWidth: 1,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
 
-   var yellowRainJacketBody = new Kinetic.Rect({
-    x: yellowRainJacketStartingPoint.x + 38,
-    y: yellowRainJacketStartingPoint.y + 52,
-    width: 44,
-    height: 40,
-    fill: '#FFD801',
-  });
+    var topShoe = new Kinetic.Group({});
 
-  // toggles
+    var toplowerShoeSole = new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath();          
+        context.moveTo(shoesMetadata.startingX + 60, shoesMetadata.startingY + 40);
+        context.lineTo(shoesMetadata.startingX + 110, shoesMetadata.startingY + 40);
+        context.quadraticCurveTo(shoesMetadata.startingX + 115, shoesMetadata.startingY + 35, shoesMetadata.startingX + 110, shoesMetadata.startingY + 30);
+        context.lineTo(shoesMetadata.startingX + 60, shoesMetadata.startingY + 30);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: '#FFFFCC',
+      stroke: '#ccc',
+      strokeWidth: 1
+    });
 
-  var yellowRainJacketLeftArm = new Kinetic.Rect({
-    x: yellowRainJacketStartingPoint.x + 38,
-    y: yellowRainJacketStartingPoint.y + 51,
-    width: 15,
-    height: 30,
-    rotation: 45,
-    fill: '#FFD801',
-  });
+    var toplowerShoeBody = new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath();          
+        context.moveTo(shoesMetadata.startingX + 60, shoesMetadata.startingY + 30);
+        context.lineTo(shoesMetadata.startingX + 60, shoesMetadata.startingY + 15);
+        context.quadraticCurveTo(shoesMetadata.startingX + 70, shoesMetadata.startingY + 22, shoesMetadata.startingX + 80, shoesMetadata.startingY + 15);
+        context.lineTo(shoesMetadata.startingX + 110, shoesMetadata.startingY + 30);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: 'red',
+    });
 
-  var yellowRainJacketRightArm = new Kinetic.Rect({
-    x: yellowRainJacketStartingPoint.x + 104,
-    y: yellowRainJacketStartingPoint.y + 72,
-    width: 15,
-    height: 30,
-    rotation: 135,
-    fill: '#FFD801',
-  });
+    var toplowerShoeLine =  new Kinetic.Line({
+      points: [shoesMetadata.startingX + 60, shoesMetadata.startingY + 32, shoesMetadata.startingX + 111, shoesMetadata.startingY + 32],
+      stroke: '#000066',
+      strokeWidth: 1,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
 
-  var yellowRainJacketZipper = new Kinetic.Line({
-    points: [yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 52, yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 90],
-    stroke: 'white',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
+    lowerShoe.add(lowerShoeBody);
+    lowerShoe.add(lowerShoeSole);
+    lowerShoe.add(lowerShoeLine);
 
-  yellowRainJacket.add(yellowRainJacketHood);
-  yellowRainJacket.add(yellowRainJacketBody);
-  yellowRainJacket.add(yellowRainJacketLeftArm);
-  yellowRainJacket.add(yellowRainJacketRightArm);
-  yellowRainJacket.add(yellowRainJacketZipper);
+    topShoe.add(toplowerShoeBody);
+    topShoe.add(toplowerShoeSole);
+    topShoe.add(toplowerShoeLine);
 
+    var shoesKinetic = new Kinetic.Group({});
+    shoesKinetic.add(topShoe);
+    shoesKinetic.add(lowerShoe);
 
-  var shoe1 = new Kinetic.Group({});
-
-  var shoeBody = new Kinetic.Shape({
-    sceneFunc: function(context) {
-      context.beginPath();          
-      context.moveTo(40, 50);
-      context.lineTo(90, 50);
-      context.quadraticCurveTo(95, 45, 90, 40);
-      context.lineTo(40, 40);
-      context.closePath();
-      context.fillStrokeShape(this);
-    },
-    fill: '#FFFFCC',
-    stroke: '#ccc',
-    strokeWidth: 1
-  });
-
-  var shoeSole = new Kinetic.Shape({
-    sceneFunc: function(context) {
-      context.beginPath();          
-      context.moveTo(40, 40);
-      context.lineTo(40, 25);
-      context.quadraticCurveTo(50, 32, 60, 25);
-      context.lineTo(90, 40);
-      context.closePath();
-      context.fillStrokeShape(this);
-    },
-    fill: 'red',
-    // stroke: '#ccc',
-    // strokeWidth: 1
-  });
-
-  var shoeLine =  new Kinetic.Line({
-    points: [40, 42, 91, 42],
-    stroke: '#000066',
-    strokeWidth: 1,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
-
-  var shoe2 = new Kinetic.Group({});
-
-  var shoeBody2 = new Kinetic.Shape({
-    sceneFunc: function(context) {
-      context.beginPath();          
-      context.moveTo(60, 40);
-      context.lineTo(110, 40);
-      context.quadraticCurveTo(115, 35, 110, 30);
-      context.lineTo(60, 30);
-      context.closePath();
-      context.fillStrokeShape(this);
-    },
-    fill: '#FFFFCC',
-    stroke: '#ccc',
-    strokeWidth: 1
-  });
-
-  var shoeSole2 = new Kinetic.Shape({
-    sceneFunc: function(context) {
-      context.beginPath();          
-      context.moveTo(60, 30);
-      context.lineTo(60, 15);
-      context.quadraticCurveTo(70, 22, 80, 15);
-      context.lineTo(110, 30);
-      context.closePath();
-      context.fillStrokeShape(this);
-    },
-    fill: 'red',
-    // stroke: '#ccc',
-    // strokeWidth: 1
-  });
-
-  var shoeLine2 =  new Kinetic.Line({
-    points: [60, 32, 111, 32],
-    stroke: '#000066',
-    strokeWidth: 1,
-    lineCap: 'round',
-    lineJoin: 'round'
-  });
-
-  shoe1.add(shoeBody);
-  shoe1.add(shoeSole);
-  shoe1.add(shoeLine);
-
-  shoe2.add(shoeBody2);
-  shoe2.add(shoeSole2);
-  shoe2.add(shoeLine2);
-
-  var shoes = new Kinetic.Group({});
-
-  shoes.add(shoe2);
-  shoes.add(shoe1);
+    var shoes = {
+      metadata: shoesMetadata,
+      kinetic: shoesKinetic
+    };
 
     return {
       stage: stage,
       jeans: jeans,
+      sunglasses: sunglasses,      
       yellowRainJacket: yellowRainJacket,
-      sunglasses: sunglasses,
       shoes: shoes,
     };
 
