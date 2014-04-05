@@ -11,17 +11,18 @@ angular.module('wampumfrontendApp')
       height: 200,
     });
 
-    // split out amplitudeX into its own function that we can construct
 
-    var jeansMetadata = {
-      startingX: 0,
-      startingY: 0,
-      width: 60,
-      height: 30,
-      amplitudeX: (stage.width() / 2) - 30,
-      amplitudeY: stage.height() - 15,
-      centerY: -15
+    function metaData (startingX, startingY, width, height) {
+      this.startingX = startingX,
+      this.startingY = startingY,
+      this.width = width,
+      this.height = height,
+      this.amplitudeX = (stage.width() / 2) - this.width / 2,
+      this.amplitudeY = stage.height() - this.height / 2,
+      this.centerY = 0 - (this.height / 2)
     };
+
+    var jeansMetadata = new metaData(0, 0, 60, 30);
 
     var jeansKinetic = new Kinetic.Line({
       points: [ jeansMetadata.startingX - 20, jeansMetadata.startingY - 15,
@@ -40,18 +41,6 @@ angular.module('wampumfrontendApp')
       metadata: jeansMetadata,
       kinetic: jeansKinetic
     };
-
-  // this type of thing should grow up to become metadata that the animation function can read in
-  function Car(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.hal_year = this.year / 2;
-  }
-
-  var mycar = new Car("Eagle", "Talon TSi", 1994);
-
-  console.log(mycar);
 
   var sunglassesStartingPoint = {
     xOffset: 35,    
