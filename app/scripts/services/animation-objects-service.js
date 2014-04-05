@@ -76,11 +76,25 @@ angular.module('wampumfrontendApp')
 
   var yellowRainJacket = new Kinetic.Group({});
 
+  // we need to get it right on the 0,0, the starting point minus half the width and half the height
+  // rightmost edge is 
+  // leftmost edge of the left arm 38, and top of the hood 10
+  // total height is rect plus hood height 40 + 40
+  var yellowRainJacketStartingPoint = {
+    x: -60,
+    y: -60,
+  };
+
+  //   var yellowRainJacketStartingPoint = {
+  //   x: 0,
+  //   y: 0,
+  // };
+
   var yellowRainJacketHood = new Kinetic.Shape({
     sceneFunc: function(context) {
       context.beginPath();          
-      context.moveTo(40, 50);
-      context.quadraticCurveTo(60, 10, 80, 50);
+      context.moveTo(yellowRainJacketStartingPoint.x + 40, yellowRainJacketStartingPoint.y + 50);
+      context.quadraticCurveTo(yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 10, yellowRainJacketStartingPoint.x + 80, yellowRainJacketStartingPoint.y + 50);
       context.closePath();
       context.fillStrokeShape(this);
     },
@@ -90,8 +104,8 @@ angular.module('wampumfrontendApp')
   });
 
    var yellowRainJacketBody = new Kinetic.Rect({
-    x: 38,
-    y: 52,
+    x: yellowRainJacketStartingPoint.x + 38,
+    y: yellowRainJacketStartingPoint.y + 52,
     width: 44,
     height: 40,
     fill: '#FFD801',
@@ -100,8 +114,8 @@ angular.module('wampumfrontendApp')
   // toggles
 
   var yellowRainJacketLeftArm = new Kinetic.Rect({
-    x: 38,
-    y: 51,
+    x: yellowRainJacketStartingPoint.x + 38,
+    y: yellowRainJacketStartingPoint.y + 51,
     width: 15,
     height: 30,
     rotation: 45,
@@ -109,8 +123,8 @@ angular.module('wampumfrontendApp')
   });
 
   var yellowRainJacketRightArm = new Kinetic.Rect({
-    x: 104,
-    y: 72,
+    x: yellowRainJacketStartingPoint.x + 104,
+    y: yellowRainJacketStartingPoint.y + 72,
     width: 15,
     height: 30,
     rotation: 135,
@@ -118,7 +132,7 @@ angular.module('wampumfrontendApp')
   });
 
   var yellowRainJacketZipper = new Kinetic.Line({
-    points: [60, 52, 60, 90],
+    points: [yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 52, yellowRainJacketStartingPoint.x + 60, yellowRainJacketStartingPoint.y + 90],
     stroke: 'white',
     strokeWidth: 2,
     lineCap: 'round',
