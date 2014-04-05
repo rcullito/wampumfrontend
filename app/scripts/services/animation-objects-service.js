@@ -3,25 +3,43 @@
 angular.module('wampumfrontendApp')
   .service('animationObjectsService', function () {
 
-    var jeansStartingPoint = {
-      x: 0,
-      y: 0
+
+    var stage = new Kinetic.Stage({
+      container: 'kinetic',
+      // width: 800,
+      width: document.getElementById('kinetic').offsetWidth,    
+      height: 200,
+    });
+
+    // split out amplitudeX into its own function that we can construct
+
+    var jeansMetadata = {
+      startingX: 0,
+      startingY: 0,
+      width: 60,
+      height: 30,
+      amplitudeX: (stage.width() / 2) - 30,
+      amplitudeY: stage.height() - 15,
+      centerY: -15
     };
 
-    // see if there is an odds or evens function for arrays
-
-    var jeans = new Kinetic.Line({
-      points: [ jeansStartingPoint.x - 20, jeansStartingPoint.y - 15,
-              jeansStartingPoint.x - 30, jeansStartingPoint.y + 15,
-                jeansStartingPoint.x - 10, jeansStartingPoint.y + 15,
-                jeansStartingPoint.x + 0, jeansStartingPoint.y - 5,
-                jeansStartingPoint.x + 10, jeansStartingPoint.y + 15,
-                jeansStartingPoint.x + 30, jeansStartingPoint.y + 15,
-                jeansStartingPoint.x + 20, jeansStartingPoint.y - 15 ],
+    var jeansKinetic = new Kinetic.Line({
+      points: [ jeansMetadata.startingX - 20, jeansMetadata.startingY - 15,
+              jeansMetadata.startingX - 30, jeansMetadata.startingY + 15,
+                jeansMetadata.startingX - 10, jeansMetadata.startingY + 15,
+                jeansMetadata.startingX + 0, jeansMetadata.startingY - 5,
+                jeansMetadata.startingX + 10, jeansMetadata.startingY + 15,
+                jeansMetadata.startingX + 30, jeansMetadata.startingY + 15,
+                jeansMetadata.startingX + 20, jeansMetadata.startingY - 15 ],
       fill: '#00D2FF',
       strokeWidth: 5,
       closed: true
     });
+
+    var jeans = {
+      metadata: jeansMetadata,
+      kinetic: jeansKinetic
+    };
 
   // this type of thing should grow up to become metadata that the animation function can read in
   function Car(make, model, year) {
@@ -256,6 +274,7 @@ angular.module('wampumfrontendApp')
   shoes.add(shoe1);
 
     return {
+      stage: stage,
       jeans: jeans,
       yellowRainJacket: yellowRainJacket,
       sunglasses: sunglasses,

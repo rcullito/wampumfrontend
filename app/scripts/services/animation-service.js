@@ -3,30 +3,19 @@
 angular.module('wampumfrontendApp')
   .service('animationService', function (animationObjectsService) {
 
+    var stage = animationObjectsService.stage;
+
     var layer = new Kinetic.Layer();
-    // layer.add(animationObjectsService.jeans);
+    layer.add(animationObjectsService.jeans.kinetic);
     // layer.add(animationObjectsService.sunglasses);
     layer.add(animationObjectsService.yellowRainJacket);
     // layer.add(animationObjectsService.shoes);
 
+
+    // split this out into metadata and actual object
     // document.getElementById('kinetic').style.background = 'red';
 
-    var stage = new Kinetic.Stage({
-      container: 'kinetic',
-      // width: 800,
-      width: document.getElementById('kinetic').offsetWidth,    
-      height: 200,
-      fill: 'red',
-    });
     stage.add(layer);
-
-    var jeansAnimationOptions = {
-      width: 60,
-      height: 30,
-      amplitudeX: (stage.width() / 2) - 30,
-      amplitudeY: stage.height() - 15,
-      centerY: -15
-    };
 
     var sunglassesAnimationOptions = {
       width: 38,
@@ -54,6 +43,7 @@ angular.module('wampumfrontendApp')
     // we set the amplitude equal to the height, minus half of the item height so that we don't go off the screen
     var amplitudeY = stage.height() - 15;
 
+
     // 1. each amplitude is reduced by half of the count, so 30 and 15
     // 2. amplitude is the same as the height height but we want center y to be at 0
      
@@ -66,18 +56,19 @@ angular.module('wampumfrontendApp')
     var period = 8000;
 
     // we can potentially just put the amplitude offset as an additional argument to this function
+
+    // need to call the function with stage once, not inside of the animInput
+
     var animInput = function (item, offset, options) {
       return function(frame) {
+
         item.setX(options.amplitudeX * Math.sin((frame.time - offset) * 2 * Math.PI / period) + centerX);
         item.setY(options.amplitudeY * Math.cos((frame.time - offset) * 2 * Math.PI / period) + options.centerY);
       };
     };
 
-
-    // THE AMPLITUDE ADJUSTMENTS AND THE CENTERY NEED TO BE TIED TO EACH OBJECT INDIVIDUALLY
-
-    var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans, 2200, jeansAnimationOptions), layer);
-    // anim1.start();
+    var anim1 = new Kinetic.Animation(animInput(animationObjectsService.jeans.kinetic, 2200, animationObjectsService.jeans.metadata), layer);
+    anim1.start();
 
     var anim2 = new Kinetic.Animation(animInput(animationObjectsService.sunglasses, 4200, sunglassesAnimationOptions), layer);
     // anim2.start();
