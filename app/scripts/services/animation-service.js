@@ -21,12 +21,16 @@ angular.module('wampumfrontendApp')
     stage.add(layer);
 
     var jeansAnimationOptions = {
+      width: 60,
+      height: 30,
       amplitudeX: (stage.width() / 2) - 30,
       amplitudeY: stage.height() - 15,
       centerY: -15
     };
 
     var sunglassesAnimationOptions = {
+      width: 38,
+      height: 23,
       amplitudeX: (stage.width() / 2) - 19,
       amplitudeY: stage.height() - 12,
       centerY: -12

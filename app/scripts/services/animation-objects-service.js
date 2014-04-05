@@ -23,7 +23,23 @@ angular.module('wampumfrontendApp')
       closed: true
     });
 
+  // this type of thing should grow up to become metadata that the animation function can read in
+  function Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.hal_year = this.year / 2;
+  }
+
+  var mycar = new Car("Eagle", "Talon TSi", 1994);
+
+  console.log(mycar);
+
   var sunglassesStartingPoint = {
+    xOffset: 35,    
+    yOffset: 35,
+
+
     x: -54,
     y: -46,
   };
