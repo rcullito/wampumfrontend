@@ -336,6 +336,19 @@ angular.module('wampumfrontendApp')
       strokeWidth: 3,
     });
 
+    var wateringCanHandle =  new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath(); 
+        context.moveTo(wateringCanMetadata.startingX + 60, wateringCanMetadata.startingY  + 72);
+        context.quadraticCurveTo(wateringCanMetadata.startingX + 90, wateringCanMetadata.startingY + 50, wateringCanMetadata.startingX + 90, wateringCanMetadata.startingY + 92);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      lineCap: 'round',
+      stroke: '#4A7023',
+      strokeWidth: 4
+    });
+
     var wateringCanKinetic = new Kinetic.Group({});
     var wateringCanBody = new Kinetic.Rect({
       x: wateringCanMetadata.startingX + 58,
@@ -346,10 +359,21 @@ angular.module('wampumfrontendApp')
       fill: '#4A7023',
     });
 
+    var wateringCanShadow = new Kinetic.Rect({
+      x: wateringCanMetadata.startingX + 60,
+      y: wateringCanMetadata.startingY + 74,
+      width: 30,
+      height: 4,
+      cornerRadius: 4,
+      fill: '#3D5229',
+    });
+
     wateringCanKinetic.add(wateringCanBody);
     wateringCanKinetic.add(wateringCanStem);
     wateringCanKinetic.add(wateringCanHead);
     wateringCanKinetic.add(wateringCanSupport);
+    wateringCanKinetic.add(wateringCanHandle);
+    wateringCanKinetic.add(wateringCanShadow);
 
     var wateringCan = {
       metadata: wateringCanMetadata,
