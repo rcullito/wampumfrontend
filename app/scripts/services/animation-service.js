@@ -6,11 +6,11 @@ angular.module('wampumfrontendApp')
     var stage = animationObjectsService.stage;
 
     var layer = new Kinetic.Layer();
-    // layer.add(animationObjectsService.jeans.kinetic);
-    // layer.add(animationObjectsService.sunglasses.kinetic);
-    // layer.add(animationObjectsService.yellowRainJacket.kinetic);
-    // layer.add(animationObjectsService.shoes.kinetic);
-    // layer.add(animationObjectsService.umbrella.kinetic);
+    layer.add(animationObjectsService.jeans.kinetic);
+    layer.add(animationObjectsService.sunglasses.kinetic);
+    layer.add(animationObjectsService.yellowRainJacket.kinetic);
+    layer.add(animationObjectsService.shoes.kinetic);
+    layer.add(animationObjectsService.umbrella.kinetic);
     layer.add(animationObjectsService.wateringCan.kinetic);
 
     // document.getElementById('kinetic').style.background = 'red';
@@ -28,17 +28,16 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansAnim = new Kinetic.Animation(animInput(animationObjectsService.jeans.kinetic, 0, animationObjectsService.jeans.metadata), layer);
-    // jeansAnim.start();
+    jeansAnim.start();
     var sunglassesAnim = new Kinetic.Animation(animInput(animationObjectsService.sunglasses.kinetic, 2000, animationObjectsService.sunglasses.metadata), layer);
-    // sunglassesAnim.start();
+    sunglassesAnim.start();
     var yellowRainJacketAnim = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket.kinetic, 4000, animationObjectsService.yellowRainJacket.metadata), layer);
-    // yellowRainJacketAnim.start();
+    yellowRainJacketAnim.start();
     var shoesAnim = new Kinetic.Animation(animInput(animationObjectsService.shoes.kinetic, 6000, animationObjectsService.shoes.metadata), layer);
-    // shoesAnim.start();
+    shoesAnim.start();
     var umbrellaAnim = new Kinetic.Animation(animInput(animationObjectsService.umbrella.kinetic, 8000, animationObjectsService.umbrella.metadata), layer);
-    // umbrellaAnim.start();
-
-    var wateringCanAnim = new Kinetic.Animation(animInput(animationObjectsService.wateringCan.kinetic, 8000, animationObjectsService.wateringCan.metadata), layer);
-    // wateringCanAnim.start();
+    umbrellaAnim.start();
+    var wateringCanAnim = new Kinetic.Animation(animInput(animationObjectsService.wateringCan.kinetic, 10000, animationObjectsService.wateringCan.metadata), layer);
+    wateringCanAnim.start();
   
   });

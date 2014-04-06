@@ -278,34 +278,8 @@ angular.module('wampumfrontendApp')
       kinetic: umbrellaKinetic
     };
 
-    // green watering can whoooooo!
-    
-    // now we need a straight line going from 
-    // a little less than the base
-    // the base is 92, so lets say 85 y to start
-
-    // to as high as 52 for y
-
-    // starting x is 38
-    // ending x is about 80% of the width of the rect or 32
-    // 38 - 32 is 6
-
-    // now make a polygon that starts with a line diagonal to the end of the stem
-    // 39 and 76 should be the endpoint
-
-
-    // lets have it be 10 wide at one part and 20 wide at the other part
-
-    // we could always just make this and rotate it
-
-    // longer and not quite as wide
-
-    // var wateringCanMetadata = new metaData(52, 44, 39, 76);
-
-    var wateringCanMetadata = new metaData(52, 44, -100, -100);
-
-
-// we are left off at 39 and 76
+    var wateringCanMetadata = new metaData(50, 50, 38, 70);
+    // var wateringCanMetadata = new metaData(50, 50, -100, -100);
 
     var wateringCanHead = new Kinetic.Shape({
       sceneFunc: function(context) { 
