@@ -235,7 +235,7 @@ angular.module('wampumfrontendApp')
     };
 
     var umbrellaStem = new Kinetic.Line({
-      points: [110, 30, 110, 70],
+      points: [110, 68, 110, 90],
       stroke: '#ccc',
       strokeWidth: 3,
       lineCap: 'square',
@@ -243,12 +243,50 @@ angular.module('wampumfrontendApp')
     });
 
     var umbrellaHandle = new Kinetic.Line({
-      points: [110,70,120,80,130,70],
+      points: [110,90,115,98,120,90],
       stroke: 'black',
       strokeWidth: 3,
       lineCap: 'square',
       tension: 0.9
     });
+
+    var umbrellaCanvas =  new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath(); 
+        context.moveTo(80, 70);
+        context.quadraticCurveTo(110, 20, 140, 70);
+        // context.moveTo(140, 70);
+
+        // context.moveTo(40, 50);
+        // context.quadraticCurveTo(60, 10, 80, 50);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: '#551A8B',
+      stroke: '#551A8B',
+      strokeWidth: 4
+    });
+
+    var umbrellaCut1 =  new Kinetic.Shape({
+      sceneFunc: function(context) {
+        context.beginPath(); 
+        context.moveTo(140, 70);
+        context.quadraticCurveTo(130, 65, 120, 70);
+        context.quadraticCurveTo(110, 65, 100, 70);
+        context.quadraticCurveTo(90, 65, 80, 70);
+        // context.moveTo(140, 70);
+
+        // context.moveTo(40, 50);
+        // context.quadraticCurveTo(60, 10, 80, 50);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: 'white',
+      stroke: 'white',
+      strokeWidth: 4
+    });
+
+            
 
 
     return {
@@ -258,7 +296,9 @@ angular.module('wampumfrontendApp')
       yellowRainJacket: yellowRainJacket,
       shoes: shoes,
       umbrellaStem: umbrellaStem,
-      umbrellaHandle: umbrellaHandle
+      umbrellaHandle: umbrellaHandle,
+      umbrellaCanvas: umbrellaCanvas,
+      umbrellaCut1: umbrellaCut1,
     };
 
   });

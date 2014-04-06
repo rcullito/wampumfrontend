@@ -10,6 +10,9 @@ angular.module('wampumfrontendApp')
     // layer.add(animationObjectsService.sunglasses.kinetic);
     // layer.add(animationObjectsService.yellowRainJacket.kinetic);
     // layer.add(animationObjectsService.shoes.kinetic);
+
+    layer.add(animationObjectsService.umbrellaCanvas);
+    layer.add(animationObjectsService.umbrellaCut1);
     layer.add(animationObjectsService.umbrellaStem);
     layer.add(animationObjectsService.umbrellaHandle);
 
