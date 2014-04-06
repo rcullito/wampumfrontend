@@ -6,10 +6,12 @@ angular.module('wampumfrontendApp')
     var stage = animationObjectsService.stage;
 
     var layer = new Kinetic.Layer();
-    layer.add(animationObjectsService.jeans.kinetic);
-    layer.add(animationObjectsService.sunglasses.kinetic);
-    layer.add(animationObjectsService.yellowRainJacket.kinetic);
-    layer.add(animationObjectsService.shoes.kinetic);
+    // layer.add(animationObjectsService.jeans.kinetic);
+    // layer.add(animationObjectsService.sunglasses.kinetic);
+    // layer.add(animationObjectsService.yellowRainJacket.kinetic);
+    // layer.add(animationObjectsService.shoes.kinetic);
+    layer.add(animationObjectsService.umbrellaStem);
+    layer.add(animationObjectsService.umbrellaHandle);
 
     // document.getElementById('kinetic').style.background = 'red';
 
@@ -26,12 +28,12 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansAnim = new Kinetic.Animation(animInput(animationObjectsService.jeans.kinetic, 2200, animationObjectsService.jeans.metadata), layer);
-    jeansAnim.start();
+    // jeansAnim.start();
     var sunglassesAnim = new Kinetic.Animation(animInput(animationObjectsService.sunglasses.kinetic, 4200, animationObjectsService.sunglasses.metadata), layer);
-    sunglassesAnim.start();
+    // sunglassesAnim.start();
     var yellowRainJacketAnim = new Kinetic.Animation(animInput(animationObjectsService.yellowRainJacket.kinetic, 6200, animationObjectsService.yellowRainJacket.metadata), layer);
-    yellowRainJacketAnim.start();
+    // yellowRainJacketAnim.start();
     var shoesAnim = new Kinetic.Animation(animInput(animationObjectsService.shoes.kinetic, 8200, animationObjectsService.shoes.metadata), layer);
-    shoesAnim.start();
+    // shoesAnim.start();
   
   });

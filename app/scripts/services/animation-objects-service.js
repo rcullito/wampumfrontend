@@ -234,12 +234,31 @@ angular.module('wampumfrontendApp')
       kinetic: shoesKinetic
     };
 
+    var umbrellaStem = new Kinetic.Line({
+      points: [110, 30, 110, 70],
+      stroke: '#ccc',
+      strokeWidth: 3,
+      lineCap: 'square',
+      lineJoin: 'square'
+    });
+
+    var umbrellaHandle = new Kinetic.Line({
+      points: [110,70,120,80,130,70],
+      stroke: 'black',
+      strokeWidth: 3,
+      lineCap: 'square',
+      tension: 0.9
+    });
+
+
     return {
       stage: stage,
       jeans: jeans,
       sunglasses: sunglasses,      
       yellowRainJacket: yellowRainJacket,
       shoes: shoes,
+      umbrellaStem: umbrellaStem,
+      umbrellaHandle: umbrellaHandle
     };
 
   });
