@@ -278,6 +278,42 @@ angular.module('wampumfrontendApp')
       kinetic: umbrellaKinetic
     };
 
+    // green watering can whoooooo!
+    
+    // now we need a straight line going from 
+    // a little less than the base
+    // the base is 92, so lets say 85 y to start
+
+    // to as high as 52 for y
+
+    // starting x is 38
+    // ending x is about 80% of the width of the rect or 32
+    // 38 - 32 is 6
+
+    var wateringCanStem = new Kinetic.Line({
+      points: [60, 105, 39, 76],
+      stroke: '#4A7023',
+      strokeWidth: 4,
+      // lineCap: 'round',
+      // lineJoin: 'round'
+    });
+
+    var wateringCanKinetic = new Kinetic.Group({});
+    var wateringCanBody = new Kinetic.Rect({
+      x: 58,
+      y: 72,
+      width: 30,
+      height: 40,
+      fill: '#4A7023',
+    });
+
+    wateringCanKinetic.add(wateringCanBody);
+    wateringCanKinetic.add(wateringCanStem);
+
+    var wateringCan = {
+      kinetic: wateringCanKinetic
+    };
+
     return {
       stage: stage,
       jeans: jeans,
@@ -285,6 +321,7 @@ angular.module('wampumfrontendApp')
       yellowRainJacket: yellowRainJacket,
       shoes: shoes,
       umbrella: umbrella,
+      wateringCan: wateringCan
     };
 
   });
