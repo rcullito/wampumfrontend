@@ -37,5 +37,8 @@ angular.module('wampumfrontendApp')
     // shoesAnim.start();
     var umbrellaAnim = new Kinetic.Animation(animInput(animationObjectsService.umbrella.kinetic, 8000, animationObjectsService.umbrella.metadata), layer);
     // umbrellaAnim.start();
+
+    var wateringCanAnim = new Kinetic.Animation(animInput(animationObjectsService.wateringCan.kinetic, 8000, animationObjectsService.wateringCan.metadata), layer);
+    // wateringCanAnim.start();
   
   });

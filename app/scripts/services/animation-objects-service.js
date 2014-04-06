@@ -290,27 +290,69 @@ angular.module('wampumfrontendApp')
     // ending x is about 80% of the width of the rect or 32
     // 38 - 32 is 6
 
+    // now make a polygon that starts with a line diagonal to the end of the stem
+    // 39 and 76 should be the endpoint
+
+
+    // lets have it be 10 wide at one part and 20 wide at the other part
+
+    // we could always just make this and rotate it
+
+    // longer and not quite as wide
+
+    // var wateringCanMetadata = new metaData(52, 44, 39, 76);
+
+    var wateringCanMetadata = new metaData(52, 44, -100, -100);
+
+
+// we are left off at 39 and 76
+
+    var wateringCanHead = new Kinetic.Shape({
+      sceneFunc: function(context) { 
+        context.beginPath();          
+        context.moveTo(wateringCanMetadata.startingX  + 38, wateringCanMetadata.startingY + 79 );
+        context.lineTo(wateringCanMetadata.startingX  + 42, wateringCanMetadata.startingY + 76);
+        context.lineTo(wateringCanMetadata.startingX  + 39, wateringCanMetadata.startingY + 70);
+        context.lineTo(wateringCanMetadata.startingX  + 33, wateringCanMetadata.startingY + 75);
+        context.closePath();
+        context.fillStrokeShape(this);
+      },
+      fill: '#4A7023',
+    });
+
+    // have deeper green oval along top
+
     var wateringCanStem = new Kinetic.Line({
-      points: [60, 105, 39, 76],
+      points: [wateringCanMetadata.startingX + 60, wateringCanMetadata.startingY + 105, wateringCanMetadata.startingX + 39, wateringCanMetadata.startingY + 76],
       stroke: '#4A7023',
       strokeWidth: 4,
-      // lineCap: 'round',
-      // lineJoin: 'round'
+    });
+
+    // one well placed quadratic curve
+
+    var wateringCanSupport = new Kinetic.Line({
+      points: [wateringCanMetadata.startingX + 60, wateringCanMetadata.startingY + 80, wateringCanMetadata.startingX + 43, wateringCanMetadata.startingY + 81],
+      stroke: '#4A7023',
+      strokeWidth: 3,
     });
 
     var wateringCanKinetic = new Kinetic.Group({});
     var wateringCanBody = new Kinetic.Rect({
-      x: 58,
-      y: 72,
+      x: wateringCanMetadata.startingX + 58,
+      y: wateringCanMetadata.startingY + 72,
       width: 30,
       height: 40,
+      cornerRadius: 4,
       fill: '#4A7023',
     });
 
     wateringCanKinetic.add(wateringCanBody);
     wateringCanKinetic.add(wateringCanStem);
+    wateringCanKinetic.add(wateringCanHead);
+    wateringCanKinetic.add(wateringCanSupport);
 
     var wateringCan = {
+      metadata: wateringCanMetadata,
       kinetic: wateringCanKinetic
     };
 
