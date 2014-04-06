@@ -6,20 +6,11 @@ angular.module('wampumfrontendApp')
 
     var stage = new Kinetic.Stage({
       container: 'kinetic',
-      // width: 800,
       width: document.getElementById('kinetic').offsetWidth,    
       height: 200,
     });
 
-    // width and heigh look alright
-    // consider hard coding this into the function
-    // starting points should be offset - 1/2 width
-
-    // offset for x is 40, and half of the width is 37.5
-    // offset for y is 15 and half of the width is 17.5
-
-
-    function metaData (startingX, startingY, width, height, offsetX, offsetY) {
+    var metaData = function (width, height, offsetX, offsetY) {
       this.startingX = 0 - offsetX - (width / 2),
       this.startingY = 0 - offsetY - (height / 2),
       this.width = width,
@@ -29,7 +20,7 @@ angular.module('wampumfrontendApp')
       this.centerY = 0 - (this.height / 2)
     };
 
-    var jeansMetadata = new metaData(0, 0, 60, 30, -30, -15);
+    var jeansMetadata = new metaData(60, 30, -30, -15);
     var jeansKinetic = new Kinetic.Line({
       points: [ jeansMetadata.startingX - 20, jeansMetadata.startingY - 15,
               jeansMetadata.startingX - 30, jeansMetadata.startingY + 15,
@@ -47,7 +38,7 @@ angular.module('wampumfrontendApp')
       kinetic: jeansKinetic
     };
 
-    var sunglassesMetadata = new metaData(-54, -56, 38, 23, 35, 35);
+    var sunglassesMetadata = new metaData(38, 23, 35, 35);
     var sunglassesKinetic = new Kinetic.Group({});
 
     var frameLine1 = new Kinetic.Line({
@@ -90,14 +81,7 @@ angular.module('wampumfrontendApp')
       kinetic: sunglassesKinetic      
     };
 
-
-    // the actual height is 40 plus the hood
-    // the hood starts at 50 and goes between 10 and 50, so adds another 40
-    // the width is 44 + whatever the width of the rectangle arms are
-
-    // 22 is where it starts, but the total width is 44 plus 16 on either side 
-
-    var yellowRainJacketMetadata = new metaData(-60, -60, 76, 80, 22, 10);
+    var yellowRainJacketMetadata = new metaData(76, 80, 22, 10);
     var yellowRainJacketKinetic = new Kinetic.Group({});
     var yellowRainJacketHood = new Kinetic.Shape({
       sceneFunc: function(context) {
@@ -120,16 +104,7 @@ angular.module('wampumfrontendApp')
       fill: '#FFD801',
     });
 
-    // toggles
-
-    // what is a rectangles length when tilted 45 degress?
-    // the answer to this will solve all questions
-
     var yellowRainJacketLeftArm = new Kinetic.Rect({
-
-      // if you were over 38 and you tilted right, the leftmost edge would be less than 38
-      // if it were tilted 90 degrees then it would be 15 pixels less than that, as it stands it would be 7.5
-      // or 31.5
       x: yellowRainJacketMetadata.startingX + 38,
       y: yellowRainJacketMetadata.startingY + 51,
       width: 15,
@@ -164,14 +139,7 @@ angular.module('wampumfrontendApp')
       kinetic: yellowRainJacketKinetic      
     };
 
-    // width and heigh look alright
-    // consider hard coding this into the function
-    // starting points should be offset - 1/2 width
-
-    // offset for x is 40, and half of the width is 37.5
-    // offset for y is 15 and half of the width is 17.5
-
-    var shoesMetadata = new metaData(-77.5, -32.5, 75, 35, 40, 15);
+    var shoesMetadata = new metaData(75, 35, 40, 15);
 
     var lowerShoe = new Kinetic.Group({});
 
