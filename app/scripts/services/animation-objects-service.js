@@ -21,7 +21,8 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansMetadata = new metaData(60, 30, -30, -15);
-    var jeansKinetic = new Kinetic.Line({
+    var jeansKinetic = new Kinetic.Group({});
+    var jeansMain = new Kinetic.Line({
       points: [ jeansMetadata.startingX - 20, jeansMetadata.startingY - 15,
               jeansMetadata.startingX - 30, jeansMetadata.startingY + 15,
                 jeansMetadata.startingX - 10, jeansMetadata.startingY + 15,
@@ -33,6 +34,37 @@ angular.module('wampumfrontendApp')
       strokeWidth: 5,
       closed: true
     });
+
+    var jeansButton = new Kinetic.Circle({
+      x: jeansMetadata.startingX,
+      y: jeansMetadata.startingY - 10,
+      radius: 2,
+      fill: '#ffd700',
+      stroke: '#ffd700',
+      strokeWidth: 1
+    });
+
+    var jeansLeftCuff = new Kinetic.Rect({
+      x: jeansMetadata.startingX  - 30,
+      y: jeansMetadata.startingY + 10,
+      width: 22,
+      height: 5,
+      fill: '80e3f7',
+    });
+
+    var jeansRightCuff = new Kinetic.Rect({
+      x: jeansMetadata.startingX  + 8,
+      y: jeansMetadata.startingY + 10,
+      width: 22,
+      height: 5,
+      fill: '80e3f7',
+    });
+
+    jeansKinetic.add(jeansMain);
+    jeansKinetic.add(jeansButton);
+    jeansKinetic.add(jeansLeftCuff);
+    jeansKinetic.add(jeansRightCuff);
+
     var jeans = {
       metadata: jeansMetadata,
       kinetic: jeansKinetic

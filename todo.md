@@ -1,10 +1,6 @@
-add gold button and blue cuffs to pants
-start sending them around at different rates
+// all of these might be cool but shouldn't interfere with getting the results and product ready
 
-purple umbrella
-green backpack?
-
+start sending them around at different rates?
 add some effects on click
 such as pause and reverse!!
-
 draw canvas directly onto blog post for better resolution
