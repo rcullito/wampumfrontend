@@ -234,8 +234,11 @@ angular.module('wampumfrontendApp')
       kinetic: shoesKinetic
     };
 
+    var umbrellaMetadata = new metaData(60, 78, 80, 20);
+    var umbrellaKinetic = new Kinetic.Group({});
+
     var umbrellaStem = new Kinetic.Line({
-      points: [110, 68, 110, 90],
+      points: [umbrellaMetadata.startingX + 110, umbrellaMetadata.startingY + 70, umbrellaMetadata.startingX + 110, umbrellaMetadata.startingY + 90],
       stroke: '#ccc',
       strokeWidth: 3,
       lineCap: 'square',
@@ -243,7 +246,7 @@ angular.module('wampumfrontendApp')
     });
 
     var umbrellaHandle = new Kinetic.Line({
-      points: [110,90,115,98,120,90],
+      points: [umbrellaMetadata.startingX + 110,umbrellaMetadata.startingY + 90,umbrellaMetadata.startingX + 115,umbrellaMetadata.startingY + 98,umbrellaMetadata.startingX + 120,umbrellaMetadata.startingY + 90],
       stroke: 'black',
       strokeWidth: 3,
       lineCap: 'square',
@@ -253,12 +256,11 @@ angular.module('wampumfrontendApp')
     var umbrellaCanvas =  new Kinetic.Shape({
       sceneFunc: function(context) {
         context.beginPath(); 
-        context.moveTo(80, 70);
-        context.quadraticCurveTo(110, 20, 140, 70);
-        // context.moveTo(140, 70);
-
-        // context.moveTo(40, 50);
-        // context.quadraticCurveTo(60, 10, 80, 50);
+        context.moveTo(umbrellaMetadata.startingX + 140, umbrellaMetadata.startingY + 70);
+        context.quadraticCurveTo(umbrellaMetadata.startingX + 130, umbrellaMetadata.startingY + 65, umbrellaMetadata.startingX + 120, umbrellaMetadata.startingY + 70);
+        context.quadraticCurveTo(umbrellaMetadata.startingX + 110, umbrellaMetadata.startingY + 65, umbrellaMetadata.startingX + 100, umbrellaMetadata.startingY + 70);
+        context.quadraticCurveTo(umbrellaMetadata.startingX + 90, umbrellaMetadata.startingY + 65, umbrellaMetadata.startingX + 80, umbrellaMetadata.startingY + 70);
+        context.quadraticCurveTo(umbrellaMetadata.startingX + 110, umbrellaMetadata.startingY + 25, umbrellaMetadata.startingX + 140, umbrellaMetadata.startingY + 70);
         context.closePath();
         context.fillStrokeShape(this);
       },
@@ -267,27 +269,14 @@ angular.module('wampumfrontendApp')
       strokeWidth: 4
     });
 
-    var umbrellaCut1 =  new Kinetic.Shape({
-      sceneFunc: function(context) {
-        context.beginPath(); 
-        context.moveTo(140, 70);
-        context.quadraticCurveTo(130, 65, 120, 70);
-        context.quadraticCurveTo(110, 65, 100, 70);
-        context.quadraticCurveTo(90, 65, 80, 70);
-        // context.moveTo(140, 70);
+    umbrellaKinetic.add(umbrellaCanvas);
+    umbrellaKinetic.add(umbrellaStem);
+    umbrellaKinetic.add(umbrellaHandle);
 
-        // context.moveTo(40, 50);
-        // context.quadraticCurveTo(60, 10, 80, 50);
-        context.closePath();
-        context.fillStrokeShape(this);
-      },
-      fill: 'white',
-      stroke: 'white',
-      strokeWidth: 4
-    });
-
-            
-
+    var umbrella = {
+      metadata: umbrellaMetadata,
+      kinetic: umbrellaKinetic
+    };
 
     return {
       stage: stage,
@@ -295,10 +284,7 @@ angular.module('wampumfrontendApp')
       sunglasses: sunglasses,      
       yellowRainJacket: yellowRainJacket,
       shoes: shoes,
-      umbrellaStem: umbrellaStem,
-      umbrellaHandle: umbrellaHandle,
-      umbrellaCanvas: umbrellaCanvas,
-      umbrellaCut1: umbrellaCut1,
+      umbrella: umbrella,
     };
 
   });
