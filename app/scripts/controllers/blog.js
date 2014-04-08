@@ -7,7 +7,7 @@ angular.module('wampumfrontendApp')
       $location.path('/');
     };
 
-    var blogTitle = $routeParams.blogTitle || 'KineticJS_3.25.14';
+    var blogTitle = $routeParams.blogTitle || 'Anthropomorphism_4.3.14';
 
     blogService.blogTitle(blogTitle, function (err, blog) {
       $scope.blog = $sce.trustAsHtml(blog);
