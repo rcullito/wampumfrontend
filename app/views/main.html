@@ -39,8 +39,9 @@
   </div>
 </div>
 
-<div ng-if="results" class="container lower results">
-  <a href="/">
+<div ng-hide="motion" class="container lower results">
+  <p>Hello old boy</p>
+<!--   <a href="/">
     <button class="btn btn-default col-sm-offset-10">Clear Results</button>
   </a>
   <p>WARNING: We are still in a high state of flux, for now treat all search results as experimental. Thanks - Wampum</p>
@@ -54,7 +55,7 @@
       <p>{{result.shipping_address}}</p>
       <p ng-if="result.actions"><span ng-repeat="action in result.actions"><button ng-click="takeAction(action)" class="btn btn-default">{{action}}</button></p>
     </span>
-  </div>
+  </div> -->
 </div>
 
 <!-- if about and also there aren't any search results -->

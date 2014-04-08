@@ -16,13 +16,13 @@ angular.module('wampumfrontendApp')
       $scope.motion = false;
       console.log(term);
 
-      // esService.prefixQuery('organizations', term)
-      //   .success(function(data) {
+      esService.prefixQuery('organizations', term)
+        .success(function(data) {
 
-      //     $scope.results = data;
-      //     console.log($scope.results);
-      //     $scope.suburl = undefined;
-      //   });
+          $scope.results = data;
+          console.log($scope.results);
+          $scope.suburl = undefined;
+        });
 
 
   	};
