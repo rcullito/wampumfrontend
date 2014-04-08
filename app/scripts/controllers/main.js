@@ -7,14 +7,23 @@ angular.module('wampumfrontendApp')
       $location.path('/');
     };
 
+    $scope.motion = true;
+
     // Search
   	$scope.search = function(term) {
-      esService.prefixQuery('organizations', term)
-        .success(function(data) {
 
-          $scope.results = data;
-          console.log($scope.results);
-          $scope.suburl = undefined;
-        });
+      // hide animation
+      $scope.motion = false;
+      console.log(term);
+
+      // esService.prefixQuery('organizations', term)
+      //   .success(function(data) {
+
+      //     $scope.results = data;
+      //     console.log($scope.results);
+      //     $scope.suburl = undefined;
+      //   });
+
+
   	};
 });
