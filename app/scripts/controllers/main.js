@@ -9,21 +9,14 @@ angular.module('wampumfrontendApp')
 
     $scope.motion = true;
 
-    // Search
   	$scope.search = function(term) {
-
-      // hide animation
-      $scope.motion = false;
-      console.log(term);
-
-      esService.prefixQuery('organizations', term)
-        .success(function(data) {
-
-          $scope.results = data;
-          console.log($scope.results);
-          $scope.suburl = undefined;
+      esService.prefixQuery('stuff', term)
+        .success(function (results) {
+          $scope.resultObjects = results;
+          $scope.motion = false;
+        })
+        .error(function (err) {
+          console.log(err);
         });
-
-
   	};
 });
