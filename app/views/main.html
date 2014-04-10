@@ -43,11 +43,10 @@
   <div class="row" ng-repeat="result in resultObjects">
     <span class="col-sm-12">
       <h4>{{ result.name }}</h4>
-      <!-- make these clickable for a new search -->
-      <p>Tags: {{ result.tags }}</p>
-      <p>{{ result.description }}</p>
+      <p><u>About</u>: {{ result.description }}</p>
       <p>Mailing Address: {{ result.mailingaddress }}</p>
-      <p><a href="{{ result.website }}">{{ result.website }}</a></p>
+      <p><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
+      <p>Tags: {{ result.tags }}</p>
     </span>
   </div>
 </div>
