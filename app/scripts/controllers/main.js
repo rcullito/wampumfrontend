@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp')
     if (urlSearchParams.search) {
       var term = urlSearchParams.search;
       $location.search('search', term);
-
+      $scope.term = term;
       esService.prefixQuery('stuff', term)
         .success(function (results) {
           $scope.resultObjects = results;
