@@ -6,16 +6,13 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
     $routeProvider
       .when('/', {
         templateUrl: '/ui/wampumfrontend/app/views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        reloadOnSearch: false
       })
       .when('/blog/:blogTitle', {
         templateUrl: '/ui/wampumfrontend/app/views/blogmain.html',
         controller: 'BlogCtrl'
       })
-      // .when('/search/:query', {
-      //   templateUrl: '/ui/wampumfrontend/app/views/main.html',
-      //   controller: 'MainCtrl'
-      // })
       .otherwise({
         redirectTo: '/'
       });
