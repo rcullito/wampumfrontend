@@ -1,9 +1,50 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $routeParams, $location, esService, animationObjectsService, animationService) {
+  .controller('MainCtrl', function ($scope, $routeParams, $location, esService) {
 
- var stage = new Kinetic.Stage({
+    $scope.showAbout = function () {
+      $scope.motion = true;
+      $scope.resultObjects = null;
+      $location.url($location.path());
+    };
+
+    $scope.motion = true;
+    var urlSearchParams = $location.search();
+
+    if (urlSearchParams.search) {
+      var term = urlSearchParams.search;
+      $location.search('search', term);
+      $scope.term = term;
+      esService.prefixQuery('stuff', term)
+        .success(function (results) {
+          $scope.resultObjects = results;
+          $scope.motion = false;
+          $location.search('search', term);
+        })
+        .error(function (err) {
+          console.log(err);
+        });
+    };
+
+    $scope.search = function(term) {
+
+      $location.search('search', term);
+
+      esService.prefixQuery('stuff', term)
+        .success(function (results) {
+          $scope.resultObjects = results;
+          $scope.motion = false;
+          $location.search('search', term);
+        })
+        .error(function (err) {
+          console.log(err);
+        });
+    };
+
+    // BEGINNING OF A TON OF ANIMATION
+
+    var stage = new Kinetic.Stage({
       container: 'kinetic',
       width: document.getElementById('kinetic').offsetWidth,    
       height: 200,
@@ -387,8 +428,6 @@ angular.module('wampumfrontendApp')
 
 
     var stage = stage;
-    console.log(stage.attrs);
-
     var layer = new Kinetic.Layer();
     layer.add(jeans.kinetic);
     layer.add(sunglasses.kinetic);
@@ -423,45 +462,4 @@ angular.module('wampumfrontendApp')
     umbrellaAnim.start();
     var wateringCanAnim = new Kinetic.Animation(animInput(wateringCan.kinetic, 10000, wateringCan.metadata), layer);
     wateringCanAnim.start();
-
-
-
-    $scope.showAbout = function () {
-      $scope.motion = true;
-      $scope.resultObjects = null;
-      $location.url($location.path());
-    };
-
-    $scope.motion = true;
-    var urlSearchParams = $location.search();
-
-    if (urlSearchParams.search) {
-      var term = urlSearchParams.search;
-      $location.search('search', term);
-      $scope.term = term;
-      esService.prefixQuery('stuff', term)
-        .success(function (results) {
-          $scope.resultObjects = results;
-          $scope.motion = false;
-          $location.search('search', term);
-        })
-        .error(function (err) {
-          console.log(err);
-        });
-    };
-
-  	$scope.search = function(term) {
-
-      $location.search('search', term);
-
-      esService.prefixQuery('stuff', term)
-        .success(function (results) {
-          $scope.resultObjects = results;
-          $scope.motion = false;
-          $location.search('search', term);
-        })
-        .error(function (err) {
-          console.log(err);
-        });
-  	};
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('BlogCtrl', function ($scope, $sce, $routeParams, $location, blogService, animationService, disqusService) {
+  .controller('BlogCtrl', function ($scope, $sce, $routeParams, $location, blogService, disqusService) {
 
     $scope.showAbout = function () {
       // reload animation here
