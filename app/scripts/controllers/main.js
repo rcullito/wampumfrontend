@@ -4,7 +4,9 @@ angular.module('wampumfrontendApp')
   .controller('MainCtrl', function ($scope, $routeParams, $location, esService, animationService) {
 
     $scope.showAbout = function () {
-      window.location.replace("http://wampum.io");
+      $scope.motion = true;
+      $scope.resultObjects = null;
+      $location.url($location.path());
     };
 
     $scope.motion = true;
