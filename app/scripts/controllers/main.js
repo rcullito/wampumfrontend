@@ -42,6 +42,57 @@ angular.module('wampumfrontendApp')
         });
     };
 
+    // BEGINNING OF TYPEAHEAD STUFF
+
+      var substringMatcher = function(strs) {
+            return function findMatches(q, cb) {
+          var matches, substrRegex;
+       
+          // an array that will be populated with substring matches
+          matches = [];
+       
+          // regex used to determine if a string contains the substring `q`
+          substrRegex = new RegExp(q, 'i');
+       
+          // iterate through the pool of strings and for any string that
+          // contains the substring `q`, add it to the `matches` array
+          $.each(strs, function(i, str) {
+            if (substrRegex.test(str)) {
+              // the typeahead jQuery plugin expects suggestions to a
+              // JavaScript object, refer to typeahead docs for more info
+              matches.push({ value: str });
+            }
+          });
+       
+          cb(matches);
+        };
+      };
+ 
+      var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+        'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+        'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+        'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+        'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+        'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+        'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+      ];
+       
+      $('#the-basics .typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'states',
+        displayKey: 'value',
+        source: substringMatcher(states)
+      });
+
+
+
+
     // BEGINNING OF A TON OF ANIMATION
 
     var stage = new Kinetic.Stage({
@@ -429,12 +480,12 @@ angular.module('wampumfrontendApp')
 
     var stage = stage;
     var layer = new Kinetic.Layer();
-    layer.add(jeans.kinetic);
-    layer.add(sunglasses.kinetic);
-    layer.add(yellowRainJacket.kinetic);
-    layer.add(shoes.kinetic);
-    layer.add(umbrella.kinetic);
-    layer.add(wateringCan.kinetic);
+    // layer.add(jeans.kinetic);
+    // layer.add(sunglasses.kinetic);
+    // layer.add(yellowRainJacket.kinetic);
+    // layer.add(shoes.kinetic);
+    // layer.add(umbrella.kinetic);
+    // layer.add(wateringCan.kinetic);
 
     // document.getElementById('kinetic').style.background = 'red';
 
@@ -451,15 +502,15 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansAnim = new Kinetic.Animation(animInput(jeans.kinetic, 0, jeans.metadata), layer);
-    jeansAnim.start();
+    // jeansAnim.start();
     var sunglassesAnim = new Kinetic.Animation(animInput(sunglasses.kinetic, 2000, sunglasses.metadata), layer);
-    sunglassesAnim.start();
+    // sunglassesAnim.start();
     var yellowRainJacketAnim = new Kinetic.Animation(animInput(yellowRainJacket.kinetic, 4000, yellowRainJacket.metadata), layer);
-    yellowRainJacketAnim.start();
+    // yellowRainJacketAnim.start();
     var shoesAnim = new Kinetic.Animation(animInput(shoes.kinetic, 6000, shoes.metadata), layer);
-    shoesAnim.start();
+    // shoesAnim.start();
     var umbrellaAnim = new Kinetic.Animation(animInput(umbrella.kinetic, 8000, umbrella.metadata), layer);
-    umbrellaAnim.start();
+    // umbrellaAnim.start();
     var wateringCanAnim = new Kinetic.Animation(animInput(wateringCan.kinetic, 10000, wateringCan.metadata), layer);
-    wateringCanAnim.start();
+    // wateringCanAnim.start();
 });
