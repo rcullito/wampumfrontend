@@ -49,7 +49,7 @@ angular.module('wampumfrontendApp')
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         limit: 10,
         prefetch: {
-          url: '/suggest',
+          url: '/autocomplete',
           filter: function(res) {
             return res;
           }
@@ -57,7 +57,11 @@ angular.module('wampumfrontendApp')
       });
 
       engine.initialize();
-      $('#prefetch .typeahead').typeahead(null, {
+
+      $('#prefetch .typeahead').typeahead({
+        minLength: 1,
+        highlight: true,
+      }, {
         name: 'engine',
         displayKey: 'tag',
         source: engine.ttAdapter()
