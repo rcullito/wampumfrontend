@@ -43,6 +43,23 @@ angular.module('wampumfrontendApp')
     };
 
     // BEGINNING OF TYPEAHEAD STUFF
+
+    $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
+      alert('here we go');
+    });
+
+    // manually set width of .tt-dropdown-menu
+    var skyfall = $('#skyfall').css('width');
+    console.log(skyfall);
+    // $('#quantum').css('width', 559);
+
+    // potentially get or set this on keystroke
+    var quantum = $('#quantum').css('width');
+
+    console.log(quantum);
+    // might just want to set the css here
+    // $input.css('border-top-left-radius', '6px');
+
  
       var engine = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),

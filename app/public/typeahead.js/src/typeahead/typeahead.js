@@ -27,6 +27,9 @@ var Typeahead = (function() {
 
     $menu = this.$node.find('.tt-dropdown-menu');
     $input = this.$node.find('.tt-input');
+    // might just want to set the css here
+    $input.css('border-top-left-radius', '6px');
+    $input.css('border-bottom-left-radius', '6px');
     $hint = this.$node.find('.tt-hint');
 
     // #705: if there's scrollable overflow, ie doesn't support
