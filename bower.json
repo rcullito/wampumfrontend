@@ -13,10 +13,8 @@
     "angular-sanitize": "~1.2.14",
     "angular-disqus": "~1.1.0",
     "lodash": "~2.4.1",
-    "Buttons": "*",
     "superagent": "~0.16.0",
-    "kineticjs": "~5.0.1",
-    "typeahead.js": "~0.10.2"
+    "kineticjs": "~5.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
