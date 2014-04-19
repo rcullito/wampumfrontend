@@ -60,7 +60,7 @@ angular.module('wampumfrontendApp')
 
       $('#scrollable-dropdown-menu .typeahead').typeahead({
         minLength: 1,
-        highlight: true,
+        highlight: false,
       }, {
         name: 'engine',
         displayKey: 'tag',
