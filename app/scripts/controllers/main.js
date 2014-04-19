@@ -58,7 +58,7 @@ angular.module('wampumfrontendApp')
 
       engine.initialize();
 
-      $('#prefetch .typeahead').typeahead({
+      $('#scrollable-dropdown-menu .typeahead').typeahead({
         minLength: 1,
         highlight: true,
       }, {
