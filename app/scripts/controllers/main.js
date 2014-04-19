@@ -27,8 +27,9 @@ angular.module('wampumfrontendApp')
         });
     };
 
-    $scope.search = function(term) {
+    $scope.search = function() {
 
+      var term = $('#skyfall').val();
       $location.search('search', term);
 
       esService.prefixQuery('stuff', term)
@@ -47,6 +48,21 @@ angular.module('wampumfrontendApp')
     $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
       $('#quantum').css('width', skyfall);
     });
+
+    // $('#scrollable-dropdown-menu .typeahead').on("typeahead:autocompleted", function () {
+    //   console.log('autocompleted');
+    // });
+
+    // $('#scrollable-dropdown-menu .typeahead').on("typeahead:selected", function () {
+    //   console.log('selected');
+    // });
+
+
+
+    
+
+
+
     var skyfall = $('#skyfall').css('width');
 
     var engine = new Bloodhound({
