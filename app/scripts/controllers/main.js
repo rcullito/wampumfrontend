@@ -77,6 +77,8 @@ angular.module('wampumfrontendApp')
 
     // BEGINNING OF A TON OF ANIMATION
 
+    var animation_switch = true;
+
     var stage = new Kinetic.Stage({
       container: 'kinetic',
       width: document.getElementById('kinetic').offsetWidth,    
@@ -459,18 +461,8 @@ angular.module('wampumfrontendApp')
       kinetic: wateringCanKinetic
     };
 
-
     var stage = stage;
     var layer = new Kinetic.Layer();
-    // layer.add(jeans.kinetic);
-    // layer.add(sunglasses.kinetic);
-    // layer.add(yellowRainJacket.kinetic);
-    // layer.add(shoes.kinetic);
-    // layer.add(umbrella.kinetic);
-    // layer.add(wateringCan.kinetic);
-
-    // document.getElementById('kinetic').style.background = 'red';
-
     stage.add(layer);
 
     var centerX = stage.width() / 2;
@@ -484,15 +476,26 @@ angular.module('wampumfrontendApp')
     };
 
     var jeansAnim = new Kinetic.Animation(animInput(jeans.kinetic, 0, jeans.metadata), layer);
-    // jeansAnim.start();
     var sunglassesAnim = new Kinetic.Animation(animInput(sunglasses.kinetic, 2000, sunglasses.metadata), layer);
-    // sunglassesAnim.start();
     var yellowRainJacketAnim = new Kinetic.Animation(animInput(yellowRainJacket.kinetic, 4000, yellowRainJacket.metadata), layer);
-    // yellowRainJacketAnim.start();
     var shoesAnim = new Kinetic.Animation(animInput(shoes.kinetic, 6000, shoes.metadata), layer);
-    // shoesAnim.start();
     var umbrellaAnim = new Kinetic.Animation(animInput(umbrella.kinetic, 8000, umbrella.metadata), layer);
-    // umbrellaAnim.start();
     var wateringCanAnim = new Kinetic.Animation(animInput(wateringCan.kinetic, 10000, wateringCan.metadata), layer);
-    // wateringCanAnim.start();
+    
+
+    if (animation_switch) {
+      layer.add(jeans.kinetic);
+      layer.add(sunglasses.kinetic);
+      layer.add(yellowRainJacket.kinetic);
+      layer.add(shoes.kinetic);
+      layer.add(umbrella.kinetic);
+      layer.add(wateringCan.kinetic);
+      jeansAnim.start();   
+      sunglassesAnim.start();  
+      yellowRainJacketAnim.start();
+      shoesAnim.start();
+      umbrellaAnim.start();
+      wateringCanAnim.start();
+    };
+
 });
