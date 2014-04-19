@@ -29,7 +29,7 @@ angular.module('wampumfrontendApp')
 
     $scope.search = function() {
 
-      var term = $('#skyfall').val();
+      var term = $('#searchinput').val();
       $location.search('search', term);
 
       esService.prefixQuery('stuff', term)
@@ -46,24 +46,10 @@ angular.module('wampumfrontendApp')
     // BEGINNING OF TYPEAHEAD STUFF
 
     $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
-      $('#quantum').css('width', skyfall);
+      $('#rc-dropdown').css('width', searchinputWidth);
     });
 
-    // $('#scrollable-dropdown-menu .typeahead').on("typeahead:autocompleted", function () {
-    //   console.log('autocompleted');
-    // });
-
-    // $('#scrollable-dropdown-menu .typeahead').on("typeahead:selected", function () {
-    //   console.log('selected');
-    // });
-
-
-
-    
-
-
-
-    var skyfall = $('#skyfall').css('width');
+    var searchinputWidth = $('#searchinput').css('width');
 
     var engine = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
