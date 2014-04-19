@@ -44,29 +44,23 @@ angular.module('wampumfrontendApp')
 
     // BEGINNING OF TYPEAHEAD STUFF
  
-      var countries = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+      var engine = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         limit: 10,
         prefetch: {
-          url: '/ui/wampumfrontend/app/data/countries1.json',
-          filter: function(list) {
-            return $.map(list, function(country) { return { name: country }; });
+          url: '/suggest',
+          filter: function(res) {
+            return res;
           }
         }
       });
 
-      // kicks off the loading/processing of `local` and `prefetch`
-      countries.initialize();
-
-      // passing in `null` for the `options` arguments will result in the default
-      // options being used
+      engine.initialize();
       $('#prefetch .typeahead').typeahead(null, {
-        name: 'countries',
-        displayKey: 'name',
-        // `ttAdapter` wraps the suggestion engine in an adapter that
-        // is compatible with the typeahead jQuery plugin
-        source: countries.ttAdapter()
+        name: 'engine',
+        displayKey: 'tag',
+        source: engine.ttAdapter()
       });
 
 
