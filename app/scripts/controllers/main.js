@@ -47,44 +47,30 @@ angular.module('wampumfrontendApp')
     $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
       $('#quantum').css('width', skyfall);
     });
-
-    // manually set width of .tt-dropdown-menu
     var skyfall = $('#skyfall').css('width');
-    console.log(skyfall);
-    // $('#quantum').css('width', 559);
 
-    // potentially get or set this on keystroke
-    var quantum = $('#quantum').css('width');
-
-    console.log(quantum);
-    // might just want to set the css here
-    // $input.css('border-top-left-radius', '6px');
-
- 
-      var engine = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        limit: 10,
-        prefetch: {
-          url: '/autocomplete',
-          filter: function(res) {
-            return res;
-          }
+    var engine = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 10,
+      prefetch: {
+        url: '/autocomplete',
+        filter: function(res) {
+          return res;
         }
-      });
+      }
+    });
 
-      engine.initialize();
+    engine.initialize();
 
-      $('#scrollable-dropdown-menu .typeahead').typeahead({
-        minLength: 1,
-        highlight: false,
-      }, {
-        name: 'engine',
-        displayKey: 'tag',
-        source: engine.ttAdapter()
-      });
-
-
+    $('#scrollable-dropdown-menu .typeahead').typeahead({
+      minLength: 1,
+      highlight: false,
+    }, {
+      name: 'engine',
+      displayKey: 'tag',
+      source: engine.ttAdapter()
+    });
 
 
     // BEGINNING OF A TON OF ANIMATION
