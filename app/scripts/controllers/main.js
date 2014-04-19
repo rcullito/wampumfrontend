@@ -45,7 +45,7 @@ angular.module('wampumfrontendApp')
     // BEGINNING OF TYPEAHEAD STUFF
 
     $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
-      alert('here we go');
+      $('#quantum').css('width', skyfall);
     });
 
     // manually set width of .tt-dropdown-menu
