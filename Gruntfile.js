@@ -315,6 +315,23 @@ module.exports = function (grunt) {
         src: ['app/scripts/controllers/home.js', 'app/animation/index.js'],
         dest: 'app/scripts/controllers/main.js',
       },
+      vendor: {
+        // TODO see if we can remove any of these, verify against nibbler
+        src: [
+          'app/bower_components/jquery/jquery.js',
+          'app/bower_components/angular/angular.js',
+          'app/bower_components/angular-disqus/angular-disqus.js',
+          'app/bower_components/angular-resource/angular-resource.js',
+          'app/bower_components/angular-cookies/angular-cookies.js',
+          'app/bower_components/angular-sanitize/angular-sanitize.js',
+          'app/bower_components/angular-route/angular-route.js',
+          'app/bower_components/lodash/dist/lodash.min.js',
+          'app/bower_components/superagent/superagent.js',
+          'app/bower_components/kineticjs/kinetic.min.js',
+          'app/public/typeahead.js/dist/typeahead.bundle.min.js',
+        ],
+        dest: 'dist/js/vendor.js',
+      },
       core: {
         src: [
           'app/scripts/app.js',
