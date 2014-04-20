@@ -2,7 +2,7 @@
 
 body {
 	/*background: #fafafa;*/
-	background-image:url('/ui/wampumfrontend/app/images/fishingweir8bw.jpeg');
+	background-image:url('/ui/wampumfrontend/dist/images/fishingweir8bw.jpeg');
 	font-family:'Avenir Next';
 	color: #696969;
 }
