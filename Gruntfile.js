@@ -12,6 +12,9 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.initConfig({
+    clean: {
+      build: ['dist']
+    },
     copy: {
       index: {
         src: 'app/index.html',
@@ -40,82 +43,11 @@ module.exports = function (grunt) {
         dest: 'dist/images'
       },
     },
-    watch: {
-      options: {
-        spawn: true,
-      },
-      js: {
-        files: [
-          'app/animation/index.js',
-          'app/scripts/**/*.js',
-          'Gruntfile.js',
-        ],
-        tasks: ['concat:animation', 'concat:core']
-      }
-    },
-    clean: {
-      build: ['dist']
-    },
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      all: [
-        'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
-      ]
-    },
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    cssmin: {
-      // By default, your `index.html` <!-- Usemin Block --> will take care of
-      // minification. This option is pre-configured if you do not wish to use
-      // Usemin blocks.
-      // dist: {
-      //   files: {
-      //     '<%= yeoman.dist %>/styles/main.css': [
-      //       '.tmp/styles/{,*/}*.css',
-      //       '<%= yeoman.app %>/styles/{,*/}*.css'
-      //     ]
-      //   }
-      // }
-    },
-    htmlmin: {
-      dist: {
-        options: {
-          /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true*/
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['*.html', 'views/*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
-    // Put files not handled in other tasks here
     concat: {
       options: {
         separator: ';',
       },
       vendor: {
-        // TODO see if we can remove any of these, verify against nibbler
         src: [
           'app/bower_components/jquery/jquery.js',
           'app/bower_components/angular/angular.js',
@@ -146,7 +78,20 @@ module.exports = function (grunt) {
           ],
         dest: 'dist/js/wampum.js',
       },
-    }
+    },
+    watch: {
+      options: {
+        spawn: true,
+      },
+      js: {
+        files: [
+          'app/animation/index.js',
+          'app/scripts/**/*.js',
+          'Gruntfile.js',
+        ],
+        tasks: ['concat:animation', 'concat:core']
+      }
+    },
   });
 
   grunt.registerTask('build', [
