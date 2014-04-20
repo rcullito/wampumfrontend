@@ -2,7 +2,6 @@
 
 angular.module('wampumfrontendApp')
   .service('blogService', function ($http) {
-
     var blogList = function(callback) {
       superagent
         .get('/blogList')

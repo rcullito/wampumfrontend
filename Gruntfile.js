@@ -13,28 +13,15 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     watch: {
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-        tasks: ['coffee:dist']
+      options: {
+        spawn: true,
       },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.coffee'],
-        tasks: ['coffee:test']
-      },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['copy:styles', 'autoprefixer']
-      },
-      livereload: {
-        options: {
-          livereload: LIVERELOAD_PORT
-        },
+      js: {
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+          'app/scripts/**/*.js',
+          'Gruntfile.js',
+        ],
+        tasks: ['concat:animation', 'concat:core']
       }
     },
     clean: {
@@ -98,10 +85,6 @@ module.exports = function (grunt) {
       options: {
         separator: ';',
       },
-      animation: {
-        src: ['app/scripts/controllers/home.js', 'app/animation/index.js'],
-        dest: 'app/scripts/controllers/main.js',
-      },
       vendor: {
         // TODO see if we can remove any of these, verify against nibbler
         src: [
@@ -119,10 +102,14 @@ module.exports = function (grunt) {
         ],
         dest: 'dist/js/vendor.js',
       },
+      animation: {
+        src: ['app/scripts/controllers/main.js', 'app/animation/index.js'],
+        dest: 'app/intermediate/index.js',
+      },
       core: {
         src: [
           'app/scripts/app.js',
-          'app/scripts/controllers/main.js',
+          'app/intermediate/index.js',
           'app/scripts/controllers/blog.js',
           'app/scripts/directives/*.js',
           'app/scripts/services/*.js',
