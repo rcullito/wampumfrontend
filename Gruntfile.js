@@ -109,17 +109,7 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
-          ]
-        }]
-      },
-      server: '.tmp'
+      build: ['dist']
     },
     jshint: {
       options: {
@@ -348,6 +338,7 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('build', [
+    'clean',
     'concat',
   ]);
 
