@@ -12,12 +12,41 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.initConfig({
+    copy: {
+      index: {
+        src: 'app/index.html',
+        dest: 'dist/index.html'
+      },
+      html: {
+        expand: true,
+        flatten: true,
+        src: ['app/views/*.html'],
+        dest: 'dist/views'
+      },
+      buttoncss: {
+        src: 'app/public/css/buttons.css',
+        dest: 'dist/styles/buttons.css'
+      },
+      css: {
+        expand: true,
+        flatten: true,
+        src: 'app/styles/*.css',
+        dest: 'dist/styles'
+      },
+      images: {
+        expand: true,
+        flatten: true,
+        src: ['app/images/*'],
+        dest: 'dist/images'
+      },
+    },
     watch: {
       options: {
         spawn: true,
       },
       js: {
         files: [
+          'app/animation/index.js',
           'app/scripts/**/*.js',
           'Gruntfile.js',
         ],
@@ -120,9 +149,9 @@ module.exports = function (grunt) {
     }
   });
 
-
   grunt.registerTask('build', [
     'clean',
+    'copy',
     'concat',
   ]);
 
