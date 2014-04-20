@@ -311,9 +311,20 @@ module.exports = function (grunt) {
       options: {
         separator: ';',
       },
-      dist: {
+      animation: {
         src: ['app/scripts/controllers/home.js', 'app/animation/index.js'],
         dest: 'app/scripts/controllers/main.js',
+      },
+      core: {
+        src: [
+          'app/scripts/app.js',
+          'app/scripts/controllers/main.js',
+          'app/scripts/controllers/blog.js',
+          'app/scripts/directives/*.js',
+          'app/scripts/services/*.js',
+
+          ],
+        dest: 'dist/js/wampum.js',
       },
     }
   });
