@@ -4,6 +4,7 @@ node_js:
 before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
+  - echo -e "Host ec2-54-204-7-85.compute-1.amazonaws.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - 'grunt'
 after_success:
