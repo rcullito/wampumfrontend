@@ -64,34 +64,34 @@ angular.module('wampumfrontendApp')
 
     // BEGINNING OF TYPEAHEAD STUFF
 
-    $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
-      $('#rc-dropdown').css('width', searchinputWidth);
-    });
+    // $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
+    //   $('#rc-dropdown').css('width', searchinputWidth);
+    // });
 
-    var searchinputWidth = $('#searchinput').css('width');
+    // var searchinputWidth = $('#searchinput').css('width');
 
-    var engine = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      limit: 10,
-      prefetch: {
-        url: '/autocomplete',
-        filter: function(res) {
-          return res;
-        }
-      }
-    });
+    // var engine = new Bloodhound({
+    //   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tag'),
+    //   queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //   limit: 10,
+    //   prefetch: {
+    //     url: '/autocomplete',
+    //     filter: function(res) {
+    //       return res;
+    //     }
+    //   }
+    // });
 
-    engine.initialize();
+    // engine.initialize();
 
-    $('#scrollable-dropdown-menu .typeahead').typeahead({
-      minLength: 1,
-      highlight: false,
-    }, {
-      name: 'engine',
-      displayKey: 'tag',
-      source: engine.ttAdapter()
-    });
+    // $('#scrollable-dropdown-menu .typeahead').typeahead({
+    //   minLength: 1,
+    //   highlight: false,
+    // }, {
+    //   name: 'engine',
+    //   displayKey: 'tag',
+    //   source: engine.ttAdapter()
+    // });
 
     var stage = new Kinetic.Stage({
       container: 'kinetic',

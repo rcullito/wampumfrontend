@@ -59,7 +59,7 @@ module.exports = function (grunt) {
           'app/bower_components/lodash/dist/lodash.min.js',
           'app/bower_components/superagent/superagent.js',
           'app/bower_components/kineticjs/kinetic.min.js',
-          'app/public/typeahead.js/dist/typeahead.bundle.min.js',
+          // 'app/public/typeahead.js/dist/typeahead.bundle.min.js',
         ],
         dest: 'dist/js/vendor.js',
       },
