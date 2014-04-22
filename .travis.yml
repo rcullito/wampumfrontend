@@ -10,5 +10,5 @@ script:
 after_success:
   - chmod 600 .travis/acton.pem # this key should have push access
   - ssh-add .travis/acton.pem
-  - git remote add deploy 'ec2-54-204-7-85.compute-1.amazonaws.com:/home/ubuntu/wampumfrontend/.git'
+  - git remote add deploy 'ec2-54-204-7-85.compute-1.amazonaws.com:/home/ubuntu/frontend/.git'
   - git push deploy
