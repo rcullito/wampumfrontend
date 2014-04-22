@@ -26,16 +26,6 @@ module.exports = function (grunt) {
         src: ['app/views/*.html'],
         dest: 'dist/views'
       },
-      buttoncss: {
-        src: 'app/public/css/buttons.css',
-        dest: 'dist/styles/buttons.css'
-      },
-      css: {
-        expand: true,
-        flatten: true,
-        src: 'app/styles/*.css',
-        dest: 'dist/styles'
-      },
       images: {
         expand: true,
         flatten: true,
@@ -79,6 +69,13 @@ module.exports = function (grunt) {
         dest: 'dist/js/wampum.js',
       },
     },
+    cssmin: {
+      combine: {
+        files: {
+          'dist/css/all.css': ['app/public/css/buttons.css', 'app/styles/*.css']
+        }
+      }
+    },
     watch: {
       options: {
         spawn: true,
@@ -97,6 +94,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'cssmin',
     'concat',
   ]);
 
