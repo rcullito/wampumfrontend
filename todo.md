@@ -1,1 +1,1 @@
-1. get post commit hook working again
+1. get post commit hook working again, remove bad variable name
