@@ -1,1 +1,1 @@
-1. get post commit hook working
+1. get post commit hook working again
