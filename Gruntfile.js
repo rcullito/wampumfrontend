@@ -36,19 +36,12 @@ module.exports = function (grunt) {
         src: ['app/images/*'],
         dest: 'dist/images'
       },
-      // js: {
-      //   src: [
-      //     'app/bower_components/jquery/jquery.min.js',
-      //     'app/bower_components/angular/angular.min.js',
-      //     'app/bower_components/angular-disqus/angular-disqus.js',
-      //     'app/bower_components/angular-route/angular-route.min.js',
-      //     'app/bower_components/lodash/dist/lodash.min.js',
-      //     'app/bower_components/superagent/superagent.js',
-      //     'app/bower_components/kineticjs/kinetic.min.js',
-      //     'app/public/typeahead.js/dist/typeahead.bundle.min.js'
-      //   ],
-      //   dest: 'dist/js'
-      // }
+      js: {
+        src: [
+          'app/public/typeahead.js/dist/typeahead.bundle.min.js'
+        ],
+        dest: 'dist/js/typeahead.js'
+      }
     },
     concat: {
       options: {
@@ -64,7 +57,7 @@ module.exports = function (grunt) {
           'app/bower_components/superagent/superagent.js',
           'app/bower_components/kineticjs/kinetic.min.js',
           // 'app/public/typeahead.js/dist/typeahead.bundle.min.js',
-          'app/bower_components/typeahead.js/dist/typeahead.bundle.min.js',
+          // 'app/bower_components/typeahead.js/dist/typeahead.bundle.min.js',
         ],
         dest: 'dist/js/vendor.js',
       },
