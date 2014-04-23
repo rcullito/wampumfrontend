@@ -32,27 +32,37 @@ module.exports = function (grunt) {
         src: ['app/images/*'],
         dest: 'dist/images'
       },
+      // js: {
+      //   src: [
+      //     'app/bower_components/jquery/jquery.min.js',
+      //     'app/bower_components/angular/angular.min.js',
+      //     'app/bower_components/angular-disqus/angular-disqus.js',
+      //     'app/bower_components/angular-route/angular-route.min.js',
+      //     'app/bower_components/lodash/dist/lodash.min.js',
+      //     'app/bower_components/superagent/superagent.js',
+      //     'app/bower_components/kineticjs/kinetic.min.js',
+      //     'app/public/typeahead.js/dist/typeahead.bundle.min.js'
+      //   ],
+      //   dest: 'dist/js'
+      // }
     },
     concat: {
       options: {
         separator: ';',
       },
-      // vendor: {
-      //   src: [
-      //     'app/bower_components/jquery/jquery.js',
-      //     'app/bower_components/angular/angular.js',
-      //     'app/bower_components/angular-disqus/angular-disqus.js',
-      //     'app/bower_components/angular-resource/angular-resource.js',
-      //     'app/bower_components/angular-cookies/angular-cookies.js',
-      //     'app/bower_components/angular-sanitize/angular-sanitize.js',
-      //     'app/bower_components/angular-route/angular-route.js',
-      //     'app/bower_components/lodash/dist/lodash.min.js',
-      //     'app/bower_components/superagent/superagent.js',
-      //     'app/bower_components/kineticjs/kinetic.min.js',
-      //     'app/public/typeahead.js/dist/typeahead.bundle.min.js',
-      //   ],
-      //   dest: 'dist/js/vendor.js',
-      // },
+      vendor: {
+        src: [
+          'app/bower_components/jquery/jquery.min.js',
+          'app/bower_components/angular/angular.min.js',
+          'app/bower_components/angular-disqus/angular-disqus.js',
+          'app/bower_components/angular-route/angular-route.min.js',
+          'app/bower_components/lodash/dist/lodash.min.js',
+          'app/bower_components/superagent/superagent.js',
+          'app/bower_components/kineticjs/kinetic.min.js',
+          'app/public/typeahead.js/dist/typeahead.bundle.min.js',
+        ],
+        dest: 'dist/js/vendor.js',
+      },
       animation: {
         src: ['app/scripts/controllers/main.js', 'app/animation/index.js'],
         dest: 'app/intermediate/index.js',
@@ -93,10 +103,11 @@ module.exports = function (grunt) {
       js: {
         files: [
           'app/animation/index.js',
+          'app/index.html',
           'app/scripts/**/*.js',
           'Gruntfile.js',
         ],
-        tasks: ['concat:animation', 'concat:core']
+        tasks: ['copy','concat:animation', 'concat:core']
       }
     },
   });
