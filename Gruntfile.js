@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         expand: true,
         flatten: true,
         src: ['app/views/*.html'],
-        dest: 'dist/views'
+        dest: 'dist'
       },
       images: {
         expand: true,
@@ -72,7 +72,17 @@ module.exports = function (grunt) {
     cssmin: {
       combine: {
         files: {
-          'dist/css/all.css': ['app/public/css/buttons.css', 'app/styles/*.css']
+          'dist/all.css': ['app/public/css/buttons.css', 'app/styles/*.css']
+        }
+      }
+    },
+    uncss: {
+      dist: {
+        options: {
+          stylesheets: ['all.css'],
+        },
+        files: {
+          'dist/css/tidy.css': ['dist/about.html', 'dist/blog.html', 'dist/blogmain.html', 'dist/main.html']
         }
       }
     },
@@ -96,6 +106,7 @@ module.exports = function (grunt) {
     'copy',
     'cssmin',
     'concat',
+    'uncss',
   ]);
 
   grunt.registerTask('default', [

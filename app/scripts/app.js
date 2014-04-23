@@ -5,12 +5,12 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
-        templateUrl: '/ui/wampumfrontend/dist/views/main.html',
+        templateUrl: '/ui/wampumfrontend/dist/main.html',
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
       .when('/blog/:blogTitle', {
-        templateUrl: '/ui/wampumfrontend/dist/views/blogmain.html',
+        templateUrl: '/ui/wampumfrontend/dist/blogmain.html',
         controller: 'BlogCtrl'
       })
       .otherwise({
