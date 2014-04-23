@@ -35,12 +35,6 @@ module.exports = function (grunt) {
         flatten: true,
         src: ['app/images/*'],
         dest: 'dist/images'
-      },
-      js: {
-        src: [
-          'app/public/typeahead.js/dist/typeahead.bundle.min.js'
-        ],
-        dest: 'dist/js/typeahead.js'
       }
     },
     concat: {
@@ -56,8 +50,7 @@ module.exports = function (grunt) {
           'app/bower_components/lodash/dist/lodash.min.js',
           'app/bower_components/superagent/superagent.js',
           'app/bower_components/kineticjs/kinetic.min.js',
-          // 'app/public/typeahead.js/dist/typeahead.bundle.min.js',
-          // 'app/bower_components/typeahead.js/dist/typeahead.bundle.min.js',
+          'app/public/typeaheadFork.min.js',
         ],
         dest: 'dist/js/vendor.js',
       },
