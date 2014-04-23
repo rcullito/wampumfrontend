@@ -26,6 +26,10 @@ module.exports = function (grunt) {
         src: ['app/views/*.html'],
         dest: 'dist'
       },
+      css: {
+        src: ['app/styles/typeahead.css'],
+        dest: 'dist/css/typeahead.css'
+      },
       images: {
         expand: true,
         flatten: true,
@@ -82,14 +86,14 @@ module.exports = function (grunt) {
     cssmin: {
       combine: {
         files: {
-          'dist/all.css': ['app/public/css/buttons.css', 'app/styles/*.css']
+          'dist/all.css': ['dist/css/tidy.css', 'dist/css/typeahead.css']
         }
       }
     },
     uncss: {
       dist: {
         options: {
-          stylesheets: ['all.css'],
+          stylesheets: ['../app/public/css/buttons.css', '../app/styles/bootstrap.css', '../app/styles/main.css'],
         },
         files: {
           'dist/css/tidy.css': ['dist/about.html', 'dist/blog.html', 'dist/blogmain.html', 'dist/main.html']
@@ -115,9 +119,9 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
-    'cssmin',
     'concat',
     'uncss',
+    'cssmin',
   ]);
 
   grunt.registerTask('default', [
