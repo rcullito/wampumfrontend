@@ -11,3 +11,9 @@ after_success:
   - chmod 600 .travis/acton.pem # this key should have push access
   - ssh-add .travis/acton.pem
   - scp -r dist ubuntu@ec2-54-204-7-85.compute-1.amazonaws.com:/home/ubuntu/wampumfrontend
+
+deploy:
+  provider: s3
+  access_key_id: "AKIAIH2ULGVTKQ6SSHUQ"
+  secret_access_key: "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"
+  bucket: "wampum"
