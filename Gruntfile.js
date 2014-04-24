@@ -30,6 +30,10 @@ module.exports = function (grunt) {
         src: ['app/styles/typeahead.css'],
         dest: 'dist/css/typeahead.css'
       },
+      js: {
+        src: ['app/bower_components/kineticjs/kinetic.min.js'],
+        dest: 'dist/js/kinetic.min.js'
+      },
       images: {
         expand: true,
         flatten: true,
@@ -43,11 +47,10 @@ module.exports = function (grunt) {
       },
       vendor: {
         src: [
-          'app/bower_components/angular-disqus/angular-disqus.js',
+          'app/bower_components/angular-disqus/angular-disqus.min.js',
           'app/bower_components/angular-route/angular-route.min.js',
           'app/bower_components/lodash/dist/lodash.min.js',
           'app/bower_components/superagent/superagent.js',
-          'app/bower_components/kineticjs/kinetic.min.js',
           'app/public/typeaheadFork.min.js',
         ],
         dest: 'dist/js/vendor.js',
