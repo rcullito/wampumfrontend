@@ -48,9 +48,6 @@ module.exports = function (grunt) {
       vendor: {
         src: [
           'app/bower_components/angular-disqus/angular-disqus.min.js',
-          'app/bower_components/angular-route/angular-route.min.js',
-          'app/bower_components/lodash/dist/lodash.min.js',
-          'app/bower_components/superagent/superagent.js',
           'app/public/typeaheadFork.min.js',
         ],
         dest: 'dist/js/vendor.js',
