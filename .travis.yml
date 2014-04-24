@@ -17,3 +17,6 @@ deploy:
   access_key_id: "AKIAIH2ULGVTKQ6SSHUQ"
   secret_access_key: "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"
   bucket: "wampum"
+  skip_cleanup: true
+  local-dir: dist
+  upload-dir: travis-builds
