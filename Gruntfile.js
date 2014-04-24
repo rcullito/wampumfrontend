@@ -43,8 +43,6 @@ module.exports = function (grunt) {
       },
       vendor: {
         src: [
-          'app/bower_components/jquery/jquery.min.js',
-          'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-disqus/angular-disqus.js',
           'app/bower_components/angular-route/angular-route.min.js',
           'app/bower_components/lodash/dist/lodash.min.js',
