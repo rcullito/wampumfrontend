@@ -96,9 +96,10 @@ module.exports = function (grunt) {
           'app/animation/index.js',
           'app/index.html',
           'app/scripts/**/*.js',
+          'app/styles/main.css',
           'Gruntfile.js',
         ],
-        tasks: ['copy','concat:animation', 'concat:core']
+        tasks: ['build']
       }
     },
   });

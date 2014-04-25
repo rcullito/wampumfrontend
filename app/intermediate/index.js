@@ -9,8 +9,6 @@ angular.module('wampumfrontendApp')
       $location.url($location.path());
     };
 
-    console.log('deployed with transmit');
-
     $scope.motion = true;
     var urlSearchParams = $location.search();
 
