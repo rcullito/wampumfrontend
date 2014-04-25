@@ -56,17 +56,6 @@ module.exports = function (grunt) {
         src: ['app/scripts/controllers/main.js', 'app/animation/index.js'],
         dest: 'app/intermediate/index.js',
       },
-      core: {
-        src: [
-          'app/scripts/app.js',
-          'app/intermediate/index.js',
-          'app/scripts/controllers/blog.js',
-          'app/scripts/directives/*.js',
-          'app/scripts/services/*.js',
-
-          ],
-        dest: 'dist/js/wampum.js',
-      },
     },
     cssmin: {
       combine: {
@@ -82,6 +71,19 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/css/tidy.css': ['dist/about.html', 'dist/blog.html', 'dist/blogmain.html', 'dist/main.html']
+        }
+      }
+    },
+    uglify: {
+      my_target: {
+        files: {
+          'dist/js/wampum.js': [
+          'app/scripts/app.js',
+          'app/intermediate/index.js',
+          'app/scripts/controllers/blog.js',
+          'app/scripts/directives/*.js',
+          'app/scripts/services/*.js',
+          ]
         }
       }
     },
@@ -107,6 +109,7 @@ module.exports = function (grunt) {
     'concat',
     'uncss',
     'cssmin',
+    'uglify'
   ]);
 
   grunt.registerTask('default', [

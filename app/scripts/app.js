@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
@@ -16,4 +16,4 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);

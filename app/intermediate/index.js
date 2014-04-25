@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', function ($scope, $routeParams, $location, esService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', 'esService', function ($scope, $routeParams, $location, esService) {
 
     $scope.showAbout = function () {
       $scope.motion = true;
@@ -497,4 +497,4 @@ angular.module('wampumfrontendApp')
       wateringCanAnim.start();
     };
 
-});
+}]);

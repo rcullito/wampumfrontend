@@ -415,4 +415,4 @@
       wateringCanAnim.start();
     };
 
-});
+}]);

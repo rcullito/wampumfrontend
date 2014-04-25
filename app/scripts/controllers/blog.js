@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('BlogCtrl', function ($scope, $sce, $routeParams, $location, blogService, disqusService) {
+  .controller('BlogCtrl', ['$scope', '$sce', '$routeParams', '$location', 'blogService', 'disqusService',
+  function ($scope, $sce, $routeParams, $location, blogService, disqusService) {
 
     $scope.showAbout = function () {
       // reload animation here
@@ -17,10 +18,9 @@ angular.module('wampumfrontendApp')
       disqusService.loadDisqus();
     });
 
-
     blogService.blogList(function (err, blogs) {
       $scope.blogs = blogs;
       $scope.$apply();
     });
   
-});
+}]);

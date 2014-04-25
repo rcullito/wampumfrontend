@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .service('esService', function ($http) {
+  .service('esService', ['$http', function ($http) {
 
     var prefixQuery = function (index, prefix_term) {
       return $http({
@@ -14,4 +14,4 @@ angular.module('wampumfrontendApp')
       prefixQuery: prefixQuery
     };
 
-  });
+  }]);

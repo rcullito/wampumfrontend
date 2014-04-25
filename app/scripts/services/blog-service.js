@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .service('blogService', function ($http) {
+  .service('blogService', ['$http', function ($http) {
     var blogList = function(callback) {
       superagent
         .get('/blogList')
@@ -28,4 +28,4 @@ angular.module('wampumfrontendApp')
       blogList: blogList,
       blogTitle: blogTitle,
     };
-  });
+  }]);
