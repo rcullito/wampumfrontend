@@ -34,7 +34,13 @@ angular.module('wampumfrontendApp')
 
       esService.prefixQuery('stuff', term)
         .success(function (results) {
-          $scope.resultObjects = results;
+          if (!_.isEmpty(results)) {
+            $scope.resultObjects = results;
+            $scope.noResults = false;
+          } else {
+            $scope.resultObjects = false;
+            $scope.noResults = true;
+          }
           $scope.motion = false;
           $location.search('search', term);
         })
