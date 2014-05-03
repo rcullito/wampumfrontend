@@ -15,6 +15,17 @@ h1 {
 	font-family: "hill-house";
 }
 
+#about p {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+#about p + p {
+    text-indent: 2em;
+    margin-top: 0;
+}
+
 #main-search-field {
 	margin-top: 15px;
 	margin-bottom: 10px;

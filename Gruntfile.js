@@ -97,6 +97,7 @@ module.exports = function (grunt) {
           'app/index.html',
           'app/scripts/**/*.js',
           'app/styles/main.css',
+          'app/views/main.html',
           'Gruntfile.js',
         ],
         tasks: ['build']
