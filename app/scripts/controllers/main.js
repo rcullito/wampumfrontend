@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', 'esService', function ($scope, $routeParams, $location, esService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', 'esService', 'disqusService', function ($scope, $routeParams, $location, esService, disqusService) {
+
+    disqusService.loadDisqus();
 
     $scope.showAbout = function () {
       $scope.motion = true;
