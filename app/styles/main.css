@@ -54,6 +54,10 @@ ul {
 	padding-left: 0px;
 }
 
+#blogText p {
+	line-height: 22px;
+}
+
 
 .blog-link {
 	color: #696969;

@@ -42,3 +42,12 @@ angular.module('wampumfrontendApp')
       }
     };
   });
+
+angular.module('wampumfrontendApp')
+  .directive('blogheader', function () {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: '/ui/wampumfrontend/dist/blogheader.html',
+    };
+  });
