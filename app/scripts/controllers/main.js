@@ -34,7 +34,7 @@ angular.module('wampumfrontendApp')
       var term = $('#searchinput').val();
       $location.search('search', term);
 
-      esService.prefixQuery('stuff', term)
+      esService.search('stuff', term)
         .success(function (results) {
           if (!_.isEmpty(results)) {
             $scope.resultObjects = results;
