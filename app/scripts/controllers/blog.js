@@ -4,6 +4,8 @@ angular.module('wampumfrontendApp')
   .controller('BlogCtrl', ['$scope', '$sce', '$routeParams', '$location', 'disqusService',
   function ($scope, $sce, $routeParams, $location, disqusService) {
 
+    disqusService.loadDisqus();
+
     $scope.showAbout = function () {
       // reload animation here
       $scope.motion = true;
