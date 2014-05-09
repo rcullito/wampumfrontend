@@ -11,6 +11,13 @@ angular.module('wampumfrontendApp')
       $location.url($location.path());
     };
 
+    $scope.clickEvent = function (event_type, event_value) {
+      esService.clickEvent(event_type, event_value)
+        .error(function (err) {
+          console.log(data);
+        });
+    };
+
     $scope.motion = true;
     var urlSearchParams = $location.search();
 

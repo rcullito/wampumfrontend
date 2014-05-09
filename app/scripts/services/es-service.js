@@ -10,8 +10,20 @@ angular.module('wampumfrontendApp')
       })
     };
 
+    var clickEvent = function (event_type, event_value) {
+      return $http({
+        method: 'POST',
+        url: 'clickevent',
+        data: {
+          event_type: event_type,
+          event_value: event_value
+        }
+      });
+    };
+
     return {
-      search: search
+      search: search,
+      clickEvent: clickEvent
     };
 
   }]);

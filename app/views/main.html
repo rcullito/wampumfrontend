@@ -37,7 +37,7 @@
       <h4>{{ result.name }}</h4>
       <p><u>About</u>: {{ result.description }}</p>
       <p>Mailing Address: {{ result.mailingaddress }}</p>
-      <p><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
+      <p ng-click="clickEvent('ct_url', result.website)"><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
       <p>Accepts: {{ result.tags }}</p>
     </span>
   </div>
