@@ -18,6 +18,11 @@ angular.module('wampumfrontendApp')
         });
     };
 
+    $scope.freeShipping = function (result_name) {
+      $scope.clickEvent('shipping', result_name);
+      alert('As we are currently in beta, please email rob@wampum.io, with your item name on the subject line to retrieve your free shipping label.')
+    };
+
     $scope.motion = true;
     var urlSearchParams = $location.search();
 

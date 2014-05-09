@@ -36,7 +36,7 @@
     <span class="col-sm-12">
       <h4>{{ result.name }}</h4>
       <p><u>About</u>: {{ result.description }}</p>
-      <p>Mailing Address: {{ result.mailingaddress }}</p>
+      <p>Mailing Address: {{ result.mailingaddress }} <button ng-click="freeShipping(result.name)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-envelope"></span> Free Shipping</button></p>
       <p ng-click="clickEvent('ct_url', result.website)"><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
       <p>Accepts: {{ result.tags }}</p>
     </span>
@@ -48,8 +48,6 @@
       <p>Sorry! We could not find any results for that. Your search has been noted to us, please check back again soon!</p>
     </span>
 </div>
-
-
 
 <div ng-show="motion" style="line-height: 22px;">
   <div class="container lower">
