@@ -30,9 +30,10 @@ angular.module('wampumfrontendApp')
       var term = urlSearchParams.search;
       $location.search('search', term);
       $scope.term = term;
-      esService.prefixQuery('stuff', term)
+      esService.search('stuff', term)
         .success(function (results) {
           $scope.resultObjects = results;
+          $scope.noResults = false;
           $scope.motion = false;
           $location.search('search', term);
         })
