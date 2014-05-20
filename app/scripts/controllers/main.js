@@ -19,6 +19,12 @@ angular.module('wampumfrontendApp')
       $scope.weighedIn = true;
     };
 
+    $scope.submitFeedback = function (event_type, event_value) {
+      $scope.clickEvent(event_type, event_value);
+      $scope.yetToWeighIn = false;
+      $scope.weighedIn = false;
+    };
+
     $scope.clickEvent = function (event_type, event_value) {
       esService.clickEvent(event_type, event_value)
         .error(function (err) {
