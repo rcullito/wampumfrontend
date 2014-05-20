@@ -34,7 +34,22 @@
 <div ng-show="resultObjects" class="container lower results">
   <div class="row">
     <span class="col-sm-offset-8 col-sm-4">
-      <p>satisfied? <a style="line-height:28px;" href="#" class="button button-border-action button-pill">yes</a> <a style="line-height:28px;" href="#" class="button button-border-caution button-pill">no</a></p>
+        <span ng-show="yetToWeighIn">
+          <p>satisfied?
+            <a ng-click="satisfied('satisfied', 'yes')" style="line-height:28px;" href="#" class="button button-border-action button-pill">yes</a>
+            <a ng-click="satisfied('satisfied', 'no')" style="line-height:28px;" href="#" class="button button-border-caution button-pill">no</a>
+          </p>
+        </span>
+        <span ng-show="weighedIn">
+          <p>Thanks! Why?
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <div class="input-group-btn">
+              <a href="#" style="height:34px;" class="button button-border">✓</a>
+            </div>
+          </div>
+        </span>
+
     </span>
   </div>
   <div class="row" ng-repeat="result in resultObjects">
