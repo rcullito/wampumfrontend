@@ -43,7 +43,7 @@
         <span ng-show="weighedIn">
           <p>Thanks! Why?
           <div class="input-group">
-            <input ng-model="feedback" type="text" class="form-control">
+            <input ng-model="feedback" type="text" ng-enter="submitFeedback('feedback', feedback)" class="form-control">
             <div class="input-group-btn">
               <a ng-click="submitFeedback('feedback', feedback)" href="#" style="height:34px;" class="button button-border">✓</a>
             </div>
