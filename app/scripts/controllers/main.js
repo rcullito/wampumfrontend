@@ -39,6 +39,7 @@ angular.module('wampumfrontendApp')
       var term = urlSearchParams.search;
       $location.search('search', term);
       $scope.term = term;
+      esService.clickEvent('search', term);
       esService.search('stuff', term)
         .success(function (results) {
           $scope.resultObjects = results;
@@ -56,6 +57,7 @@ angular.module('wampumfrontendApp')
       var term = $('#searchinput').val();
       $location.search('search', term);
 
+      esService.clickEvent('search', term);
       esService.search('stuff', term)
         .success(function (results) {
           if (!_.isEmpty(results)) {
