@@ -46,7 +46,7 @@ angular.module('wampumfrontendApp')
             $scope.resultObjects = results;
             $scope.noResults = false;
           } else {
-            esService.clickEvent('no_results', 'no_results');
+            esService.clickEvent('no_results', term);
             $scope.resultObjects = false;
             $scope.noResults = true;
           }
@@ -70,7 +70,7 @@ angular.module('wampumfrontendApp')
             $scope.resultObjects = results;
             $scope.noResults = false;
           } else {
-            esService.clickEvent('no_results', 'no_results');
+            esService.clickEvent('no_results', term);
             $scope.resultObjects = false;
             $scope.noResults = true;
           }
