@@ -42,8 +42,14 @@ angular.module('wampumfrontendApp')
       esService.clickEvent('search', term);
       esService.search('stuff', term)
         .success(function (results) {
-          $scope.resultObjects = results;
-          $scope.noResults = false;
+          if (!_.isEmpty(results)) {
+            $scope.resultObjects = results;
+            $scope.noResults = false;
+          } else {
+            esService.clickEvent('no_results', 'no_results');
+            $scope.resultObjects = false;
+            $scope.noResults = true;
+          }
           $scope.motion = false;
           $location.search('search', term);
         })
@@ -64,6 +70,7 @@ angular.module('wampumfrontendApp')
             $scope.resultObjects = results;
             $scope.noResults = false;
           } else {
+            esService.clickEvent('no_results', 'no_results');
             $scope.resultObjects = false;
             $scope.noResults = true;
           }
