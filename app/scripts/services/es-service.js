@@ -3,6 +3,11 @@
 angular.module('wampumfrontendApp')
   .service('esService', ['$http', function ($http) {
 
+    var hyphy = function (inputstring) {
+      var wss = inputstring.split(' ');
+      return wss.join('-');
+    }
+
     var search = function (index, search_term) {
       return $http({
         method: 'GET',
@@ -16,7 +21,7 @@ angular.module('wampumfrontendApp')
         url: 'clickevent',
         data: {
           event_type: event_type,
-          event_value: event_value,
+          event_value: hyphy(event_value),
           requestid: requestid,
         }
       });
