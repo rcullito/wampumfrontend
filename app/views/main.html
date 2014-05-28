@@ -49,7 +49,6 @@
             </div>
           </div>
         </span>
-
     </span>
   </div>
   <div class="row" ng-repeat="result in resultObjects">
@@ -60,6 +59,21 @@
       </p>
       <p>Accepts: {{ result.tags }}</p>
       <p ng-click="clickEvent('ct_url', result.website)"><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
+    </span>
+  </div>
+  <div style="border-top: 1px solid #ccc; padding-top: 25px;" class="row" ng-show="yetToSignUp">
+    <span class="col-sm-8 col-sm-offset-1">
+      <span>
+        <p>Join our mailing list to receive an email when we add more results for the items you have searched for.</p>
+      </span>
+    </span>
+    <span class="col-sm-3">
+      <div class="input-group">
+        <input ng-model="email" placeholder="mailing list" type="text" ng-enter="mailingList('mailingList', email)" class="form-control">
+        <div class="input-group-btn">
+          <a ng-click="mailingList('mailingList', email)" href="#" style="height:34px;" class="button button-border">✓</a>
+        </div>
+      </div>
     </span>
   </div>
 </div>

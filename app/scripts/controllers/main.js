@@ -18,7 +18,10 @@ angular.module('wampumfrontendApp')
 
       var uuid = s.join("");
       return uuid;
-    };    
+    };   
+
+
+    $scope.yetToSignUp = true; 
 
     $scope.showAbout = function () {
       $scope.motion = true;
@@ -32,6 +35,11 @@ angular.module('wampumfrontendApp')
       $scope.clickEvent(event_type, event_value, $scope.requestid);
       $scope.yetToWeighIn = false;
       $scope.weighedIn = true;
+    };
+
+    $scope.mailingList = function (event_type, event_value) {
+      $scope.clickEvent(event_type, event_value, $scope.requestid);
+      $scope.yetToSignUp = false;
     };
 
     $scope.submitFeedback = function (event_type, event_value) {
