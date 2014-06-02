@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', 'esService', 'disqusService', function ($scope, $routeParams, $location, esService, disqusService) {
-
-    disqusService.loadDisqus();
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', 'esService', function ($scope, $routeParams, $location, esService) {
 
     var createUUID = function() {
       // http://www.ietf.org/rfc/rfc4122.txt
