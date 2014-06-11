@@ -35,11 +35,6 @@ angular.module('wampumfrontendApp')
       $scope.weighedIn = true;
     };
 
-    $scope.mailingList = function (event_type, event_value) {
-      $scope.clickEvent(event_type, event_value, $scope.requestid);
-      $scope.yetToSignUp = false;
-    };
-
     $scope.submitFeedback = function (event_type, event_value) {
       $scope.clickEvent(event_type, event_value, $scope.requestid);
       $scope.yetToWeighIn = false;
@@ -53,7 +48,6 @@ angular.module('wampumfrontendApp')
         });
     };
 
-    // 2 set the request id once
 
     $scope.motion = true;
     var urlSearchParams = $location.search();
