@@ -65,7 +65,7 @@ angular.module('wampumfrontendApp')
       $scope.term = term;
       esService.clickEvent('search', term, $scope.requestid);
 
-      esService.search('stuff', term)
+      esService.search(term)
         .success(function (results) {
           if (!_.isEmpty(results)) {
             $scope.resultObjects = results;

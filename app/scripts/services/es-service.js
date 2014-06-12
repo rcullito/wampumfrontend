@@ -8,10 +8,10 @@ angular.module('wampumfrontendApp')
       return wss.join('-');
     }
 
-    var search = function (index, search_term) {
+    var search = function (search_term) {
       return $http({
         method: 'GET',
-        url: '/search/' + index + '/' + search_term,
+        url: '/search/' + search_term,
       })
     };
 
