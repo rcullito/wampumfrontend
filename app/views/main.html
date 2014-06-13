@@ -24,8 +24,9 @@
 
     <div class="row">
       <ul id="navigation" class="horizontal-list" style="text-align:center;">
-        <li ng-class="'current-' + (suburl == 'about')"><a href="/about">About</a></li>
-        <li ng-class="'current-' + (suburl == 'blog')"><a  href="https://medium.com/@wampum" target="_blank">Blog</a></li>
+        <li><a ng-click="showAbout()">About</a></li>
+        <li><a  href="https://medium.com/@wampum" target="_blank">Blog</a></li>
+        <li><a href="/login">Login</a></li>
       </ul>
     </div>
   </div>
