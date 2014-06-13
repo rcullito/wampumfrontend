@@ -9,6 +9,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
+      .when('/login', {
+        templateUrl: '/ui/wampumfrontend/dist/login.html',
+        controller: 'LoginCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

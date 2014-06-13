@@ -80,6 +80,7 @@ module.exports = function (grunt) {
           'dist/js/wampum.js': [
           'app/scripts/app.js',
           'app/intermediate/index.js',
+          'app/scripts/controllers/login.js',
           'app/scripts/directives/*.js',
           'app/scripts/services/*.js',
           ]
