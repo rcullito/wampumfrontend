@@ -3,5 +3,5 @@
 angular.module('wampumfrontendApp')
   .controller('LoginCtrl', ['$scope', '$routeParams', '$location', function ($scope, $routeParams, $location) {
 
-    console.log('here');
+
   }]);

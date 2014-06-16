@@ -1,14 +1,31 @@
-<form action="/login" method="post">
-  <div>
-    <label>Username:</label>
-    <input type="text" name="username" />
-    <br/>
+<div class="jumbotron" style="background-color:#fff; padding-top:25px;">
+  <div class="container">
+    <div class="row" style="margin-bottom:30px; text-align:center;">
+        <h1 style="cursor:pointer;">Wampum</h1>
+    </div>
+
+    <div class="row">
+      <ul id="navigation" class="horizontal-list" style="text-align:center;">
+        <li><a href="/">About</a></li>
+        <li><a  href="https://medium.com/@wampum" target="_blank">Blog</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:20px;" class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+        <form>
+          Email:
+          <input class="form-control" type="text" name="username" />
+          Password:
+          <input class="form-control" type="password" name="password" />
+          <button class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+
   </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password" />
-  </div>
-  <div>
-    <input type="submit" value="Submit" />
-  </div>
-</form>
+</div>
+
+
+
+

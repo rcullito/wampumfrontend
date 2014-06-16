@@ -70,7 +70,7 @@ module.exports = function (grunt) {
           stylesheets: ['../app/public/css/buttons.css', '../app/styles/bootstrap.css', '../app/styles/main.css'],
         },
         files: {
-          'dist/css/tidy.css': ['dist/about.html', 'dist/main.html']
+          'dist/css/tidy.css': ['dist/login.html', 'dist/main.html,']
         }
       }
     },
