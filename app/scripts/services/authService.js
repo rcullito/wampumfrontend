@@ -3,14 +3,18 @@
 angular.module('wampumfrontendApp')
   .service('authService', ['$http', function ($http) {
 
-    console.log(_);
-    console.log(CryptoJS);
-
     var register = function(email, password) {
       var hash = CryptoJS.MD5(password);
-      console.log(hash.toString());
+      var encrypted_password = hash.toString();
 
-      // post to /login
+      return $http({
+        method: 'POST',
+        url: '/register',
+        data: {
+          email: email,
+          password: encrypted_password,
+        }
+      });
     };   
 
     return {

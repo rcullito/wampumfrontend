@@ -5,12 +5,11 @@ angular.module('wampumfrontendApp')
 
     $scope.register = function (email, password) {
       authService.register(email, password)
-        // .success(function (data) {
-        //   console.log(data);
-        // })
-        // .error(function (err) {
-        //   console.log(err);
-        // })
+        .success(function (data) {
+          console.log(data);
+        })
+        .error(function (err) {
+          console.log(err);
+        })
     }
-
   }]);
