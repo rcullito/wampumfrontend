@@ -13,6 +13,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         templateUrl: '/ui/wampumfrontend/dist/login.html',
         controller: 'LoginCtrl',
       })
+      .when('/signedup', {
+        templateUrl: '/ui/wampumfrontend/dist/signedup.html',
+        controller: 'SignedupCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

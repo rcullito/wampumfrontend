@@ -6,10 +6,12 @@ angular.module('wampumfrontendApp')
     $scope.register = function (email, password) {
       authService.register(email, password)
         .success(function (data) {
+          $location.url('/signedup')
           console.log(data);
         })
         .error(function (err) {
           console.log(err);
+          alert('There was an error registering. Please try again')
         })
     }
   }]);
