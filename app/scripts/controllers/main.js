@@ -32,17 +32,11 @@ angular.module('wampumfrontendApp')
         });
     };
 
-
     $scope.motion = true;
-    var urlSearchParams = $location.search();
-
-    $scope.search = function(type) {
-      if (type === 'url') {
-        var term = urlSearchParams.search;
-      } else {
-        var term = $('#searchinput').val();
-      }
-
+    $('#searchinput').val();
+    
+    $scope.search = function(term) {
+        
       $scope.requestid = uuidService.createUUID();
       
       $location.search('search', term);
@@ -67,8 +61,10 @@ angular.module('wampumfrontendApp')
         });
     };
 
+    var urlSearchParams = $location.search();
+
     if (urlSearchParams.search) {
-      $scope.search('url');
+      $scope.search(urlSearchParams.search);
     };    
 
     // BEGINNING OF TYPEAHEAD STUFF
@@ -77,9 +73,6 @@ angular.module('wampumfrontendApp')
       $('#rc-dropdown').css('width', searchinputWidth);
     });
 
-    $('#searchinput').keypress(function () {
-      $scope.motion = false;
-    })
 
     var searchinputWidth = $('#searchinput').css('width');
 
@@ -105,5 +98,27 @@ angular.module('wampumfrontendApp')
       displayKey: 'tag',
       source: engine.ttAdapter()
     });
+
+    $('#searchinput').keyup(function () {
+      var current_term = $('#searchinput').val();
+      engine.get(current_term, function (suggestions) {
+        var top_hit = _.first(suggestions);
+        if (top_hit) {
+         var search_term = top_hit.tag;
+          $scope.search(search_term);         
+        }
+      });
+      $scope.motion = false;
+    });
+
+    $('#gobutton').click(function () {
+      $scope.search($('#searchinput').val());
+      $scope.motion = false;
+    });
+
+    // on search input enter hide the typeahead
+
+
+
 
 }]);

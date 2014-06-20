@@ -30,9 +30,9 @@
         <p class="emphasis">Start by entering your item.</p>
         <form class="form-horizontal">
           <div id="scrollable-dropdown-menu" class="input-group">
-            <input id="searchinput"  ng-enter="search()" type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
+            <input id="searchinput"  type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
             <span class="input-group-btn">
-              <a ng-click="search()" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
+              <a id="gobutton" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
             </span>
           </div>
         </form>
