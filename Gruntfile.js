@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         dest: 'dist/js/vendor.js',
       },
       animation: {
-        src: ['app/scripts/controllers/main.js', 'app/animation/index.js'],
+        src: ['app/scripts/controllers/main.js'],
         dest: 'app/intermediate/index.js',
       },
     },
@@ -94,7 +94,6 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-          'app/animation/index.js',
           'app/index.html',
           'app/scripts/**/*.js',
           'app/styles/main.css',

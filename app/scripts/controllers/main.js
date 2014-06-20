@@ -59,7 +59,7 @@ angular.module('wampumfrontendApp')
             $scope.resultObjects = false;
             $scope.noResults = true;
           }
-          $scope.motion = false;
+          // $scope.motion = false;
           $location.search('search', term);
         })
         .error(function (err) {
@@ -76,6 +76,10 @@ angular.module('wampumfrontendApp')
     $('#scrollable-dropdown-menu .typeahead').on("typeahead:opened", function () {
       $('#rc-dropdown').css('width', searchinputWidth);
     });
+
+    $('#searchinput').keypress(function () {
+      $scope.motion = false;
+    })
 
     var searchinputWidth = $('#searchinput').css('width');
 
@@ -102,9 +106,4 @@ angular.module('wampumfrontendApp')
       source: engine.ttAdapter()
     });
 
-    var stage = new Kinetic.Stage({
-      container: 'kinetic',
-      width: document.getElementById('kinetic').offsetWidth,    
-      height: 200,
-    });
-
+}]);
