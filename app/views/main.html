@@ -1,49 +1,49 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
 
-  <div class="row" style="text-align:right;">
-    <a href="/login" class="button button-rounded button-flat-primary">Sign Up</a>
-  </div>
+    <div class="row" style="text-align:right;">
+      <a href="/login" class="button button-rounded button-flat-primary">Sign Up</a>
+    </div>
 
     <div class="row" style="margin-bottom:30px; text-align:center;">
         <h1 style="cursor:pointer;" ng-click="showAbout()">Wampum</h1>
     </div>
 
     <div class="row">
-
       <div style="text-align:center" class="col-sm-4">
         <img src="https://s3.amazonaws.com/wampumimages/RainJacketGo.png">
         <p>Enter the item you want to upcycle.</p>
       </div>
-
       <div style="text-align:center" class="col-sm-4">
         <img src="https://s3.amazonaws.com/wampumimages/FamilyWinterShelter2.png" width="150px">
         <p>Choose a location</p>
       </div>
-
       <div style="text-align:center" class="col-sm-4">
       <img src="https://s3.amazonaws.com/wampumimages/box.png" width="100px">
         <p>Get prepaid postage and a box to ship it in.</p>
       </div>
+    </div>
 
+    <!-- as soon as the first keystroke then reoirent the page -->
+    <div class="row">
+      <div id="main-search-field" class="col-sm-6 col-sm-offset-3">
+        <p class="emphasis">Start by entering your item.</p>
+        <form class="form-horizontal">
+          <div id="scrollable-dropdown-menu" class="input-group">
+            <input id="searchinput"  ng-enter="search()" type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
+            <span class="input-group-btn">
+              <a ng-click="search()" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
 
   </div>
 </div>
 
 
-<div class="row">
-  <div id="main-search-field" class="col-sm-6">
-    <form class="form-horizontal">
-      <div id="scrollable-dropdown-menu" class="input-group">
-        <input id="searchinput"  ng-enter="search()" type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
-        <span class="input-group-btn">
-          <a ng-click="search()" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
-        </span>
-      </div>
-    </form>
-  </div>
-</div>
+
 
 <div ng-show="resultObjects" class="container lower results">
   <div class="row">
