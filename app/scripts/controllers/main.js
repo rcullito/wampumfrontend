@@ -99,7 +99,10 @@ angular.module('wampumfrontendApp')
       source: engine.ttAdapter()
     });
 
-    $('#searchinput').keyup(function () {
+    $('#searchinput').keyup(function (key) {
+      if (key.which === 13) {
+        return;
+      }
       var current_term = $('#searchinput').val();
       engine.get(current_term, function (suggestions) {
         var top_hit = _.first(suggestions);
@@ -116,9 +119,9 @@ angular.module('wampumfrontendApp')
       $scope.motion = false;
     });
 
-    // on search input enter hide the typeahead
-
-
-
+    $scope.hidetypeahead = function () {
+      $('.typeahead').typeahead('close');
+      $scope.search($('#searchinput').val());
+    };
 
 }]);

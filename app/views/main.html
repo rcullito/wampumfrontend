@@ -27,10 +27,11 @@
     <!-- as soon as the first keystroke then reoirent the page -->
     <div class="row">
       <div id="main-search-field" class="col-sm-6 col-sm-offset-3">
+      <!-- change this message once they are on the locations page -->
         <p class="emphasis">Start by entering your item.</p>
         <form class="form-horizontal">
           <div id="scrollable-dropdown-menu" class="input-group">
-            <input id="searchinput"  type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
+            <input ng-enter="hidetypeahead()" id="searchinput"  type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
             <span class="input-group-btn">
               <a id="gobutton" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
             </span>
