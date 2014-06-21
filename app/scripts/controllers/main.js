@@ -36,7 +36,7 @@ angular.module('wampumfrontendApp')
     $('#searchinput').val();
     
     $scope.search = function(term) {
-        
+      $scope.motion = false;
       $scope.requestid = uuidService.createUUID();
       
       $location.search('search', term);
@@ -111,12 +111,10 @@ angular.module('wampumfrontendApp')
           $scope.search(search_term);         
         }
       });
-      $scope.motion = false;
     });
 
     $('#gobutton').click(function () {
       $scope.search($('#searchinput').val());
-      $scope.motion = false;
     });
 
     $scope.hidetypeahead = function () {
