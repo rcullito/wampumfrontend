@@ -9,7 +9,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
-      .when('/login', {
+      .when('/login/:itemid?', {
         templateUrl: '/ui/wampumfrontend/dist/login.html',
         controller: 'LoginCtrl',
       })

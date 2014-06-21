@@ -13,6 +13,8 @@ angular.module('wampumfrontendApp')
     // if they are refreshing this page they will have come from express
     // rather than angular routing though
 
+    console.log($routeParams);
+
     $scope.register = function (email, password) {
       authService.register(email, password)
         .success(function (data) {
