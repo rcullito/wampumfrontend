@@ -23,7 +23,9 @@ angular.module('wampumfrontendApp')
 
     console.log($routeParams);
 
-    if ($routeParams.type === 'login') {
+    $scope.form_type = $routeParams.type;
+
+    if ($scope.form_type === 'login') {
       $scope.form_name = 'Login';
       $scope.alternate = 'New to Wampum? Signing up takes a second!'
       $scope.alternate_button = 'Sign Up';
@@ -51,15 +53,31 @@ angular.module('wampumfrontendApp')
 
 
 
-    $scope.register = function (email, password) {
-      authService.register(email, password)
-        .success(function (data) {
-          $location.url('/signedup')
-          console.log(data);
-        })
-        .error(function (err) {
-          console.log(err);
-          alert('There was an error registering. Please try again')
-        })
+    $scope.validate = function (form_type, email, password) {
+
+      if (form_type === 'signup') {
+        authService.signup(email, password)
+          .success(function (data) {
+            $location.url('/signedup')
+            console.log(data);
+          })
+          .error(function (err) {
+            console.log(err);
+            alert('There was an error registering. Please try again')
+          });
+      } else {
+        authService.login(email, password)
+          .success(function (data) {
+            // if successful login redirect them to the user home page
+            $location.url('/profile')
+            console.log(data);
+          })
+          .error(function (err) {
+            console.log(err);
+            // alert the error but make sure we're handling it properly server side
+            alert('There was an error logging in. Please try again');
+          });
+      }
+
     }
   }]);
