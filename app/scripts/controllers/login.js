@@ -24,17 +24,31 @@ angular.module('wampumfrontendApp')
     $scope.itemid = $routeParams.itemid
     $scope.form_type = $routeParams.type;
 
-    if ($scope.form_type === 'login') {
-      $scope.form_name = 'Login';
-      $scope.alternate = 'New to Wampum? Signing up takes a second!'
-      $scope.alternate_button = 'Sign Up';
-    } else {
-      $scope.form_name = 'Sign Up';
-      $scope.alternate = 'Already a member? Login here.'
-      $scope.alternate_button = 'Login';
-    }
+    var setScopeBasedOnFormType = function (form_type) {
+      $scope.form_type = form_type;
+      if (form_type === 'login') {
+        $scope.form_name = 'Login';
+        $scope.alternate = 'New to Wampum? Signing up takes a second!'
+        $scope.alternate_button = 'Sign Up';
+      } else {
+        $scope.form_name = 'Sign Up';
+        $scope.alternate = 'Already a member? Login here.'
+        $scope.alternate_button = 'Login';
+        $routeParams.type = 'login';
+      }
+    };
 
-    // now provide affordance for the other one, which will basically just be an ng-click function
+    setScopeBasedOnFormType($scope.form_type);
+
+    $scope.alternateLogin = function (form_type) {
+      console.log(form_type);
+      if (form_type === 'login') {
+        var other_form_type = 'signup';
+      } else {
+        var other_form_type = 'login';
+      }
+      setScopeBasedOnFormType(other_form_type);
+    };
 
     authService.checkLoginStatus()
       .success(function (data) {
@@ -77,9 +91,7 @@ angular.module('wampumfrontendApp')
             console.log(data);
           })
           .error(function (err) {
-            console.log(err);
-            // alert the error but make sure we're handling it properly server side
-            alert('There was an error logging in. Please try again');
+            alert(err);
           });
       }
 
