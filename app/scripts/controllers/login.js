@@ -17,11 +17,30 @@ angular.module('wampumfrontendApp')
 
     // have an api to get this from the server side
 
+    // have sign up button default to register
+
+    // have free shipping button default to log in
+
+    console.log($routeParams);
+
+    if ($routeParams.type === 'login') {
+      $scope.form_name = 'Login';
+      $scope.alternate = 'New to Wampum? Signing up takes a second!'
+      $scope.alternate_button = 'Sign Up';
+    } else {
+      $scope.form_name = 'Sign Up';
+      $scope.alternate = 'Already a member? Login here.'
+      $scope.alternate_button = 'Login';
+    }
+
+    // now provide affordance for the other one, which will basically just be an ng-click function
+
     authService.checkLoginStatus()
       .success(function (data) {
 
         if (_.isEmpty(data)) {
           console.log('user is not logged in');
+          // if they are not logged in, have them either register or login
         } else {
           console.log('user is logged in as: ' + data.email);
         }

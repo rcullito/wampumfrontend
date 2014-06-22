@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="row" style="text-align:right;">
-      <a href="/login" class="button button-rounded button-flat-primary">Sign Up</a>
+      <a href="/login/signup" class="button button-rounded button-flat-primary">Sign Up</a>
     </div>
 
     <div class="row" style="margin-bottom:30px; text-align:center;">
@@ -74,7 +74,7 @@
       <h4>{{ result.name }} 
 <!--       <span style="background-color: {{ result.wampum_color; }}" class="score">{{ result.wampum_score | number:2 }}</span> -->
       <!-- include the search term and the current entry -->
-      <a href="/login/{{ result.id }}" class="button button-border-royal button-pill">Free Shipping</a>
+      <a href="/login/login/{{ result.id }}" class="button button-border-royal button-pill">Free Shipping</a>
       </h4>
 
       <p><u>About</u>: {{ result.description }}</p>
