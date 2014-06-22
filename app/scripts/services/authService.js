@@ -3,9 +3,13 @@
 angular.module('wampumfrontendApp')
   .service('authService', ['$http', function ($http) {
 
-    var signup = function(email, password) {
+    var hash_password = function (password) {
       var hash = CryptoJS.MD5(password);
-      var encrypted_password = hash.toString();
+      return hash.toString();
+    }
+
+    var signup = function(email, password) {
+      var encrypted_password = hash_password(password);
       return $http({
         method: 'POST',
         url: '/signup',
@@ -14,7 +18,19 @@ angular.module('wampumfrontendApp')
           password: encrypted_password,
         }
       });
-    };  
+    }; 
+
+    var login = function (email, password) {
+      var encrypted_password = hash_password(password);
+      return $http({
+        method: 'POST',
+        url: '/login',
+        data: {
+          email: email,
+          password: encrypted_password,
+        }
+      });      
+    };
 
     var checkLoginStatus = function() {
       return $http({

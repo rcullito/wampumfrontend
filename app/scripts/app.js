@@ -13,9 +13,9 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus', 'ngCookies'])
         templateUrl: '/ui/wampumfrontend/dist/login.html',
         controller: 'LoginCtrl',
       })
-      .when('/signedup', {
-        templateUrl: '/ui/wampumfrontend/dist/signedup.html',
-        controller: 'SignedupCtrl',
+      .when('/profile', {
+        templateUrl: '/ui/wampumfrontend/dist/profile.html',
+        controller: 'ProfileCtrl',
       })
       .otherwise({
         redirectTo: '/'

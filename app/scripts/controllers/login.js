@@ -58,12 +58,11 @@ angular.module('wampumfrontendApp')
       if (form_type === 'signup') {
         authService.signup(email, password)
           .success(function (data) {
-            $location.url('/signedup')
+            $location.url('/profile')
             console.log(data);
           })
           .error(function (err) {
-            console.log(err);
-            alert('There was an error registering. Please try again')
+            alert(err);
           });
       } else {
         authService.login(email, password)
