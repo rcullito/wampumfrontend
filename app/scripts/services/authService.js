@@ -6,7 +6,6 @@ angular.module('wampumfrontendApp')
     var register = function(email, password) {
       var hash = CryptoJS.MD5(password);
       var encrypted_password = hash.toString();
-
       return $http({
         method: 'POST',
         url: '/register',
@@ -15,10 +14,18 @@ angular.module('wampumfrontendApp')
           password: encrypted_password,
         }
       });
-    };   
+    };  
+
+    var checkLoginStatus = function() {
+      return $http({
+        method: 'GET',
+        url: '/checkLoginStatus'  ,     
+      });
+    };
 
     return {
       register: register,
+      checkLoginStatus: checkLoginStatus
     };
 
   }]);

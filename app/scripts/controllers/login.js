@@ -13,17 +13,24 @@ angular.module('wampumfrontendApp')
     // if they are refreshing this page they will have come from express
     // rather than angular routing though
 
-    console.log($routeParams);
+    // actually dont have two places where we have user state
 
-    // so shit how do we tell from here if they are logged in
-    // easy we log something when either they register or log in for the first time
-    console.log($cookies);
+    // have an api to get this from the server side
 
-    // with yb angular it is an all or nothing thing
-    // so it is all handled in express
+    authService.checkLoginStatus()
+      .success(function (data) {
 
-    // when someone registers we submit their name in the database but we
-    // also set something on the request session
+        if (_.isEmpty(data)) {
+          console.log('user is not logged in');
+        } else {
+          console.log('user is logged in as: ' + data.email);
+        }
+      })
+      .error(function (err) {
+        console.log(err);
+      });
+
+
 
     $scope.register = function (email, password) {
       authService.register(email, password)
