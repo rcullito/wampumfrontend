@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus', 'ngCookies'])
         templateUrl: '/ui/wampumfrontend/dist/login.html',
         controller: 'LoginCtrl',
       })
-      .when('/profile', {
+      .when('/profile/:username/:itemid?', {
         templateUrl: '/ui/wampumfrontend/dist/profile.html',
         controller: 'ProfileCtrl',
       })

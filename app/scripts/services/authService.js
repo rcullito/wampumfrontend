@@ -41,6 +41,7 @@ angular.module('wampumfrontendApp')
 
     return {
       signup: signup,
+      login: login,
       checkLoginStatus: checkLoginStatus
     };
 

@@ -21,8 +21,7 @@ angular.module('wampumfrontendApp')
 
     // have free shipping button default to log in
 
-    console.log($routeParams);
-
+    $scope.itemid = $routeParams.itemid
     $scope.form_type = $routeParams.type;
 
     if ($scope.form_type === 'login') {
@@ -58,7 +57,9 @@ angular.module('wampumfrontendApp')
       if (form_type === 'signup') {
         authService.signup(email, password)
           .success(function (data) {
-            $location.url('/profile')
+            // if they were coming from an item page, then attach the itemid to
+            // the profile
+            $location.url('/profile/' + email)
             console.log(data);
           })
           .error(function (err) {
@@ -68,7 +69,11 @@ angular.module('wampumfrontendApp')
         authService.login(email, password)
           .success(function (data) {
             // if successful login redirect them to the user home page
-            $location.url('/profile')
+            if ($scope.itemid) {
+              $location.url('/profile/' + email + '/' + $scope.itemid);
+            } else {
+              $location.url('/profile/' + email)
+            }
             console.log(data);
           })
           .error(function (err) {
