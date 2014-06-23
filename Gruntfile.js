@@ -70,7 +70,7 @@ module.exports = function (grunt) {
           stylesheets: ['../app/public/css/buttons.css', '../app/styles/bootstrap.css', '../app/styles/main.css'],
         },
         files: {
-          'dist/css/tidy.css': ['dist/login.html', 'dist/main.html']
+          'dist/css/tidy.css': ['dist/account.html', 'dist/main.html']
         }
       }
     },
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
           'dist/js/wampum.js': [
           'app/scripts/app.js',
           'app/intermediate/index.js',
-          'app/scripts/controllers/login.js',
+          'app/scripts/controllers/account.js',
           'app/scripts/controllers/profile.js',
           'app/scripts/directives/*.js',
           'app/scripts/services/*.js',

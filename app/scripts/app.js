@@ -9,11 +9,11 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus', 'ngCookies'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
-      .when('/login/:type/:itemid?', {
-        templateUrl: '/ui/wampumfrontend/dist/login.html',
-        controller: 'LoginCtrl',
+      .when('/account/:type/:itemid?', {
+        templateUrl: '/ui/wampumfrontend/dist/account.html',
+        controller: 'AccountCtrl',
       })
-      .when('/profile/:username/:itemid?', {
+      .when('/profile/:userid/:itemid?', {
         templateUrl: '/ui/wampumfrontend/dist/profile.html',
         controller: 'ProfileCtrl',
       })
