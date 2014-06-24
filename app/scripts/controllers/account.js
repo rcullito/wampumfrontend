@@ -55,7 +55,7 @@ angular.module('wampumfrontendApp')
           .success(function (data) {
             // if they were coming from an item page, then attach the itemid to
             // the profile
-            $location.url('/profile/' + email)
+            $location.url('/profile/' + data._id)
             console.log(data);
           })
           .error(function (err) {
