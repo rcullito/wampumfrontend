@@ -3,8 +3,12 @@
 angular.module('wampumfrontendApp')
   .controller('AccountCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'authService', function ($scope, $routeParams, $location, $cookies, authService) {
 
-    $scope.itemid = $routeParams.itemid
+    
     $scope.form_type = $routeParams.type;
+
+    if ($routeParams.itemid) {
+      $cookies.itemid = $routeParams.itemid;
+    }
 
     if ($cookies.userid !== "null") {
       $location.url('/profile')
@@ -51,11 +55,7 @@ angular.module('wampumfrontendApp')
         authService.login(email, password)
           .success(function (data) {
             $cookies.userid = data._id;
-            if ($scope.itemid) {
-              $location.url('/profile');
-            } else {
-              $location.url('/profile')
-            }
+            $location.url('/profile')
             console.log(data);
           })
           .error(function (err) {
