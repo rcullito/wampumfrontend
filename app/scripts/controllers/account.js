@@ -3,9 +3,6 @@
 angular.module('wampumfrontendApp')
   .controller('AccountCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'authService', function ($scope, $routeParams, $location, $cookies, authService) {
 
-    
-    $scope.form_type = $routeParams.type;
-
     if ($routeParams.itemid) {
       $cookies.itemid = $routeParams.itemid;
     }
@@ -28,10 +25,12 @@ angular.module('wampumfrontendApp')
       }
     };
 
-    setScopeBasedOnFormType($scope.form_type);
+    $scope.setFormType = function (form_type) {
+      $scope.form_type = form_type;
+      setScopeBasedOnFormType(form_type);
+    }
 
     $scope.alternateLogin = function (form_type) {
-      console.log(form_type);
       if (form_type === 'login') {
         var other_form_type = 'signup';
       } else {
@@ -56,7 +55,6 @@ angular.module('wampumfrontendApp')
           .success(function (data) {
             $cookies.userid = data._id;
             $location.url('/profile')
-            console.log(data);
           })
           .error(function (err) {
             alert(err);
