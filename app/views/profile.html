@@ -1,5 +1,10 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
+
+    <div class="row" style="text-align:right;">
+      <a href="#" ng-click="logout()" class="button button-rounded button-flat-primary">Log out</a>
+    </div>
+
     <div class="row" style="margin-bottom:30px; text-align:center;">
         <h1 style="cursor:pointer;">Wampum</h1>
     </div>
@@ -12,6 +17,8 @@
     </div>
 
     <p>Thanks for being a part of Wampum! You are now ready to receive shipping and postage for whatever item you choose.</p>
+
+    <p>Your are currently logged in as {{ userid }}</p>
 
   </div>
 </div>

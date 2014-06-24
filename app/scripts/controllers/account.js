@@ -6,6 +6,10 @@ angular.module('wampumfrontendApp')
     $scope.itemid = $routeParams.itemid
     $scope.form_type = $routeParams.type;
 
+    if ($cookies.userid !== "null") {
+      $location.url('/profile')
+    }
+
     var setScopeBasedOnFormType = function (form_type) {
       $scope.form_type = form_type;
       if (form_type === 'login') {
@@ -32,31 +36,13 @@ angular.module('wampumfrontendApp')
       setScopeBasedOnFormType(other_form_type);
     };
 
-    authService.checkLoginStatus()
-      .success(function (data) {
-
-        if (_.isEmpty(data)) {
-          console.log('user is not logged in');
-          // if they are not logged in, have them either register or login
-        } else {
-          console.log('user is logged in as: ' + data.email);
-        }
-      })
-      .error(function (err) {
-        console.log(err);
-      });
-
-
-
     $scope.validate = function (form_type, email, password) {
 
       if (form_type === 'signup') {
         authService.signup(email, password)
           .success(function (data) {
-            // if they were coming from an item page, then attach the itemid to
-            // the profile
-            $location.url('/profile/' + data._id)
-            console.log(data);
+            $cookies.userid = data._id;
+            $location.url('/profile')
           })
           .error(function (err) {
             alert(err);
@@ -64,11 +50,11 @@ angular.module('wampumfrontendApp')
       } else {
         authService.login(email, password)
           .success(function (data) {
-            // if successful login redirect them to the user home page
+            $cookies.userid = data._id;
             if ($scope.itemid) {
-              $location.url('/profile/' + data._id + '/' + $scope.itemid);
+              $location.url('/profile');
             } else {
-              $location.url('/profile/' + data._id)
+              $location.url('/profile')
             }
             console.log(data);
           })

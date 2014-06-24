@@ -32,17 +32,9 @@ angular.module('wampumfrontendApp')
       });      
     };
 
-    var checkLoginStatus = function() {
-      return $http({
-        method: 'GET',
-        url: '/checkLoginStatus'  ,     
-      });
-    };
-
     return {
       signup: signup,
       login: login,
-      checkLoginStatus: checkLoginStatus
     };
 
   }]);
