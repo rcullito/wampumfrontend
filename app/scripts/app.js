@@ -9,7 +9,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus', 'ngCookies'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
-      .when('/account/:itemid?', {
+      .when('/account/:locationid?', {
         templateUrl: '/ui/wampumfrontend/dist/account.html',
         controller: 'AccountCtrl',
       })

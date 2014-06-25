@@ -3,8 +3,8 @@
 angular.module('wampumfrontendApp')
   .controller('AccountCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'authService', function ($scope, $routeParams, $location, $cookies, authService) {
 
-    if ($routeParams.itemid) {
-      $cookies.itemid = $routeParams.itemid;
+    if ($routeParams.locationid) {
+      $cookies.locationid = $routeParams.locationid;
     }
 
     if ($cookies.userid !== "null") {

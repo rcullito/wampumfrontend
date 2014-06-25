@@ -16,11 +16,24 @@
       </ul>
     </div>
 
-    <p>Thanks for being a part of Wampum! You are now ready to receive shipping and postage for whatever item you choose.</p>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
 
-    <p>Your are currently logged in as {{ useremail }}</p>
+        <p>Thanks for being a part of Wampum! You are now ready to receive shipping and postage for whatever item you choose.</p>
 
-    <p>Shipping for item # {{ itemid }}</p>
+        <p><u>Account</u></p>
+        <p>{{ useremail }}</p>
+
+        <p><u>Current Order</u></p>
+        <p>Shipping to location # {{ locationid }}</p>
+
+      </div>
+    </div>
+
+
+    <div ng-show="location_details">
+
+    </div>
 
   </div>
 </div>

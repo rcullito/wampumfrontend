@@ -10,13 +10,22 @@ angular.module('wampumfrontendApp')
         params: {
           userid: userid,
         }
-      })
-    }
+      });
+    };
 
-
+    var getLocationById = function (locationid) {
+      return $http({
+        method: 'GET',
+        url: '/location',
+        params: {
+          locationid: locationid,
+        }
+      });
+    };
 
     return {
-      getUserById: getUserById
+      getUserById: getUserById,
+      getLocationById: getLocationById
     };
 
   }]);
