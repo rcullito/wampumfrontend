@@ -17,7 +17,7 @@ angular.module('wampumfrontendApp')
     profileService.getLocationById($scope.locationid)
       .success(function (location) {
         console.log(location);
-        $scope.location_details;
+        $scope.location_details = location._source;
       })
       .error(function (err) {
         console.log(err);
@@ -26,6 +26,11 @@ angular.module('wampumfrontendApp')
     $scope.logout = function () {
       $cookies.userid = null;
       $location.url('/');
+    };
+
+
+    $scope.submitShipping = function () {
+      alert('submitted');
     };
 
   }]);
