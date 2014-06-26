@@ -19,7 +19,9 @@
     "load-grunt-tasks": "~0.1.0",
     "grunt-google-cdn": "~0.2.0",
     "time-grunt": "~0.1.0",
-    "grunt-uncss": "~0.3.3"
+    "grunt-uncss": "~0.3.3",
+    "gulp": "~3.8.2",
+    "gulp-concat": "~2.2.0"
   },
   "engines": {
     "node": ">=0.8.0"
