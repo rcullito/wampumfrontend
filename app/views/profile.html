@@ -31,14 +31,14 @@
           <label>Label:</label>
           <p>{{ location_details.mailingaddress }}</p>
           <label>Item Width</label>
-          <select class="form-control">
+          <select ng-model="item_width" class="form-control">
             <option value="1">under 6 inches</option>
             <option value="2">6 inches to 1 foot</option>
             <option value="3">1 to to feet</option>
             <option value="3">over 2 feet</option>
           </select>  
           <label>Item Height</label>
-          <select class="form-control">
+          <select ng-model="item_height" class="form-control">
             <option value="1">under 6 inches</option>
             <option value="2">6 inches to 1 foot</option>
             <option value="3">1 to to feet</option>
@@ -55,7 +55,7 @@
           <label>City</label>
           <input type="text" class="form-control" ng-model="city"/>
           <label>State</label>
-          <select class="form-control">
+          <select ng-model="state" class="form-control">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -111,11 +111,14 @@
   
           <label>Zip</label>
           <input type="text" class="form-control" ng-model="zip"/>
-          <button ng-click="submitShipping()" class="btn btn-success">Submit</button>
+          <button ng-click="submitShipping(userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)" class="btn btn-success">Submit</button>
           </form>
         </div>
-        <div ng-hide="locationid">
+        <div ng-show="nothingset">
           <p>To place an order for shipping materials, search for an item to upcycle <a href="/">here.</a></p>
+        </div>
+        <div ng-show="submitted">
+         <p>Thank you for placing your order with Wampum! Your shipping materials will arrive soon. Please email rob@wampum.io with any questions</p>
         </div>
 
       </div>

@@ -6,6 +6,12 @@ angular.module('wampumfrontendApp')
     $scope.userid = $cookies.userid;
     $scope.locationid = $cookies.locationid;
 
+    console.log($scope.locationid);
+
+    if ($scope.locationid || _.isUndefined($scope.locationid)) {
+      $scope.nothingset = true;
+    }
+
     profileService.getUserById($scope.userid)
       .success(function (user) {
         $scope.useremail = user._source.email;
@@ -16,7 +22,6 @@ angular.module('wampumfrontendApp')
 
     profileService.getLocationById($scope.locationid)
       .success(function (location) {
-        console.log(location);
         $scope.location_details = location._source;
       })
       .error(function (err) {
@@ -28,9 +33,24 @@ angular.module('wampumfrontendApp')
       $location.url('/');
     };
 
+    $scope.display_message = 
 
-    $scope.submitShipping = function () {
-      alert('submitted');
+    $scope.submitShipping = function (userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
+
+      profileService.submitShippingInfo(userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)
+        .success(function (data) {
+          console.log(data);
+          if (data) {
+            $cookies.locationid = false;
+            $scope.nothingset = false;
+            $scope.locationid = null;
+            $scope.submitted = true;
+          }
+        })
+        .error(function (data) {
+          console.log(data);
+        })
+
     };
 
   }]);
