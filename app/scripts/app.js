@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wampumfrontendApp', ['ngRoute', 'ngDisqus', 'ngCookies'])
+angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider

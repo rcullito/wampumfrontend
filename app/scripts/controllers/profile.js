@@ -6,8 +6,6 @@ angular.module('wampumfrontendApp')
     $scope.userid = $cookies.userid;
     $scope.locationid = $cookies.locationid;
 
-    console.log($cookies);
-
     if (_.isUndefined($scope.locationid) || $scope.locationid === "0") {
       $scope.nothingset = true;
     }
