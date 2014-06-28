@@ -21,7 +21,9 @@
     "time-grunt": "~0.1.0",
     "grunt-uncss": "~0.3.3",
     "gulp": "~3.8.2",
-    "gulp-concat": "~2.2.0"
+    "gulp-concat": "~2.2.0",
+    "gulp-if": "~1.2.1",
+    "gulp-shell": "~0.2.7"
   },
   "engines": {
     "node": ">=0.8.0"
