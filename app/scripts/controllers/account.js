@@ -7,7 +7,7 @@ angular.module('wampumfrontendApp')
       $cookies.locationid = $routeParams.locationid;
     }
 
-    if ($cookies.userid !== "null") {
+    if ($cookies.userloggedin === "yes") {
       $location.url('/profile')
     }
 
@@ -44,7 +44,9 @@ angular.module('wampumfrontendApp')
       if (form_type === 'signup') {
         authService.signup(email, password)
           .success(function (data) {
+            // make this a function
             $cookies.userid = data._id;
+            $cookies.userloggedin = "yes";
             $location.url('/profile')
           })
           .error(function (err) {
@@ -53,7 +55,9 @@ angular.module('wampumfrontendApp')
       } else {
         authService.login(email, password)
           .success(function (data) {
+            // use this function
             $cookies.userid = data._id;
+            $cookies.userloggedin = "yes";
             $location.url('/profile')
           })
           .error(function (err) {

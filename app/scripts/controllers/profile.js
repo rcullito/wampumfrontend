@@ -6,9 +6,9 @@ angular.module('wampumfrontendApp')
     $scope.userid = $cookies.userid;
     $scope.locationid = $cookies.locationid;
 
-    console.log($scope.locationid);
+    console.log($cookies);
 
-    if ($scope.locationid || _.isUndefined($scope.locationid)) {
+    if (_.isUndefined($scope.locationid) || $scope.locationid === "0") {
       $scope.nothingset = true;
     }
 
@@ -28,12 +28,16 @@ angular.module('wampumfrontendApp')
         console.log(err);
       });      
 
+      // it is being set to the string null 
+      // which is why it is evaluating to true
     $scope.logout = function () {
       $cookies.userid = null;
+      $cookies.userloggedin = "no";
+      $cookies.locationid = "0";
+
       $location.url('/');
     };
 
-    $scope.display_message = 
 
     $scope.submitShipping = function (userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
 
