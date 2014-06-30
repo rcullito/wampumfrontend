@@ -11,7 +11,6 @@
     "angular-resource": "~1.0.7",
     "angular-cookies": "~1.0.7",
     "angular-sanitize": "~1.2.14",
-    "angular-disqus": "~1.1.0",
     "lodash": "~2.4.1",
     "superagent": "~0.16.0",
     "kineticjs": "~5.0.1",
