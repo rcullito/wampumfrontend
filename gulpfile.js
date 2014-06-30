@@ -1,11 +1,12 @@
 var gulp = require('gulp'),
   cssmin = require('gulp-cssmin'),
+  uglify = require('gulp-uglify')
   concat = require('gulp-concat');
-
 
 
 gulp.task('localjs', function() {
   return gulp.src('app/scripts/**/*.js')
+    .pipe(uglify())
     .pipe(concat('wampum.js'))
     .pipe(gulp.dest('dest/js'));
 });
@@ -28,8 +29,8 @@ gulp.task('views', function () {
 
 gulp.task('css', function () {
   return gulp.src(['app/styles/typeahead.css', 'app/public/css/buttons.css', 'app/styles/bootstrap.css', 'app/styles/main.css'])
-    .pipe(concat('all.css'))
     .pipe(cssmin())
+    .pipe(concat('all.css'))
     .pipe(gulp.dest('dest'))
 })
 

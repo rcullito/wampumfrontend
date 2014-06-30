@@ -24,7 +24,8 @@
     "gulp-concat": "~2.2.0",
     "gulp-if": "~1.2.1",
     "gulp-shell": "~0.2.7",
-    "gulp-cssmin": "~0.1.6"
+    "gulp-cssmin": "~0.1.6",
+    "gulp-uglify": "~0.3.1"
   },
   "engines": {
     "node": ">=0.8.0"
