@@ -48,6 +48,6 @@ angular.module('wampumfrontendApp')
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: '/ui/wampumfrontend/dist/blogheader.html',
+      templateUrl: '/ui/wampumfrontend/dest/blogheader.html',
     };
   });
