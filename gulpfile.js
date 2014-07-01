@@ -8,7 +8,7 @@ var srcFiles = [
   'app/scripts/**/*.js',
   'app/styles/main.css',
   'app/views/*.html',
-  'Gruntfile.js',
+  'gulpfile.js',
 ];
 
 gulp.task('localjs', function() {
