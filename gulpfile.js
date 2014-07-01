@@ -3,6 +3,13 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify')
   concat = require('gulp-concat');
 
+var srcFiles = [
+  'app/index.html',
+  'app/scripts/**/*.js',
+  'app/styles/main.css',
+  'app/views/*.html',
+  'Gruntfile.js',
+];
 
 gulp.task('localjs', function() {
   return gulp.src('app/scripts/**/*.js')
@@ -34,10 +41,12 @@ gulp.task('css', function () {
     .pipe(gulp.dest('dest'))
 })
 
-// worry about watch second
+gulp.task('watch', function() {
+  gulp.watch(srcFiles, ['build']);
+});
 
 
-gulp.task('default', [
+gulp.task('build', [
   'localjs',
   'vendorjs',
   'index',
