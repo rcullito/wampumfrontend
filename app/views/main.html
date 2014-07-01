@@ -47,34 +47,12 @@
 
 
 <div ng-show="resultObjects" class="container lower results">
-  <div class="row">
-    <span class="col-sm-offset-8 col-sm-4">
-
-        <span ng-show="yetToWeighIn">
-          <p>satisfied?
-            <a ng-click="satisfied('satisfied', 'yes')" style="line-height:28px;" href="#" class="button button-border-action button-pill">yes</a>
-            <a ng-click="satisfied('satisfied', 'no')" style="line-height:28px;" href="#" class="button button-border-caution button-pill">no</a>
-          </p>
-        </span>
-        <span ng-show="weighedIn">
-          <p>Thanks! Why?
-          <div class="input-group">
-            <input ng-model="feedback" type="text" ng-enter="submitFeedback('feedback', feedback)" class="form-control">
-            <div class="input-group-btn">
-              <a ng-click="submitFeedback('feedback', feedback)" href="#" style="height:34px;" class="button button-border">✓</a>
-            </div>
-          </div>
-        </span>
-
-
-    </span>
-  </div>
   <div class="row" ng-repeat="result in resultObjects">
     <span class="col-sm-10 col-sm-offset-1">
       <h4>{{ result.name }} 
 <!--       <span style="background-color: {{ result.wampum_color; }}" class="score">{{ result.wampum_score | number:2 }}</span> -->
       <!-- include the search term and the current entry -->
-      <a href="/account/{{ result.id }}" class="button button-border-royal button-pill">Free Shipping</a>
+      <a href="/account/{{ result.id }}" class="button button-border-royal button-pill">Ship It</a>
       </h4>
 
       <p><u>About</u>: {{ result.description }}</p>
