@@ -36,6 +36,7 @@ gulp.task('views', function () {
 
 gulp.task('css', function () {
   return gulp.src(['app/styles/typeahead.css', 'app/public/css/buttons.css', 'app/styles/bootstrap.css', 'app/styles/main.css'])
+    // uncss here potentially
     .pipe(cssmin())
     .pipe(concat('all.css'))
     .pipe(gulp.dest('dest'))
@@ -45,7 +46,6 @@ gulp.task('watch', function() {
   gulp.watch(srcFiles, ['build']);
 });
 
-
 gulp.task('build', [
   'localjs',
   'vendorjs',
@@ -53,4 +53,3 @@ gulp.task('build', [
   'views',
   'css'
 ]);
-
