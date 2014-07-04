@@ -69,7 +69,7 @@ angular.module('wampumfrontendApp')
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       limit: 10,
       prefetch: {
-        url: '/autocomplete',
+        url: '/tags',
         filter: function(res) {
           return res;
         }
