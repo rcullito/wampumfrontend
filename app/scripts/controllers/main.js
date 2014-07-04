@@ -1,13 +1,9 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', 'uuidService', function ($scope, $routeParams, $location, $cookies, esService, uuidService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', 'uuidService', 'cookieService', function ($scope, $routeParams, $location, $cookies, esService, uuidService, cookieService) {
 
-    if ($cookies.userloggedin === "yes") {
-      $scope.profile_message = "My Profile";
-    } else {
-      $scope.profile_message = "Sign Up / Log In";
-    }
+    $scope.topRightMessage = cookieService.topRightMessage();
 
     $scope.yetToSignUp = true; 
 
