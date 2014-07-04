@@ -17,6 +17,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/ui/wampumfrontend/dest/profile.html',
         controller: 'ProfileCtrl',
       })
+      .when('/itemlist', {
+        templateUrl: '/ui/wampumfrontend/dest/itemlist.html',
+        controller: 'ItemlistCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
