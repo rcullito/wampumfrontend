@@ -14,6 +14,10 @@ angular.module('wampumfrontendApp')
           .value();
 
         console.log(tags);
+        $scope.tags = _.pairs(tags);
+
+        console.log($scope.tags);
+
       })
       .error(function (err) {
         console.log(err);
