@@ -18,6 +18,11 @@ gulp.task('localjs', function() {
     .pipe(gulp.dest('dest/js'));
 });
 
+gulp.task('directives', function() {
+  return gulp.src('app/directives/directive.js')
+    .pipe(gulp.dest('dest/js'))
+});
+
 gulp.task('vendorjs', function () {
   return gulp.src('app/public/typeaheadFork.min.js')
     .pipe(concat('vendor.js'))
@@ -48,6 +53,7 @@ gulp.task('watch', function() {
 
 gulp.task('build', [
   'localjs',
+  'directives',
   'vendorjs',
   'index',
   'views',
