@@ -1,7 +1,7 @@
 <superman>
   <div ng-repeat="tag in tags">
-    <h3>{{ tag[0] }}</h3>
-    <p><span ng-repeat="individual in tag[1]">{{ individual.tag }}, </span></p>
+    <h3>{{ tag.letter }}</h3>
+    <p><span ng-repeat="individual in tag.entries">{{ individual }}, </span></p>
   </div>
 </superman>
 
