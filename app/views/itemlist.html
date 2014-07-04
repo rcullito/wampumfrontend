@@ -1,7 +1,23 @@
 <superman>
-  <div ng-repeat="tag in tags">
-    <h3>{{ tag.letter }}</h3>
-    <p><span ng-repeat="individual in tag.entries">{{ individual }}, </span></p>
+  <div class="row">
+    <div class="col-sm-4">
+      <span ng-repeat="tag in firsttags">
+        <h3>{{ tag.letter | uppercase }}</h3>
+        <p><span ng-repeat="individual in tag.entries"><a href="/?search={{ individual }}">{{ individual }}</a>, </span></p>
+      </span>
+    </div>
+    <div class="col-sm-4">
+      <span ng-repeat="tag in secondtags">
+        <h3>{{ tag.letter | uppercase }}</h3>
+        <p><span ng-repeat="individual in tag.entries"><a href="/?search={{ individual }}">{{ individual }}</a>, </span></p>
+      </span>
+    </div>
+    <div class="col-sm-4">
+      <span ng-repeat="tag in thirdtags">
+        <h3>{{ tag.letter | uppercase }}</h3>
+        <p><span ng-repeat="individual in tag.entries"><a href="/?search={{ individual }}">{{ individual }}</a>, </span></p>
+      </span>
+    </div>
   </div>
 </superman>
 
