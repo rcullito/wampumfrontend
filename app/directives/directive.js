@@ -3,6 +3,6 @@ angular.module("wampumfrontendApp")
 .directive("superman", function() {
     return {
         restrict: "E",
-        template: "<div>Here I am to save the day</div>"
+        templateUrl: "/ui/wampumfrontend/dest/header.html"
     }
 })
