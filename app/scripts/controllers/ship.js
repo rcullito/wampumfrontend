@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('ProfileCtrl', ['$scope', '$routeParams', '$location', 'profileService', function ($scope, $routeParams, $location, profileService) {
+  .controller('ShipCtrl', ['$scope', '$routeParams', '$location', 'shipService', function ($scope, $routeParams, $location, shipService) {
 
     $scope.locationid = $routeParams.locationid;
 
-    profileService.getLocationById($scope.locationid)
+    shipService.getLocationById($scope.locationid)
       .success(function (location) {
         $scope.mailingaddress = location._source.mailingaddress.split('|');
       })
@@ -15,7 +15,7 @@ angular.module('wampumfrontendApp')
 
     $scope.submitShipping = function (userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
 
-      profileService.submitShippingInfo(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)
+      shipService.submitShippingInfo(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)
         .success(function (data) {
           console.log(data);
           if (data) {

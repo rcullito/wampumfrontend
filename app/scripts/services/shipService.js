@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .service('profileService', ['$http', function ($http) {
+  .service('shipService', ['$http', function ($http) {
 
     var getLocationById = function (locationid) {
       return $http({
