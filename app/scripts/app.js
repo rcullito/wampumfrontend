@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/ui/wampumfrontend/dest/account.html',
         controller: 'AccountCtrl',
       })
-      .when('/profile', {
+      .when('/profile/:locationid?', {
         templateUrl: '/ui/wampumfrontend/dest/profile.html',
         controller: 'ProfileCtrl',
       })

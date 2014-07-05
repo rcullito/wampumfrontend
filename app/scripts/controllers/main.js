@@ -1,11 +1,8 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', 'uuidService', 'cookieService', function ($scope, $routeParams, $location, $cookies, esService, uuidService, cookieService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', 'uuidService', function ($scope, $routeParams, $location, $cookies, esService, uuidService) {
 
-    $scope.topRightMessage = cookieService.topRightMessage();
-
-    $scope.yetToSignUp = true; 
 
     $scope.showAbout = function () {
       $scope.motion = true;

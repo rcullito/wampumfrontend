@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('ProfileCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'authService', 'profileService', function ($scope, $routeParams, $location, $cookies, authService, profileService) {
+  .controller('ProfileCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'profileService', function ($scope, $routeParams, $location, $cookies, profileService) {
 
     $scope.userid = $cookies.userid;
+
+    // get location id from the route
     $scope.locationid = $cookies.locationid;
+
+    $scope.locationid = $routeParams.locationid;
 
     if (_.isUndefined($scope.locationid) || $scope.locationid === "0") {
       $scope.nothingset = true;
     }
-
-    profileService.getUserById($scope.userid)
-      .success(function (user) {
-        $scope.useremail = user._source.email;
-      })
-      .error(function (err) {
-        console.log(err);
-      });
 
     profileService.getLocationById($scope.locationid)
       .success(function (location) {
