@@ -7,7 +7,7 @@
         <h3>Shipping</h3>
         <label>Label:</label>
         <!-- put name of location here too in case it is not on it, standardize this -->
-        <p>{{ location_details.mailingaddress }}</p>
+        <p ng-repeat="addresspart in mailingaddress">{{ addresspart }}</p>
         <label>Item Width</label>
         <select ng-model="item_width" class="form-control">
           <option value="1">under 6 inches</option>
@@ -89,11 +89,8 @@
 
         <label>Zip</label>
         <input type="text" class="form-control" ng-model="zip"/>
-        <button ng-click="submitShipping(userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)" class="btn btn-success">Submit</button>
+        <button ng-click="submitShipping(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)" class="btn btn-success">Submit</button>
         </form>
-      </div>
-      <div ng-show="nothingset">
-        <p>To place an order for shipping materials, search for an item to upcycle <a href="/">here.</a></p>
       </div>
       <div ng-show="submitted">
        <p>Thank you for placing your order with Wampum! Your shipping materials will arrive soon. Please email rob@wampum.io with any questions</p>

@@ -3,16 +3,6 @@
 angular.module('wampumfrontendApp')
   .service('profileService', ['$http', function ($http) {
 
-    var getUserById = function (userid) {
-      return $http({
-        method: 'GET',
-        url: '/user',
-        params: {
-          userid: userid,
-        }
-      });
-    };
-
     var getLocationById = function (locationid) {
       return $http({
         method: 'GET',
@@ -23,12 +13,11 @@ angular.module('wampumfrontendApp')
       });
     };
 
-    var submitShippingInfo = function (userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
+    var submitShippingInfo = function (locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
       return $http({
         method: 'POST',
         url: '/submitshipping',
         data: {
-          userid: userid,
           locationid: locationid,
           item_width: item_width,
           item_height: item_width,
@@ -42,7 +31,6 @@ angular.module('wampumfrontendApp')
     };
 
     return {
-      getUserById: getUserById,
       getLocationById: getLocationById,
       submitShippingInfo: submitShippingInfo
     };

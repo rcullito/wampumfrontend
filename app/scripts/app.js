@@ -9,11 +9,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
-      .when('/account/:locationid?', {
-        templateUrl: '/ui/wampumfrontend/dest/account.html',
-        controller: 'AccountCtrl',
-      })
-      .when('/profile/:locationid?', {
+      .when('/profile/:locationid', {
         templateUrl: '/ui/wampumfrontend/dest/profile.html',
         controller: 'ProfileCtrl',
       })
