@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/ui/wampumfrontend/dest/itemlist.html',
         controller: 'ItemlistCtrl',
       })      
-      .when('/ship/:locationid', {
+      .when('/ship/:locationid/:item', {
         templateUrl: '/ui/wampumfrontend/dest/ship.html',
         controller: 'ShipCtrl',
       })
