@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('ItemlistCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'cookieService', 'itemListService', function ($scope, $routeParams, $location, $cookies, cookieService, itemListService) {
-
-    $scope.topRightMessage = cookieService.topRightMessage();
+  .controller('ItemlistCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'itemListService', function ($scope, $routeParams, $location, $cookies, itemListService) {
 
     itemListService.tags()
       .success(function (data) {

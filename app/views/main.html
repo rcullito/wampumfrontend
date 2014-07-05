@@ -1,10 +1,6 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
 
-    <div class="row" style="text-align:right;">
-      <a href="/account" class="button button-rounded button-flat-primary">{{ topRightMessage }}</a>
-    </div>
-
     <div class="row" style="margin-bottom:30px; text-align:center;">
         <h1 style="cursor:pointer;" ng-click="showAbout()">Wampum</h1>
     </div>
@@ -57,7 +53,7 @@
       </h4>
 
       <p><u>About</u>: {{ result.description }}</p>
-      <p>Mailing Address: {{ result.mailingaddress }} 
+      <p>Location: {{ result.mailingaddress }} 
       </p>
       <p>Accepts: {{ result.tags }}</p>
       <p ng-click="clickEvent('ct_url', result.website)"><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></p>
