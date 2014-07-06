@@ -6,10 +6,7 @@ angular.module('wampumfrontendApp')
     var getLocationById = function (locationid) {
       return $http({
         method: 'GET',
-        url: '/location',
-        params: {
-          locationid: locationid,
-        }
+        url: '/location/' + locationid,
       });
     };
 
