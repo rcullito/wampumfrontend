@@ -15,6 +15,10 @@ h1 {
 	font-family: "hill-house";
 }
 
+.delinkify a:link {
+    color: rgb(105, 105, 105);
+}
+
 .score {
 	padding: 3px;
 	color: white;

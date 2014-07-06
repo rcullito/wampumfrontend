@@ -5,7 +5,6 @@
         <form>
         <h3>Shipping your {{ item }}</h3>
         <label>To:</label>
-        <!-- put name of location here too in case it is not on it, standardize this -->
         <p ng-repeat="addresspart in mailingaddress">{{ addresspart }}</p>
         <br>
         <h3>Your Address</h3>
@@ -16,9 +15,7 @@
         <input type="text" class="form-control" ng-model="address_line_2"/>
         <label>City</label>
         <input type="text" class="form-control" ng-model="city"/>
-
         <statedropdown></statedropdown>
-
         <label>Zip</label>
         <input type="text" class="form-control" ng-model="zip"/>
         <button ng-click="submitShipping(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)" class="btn btn-success">Submit</button>
