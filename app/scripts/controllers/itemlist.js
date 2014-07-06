@@ -22,7 +22,7 @@ angular.module('wampumfrontendApp')
 
 
       var about_a_third = Math.floor(tags.length / 3);
-      var two_thirds = about_a_third * 2;
+      var two_thirds = about_a_third * 2 + 1;
 
       $scope.firsttags = _.at(tags, _.range(0, about_a_third));
       $scope.secondtags = _.at(tags, _.range(about_a_third, two_thirds));
