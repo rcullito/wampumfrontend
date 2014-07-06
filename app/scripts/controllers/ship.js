@@ -14,7 +14,7 @@ angular.module('wampumfrontendApp')
         console.log(err);
       });      
 
-    $scope.submitShipping = function (userid, locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
+    $scope.submitShipping = function (locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
 
       shipService.submitShippingInfo(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)
         .success(function (data) {
