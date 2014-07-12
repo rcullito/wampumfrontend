@@ -5,16 +5,16 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
-        templateUrl: '/ui/wampumfrontend/dest/main.html',
+        templateUrl: '/dest/main.html',
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
       .when('/itemlist', {
-        templateUrl: '/ui/wampumfrontend/dest/itemlist.html',
+        templateUrl: '/dest/itemlist.html',
         controller: 'ItemlistCtrl',
       })      
       .when('/ship/:locationid/:item', {
-        templateUrl: '/ui/wampumfrontend/dest/ship.html',
+        templateUrl: '/dest/ship.html',
         controller: 'ShipCtrl',
       })
       .otherwise({

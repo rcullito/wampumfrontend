@@ -4,13 +4,13 @@ angular.module("wampumfrontendApp")
     return {
         restrict: "E",
         transclude: true,
-        templateUrl: "/ui/wampumfrontend/dest/header.html"
+        templateUrl: "/dest/header.html"
     }
 })
 .directive("statedropdown", function() {
     return {
         restrict: "E",
         transclude: true,
-        templateUrl: "/ui/wampumfrontend/dest/statedropdown.html"
+        templateUrl: "/dest/statedropdown.html"
     }
 })
