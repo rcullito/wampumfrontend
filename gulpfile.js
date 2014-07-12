@@ -11,32 +11,35 @@ var srcFiles = [
   'gulpfile.js',
 ];
 
+var build_dir = 'dest';
+var build_dir_js = 'dest/js';
+
 gulp.task('localjs', function() {
   return gulp.src('app/scripts/**/*.js')
     .pipe(uglify())
     .pipe(concat('wampum.js'))
-    .pipe(gulp.dest('dest/js'));
+    .pipe(gulp.dest(build_dir_js));
 });
 
 gulp.task('directives', function() {
   return gulp.src('app/directives/directive.js')
-    .pipe(gulp.dest('dest/js'))
+    .pipe(gulp.dest(build_dir_js))
 });
 
 gulp.task('vendorjs', function () {
   return gulp.src('app/public/typeaheadFork.min.js')
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('dest/js'));
+    .pipe(gulp.dest(build_dir_js));
 });
 
 gulp.task('index', function () {
   return gulp.src('app/index.html')
-    .pipe(gulp.dest('dest'));
+    .pipe(gulp.dest(build_dir));
 });
 
 gulp.task('views', function () {
   return gulp.src('app/views/*.html')
-    .pipe(gulp.dest('dest'));
+    .pipe(gulp.dest(build_dir));
 });
 
 gulp.task('css', function () {
@@ -44,7 +47,7 @@ gulp.task('css', function () {
     // uncss here potentially
     .pipe(cssmin())
     .pipe(concat('all.css'))
-    .pipe(gulp.dest('dest'))
+    .pipe(gulp.dest(build_dir))
 })
 
 gulp.task('watch', function() {
