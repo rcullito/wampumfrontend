@@ -10,12 +10,6 @@ angular.module('wampumfrontendApp')
       $location.url($location.path());
     };
 
-    $scope.clickEvent = function (event_type, event_value) {
-      esService.clickEvent(event_type, event_value, $scope.requestid)
-        .error(function (err) {
-          console.log(data);
-        });
-    };
 
     $scope.motion = true;
     $('#searchinput').val();
@@ -26,7 +20,6 @@ angular.module('wampumfrontendApp')
       
       $location.search('search', term);
       $scope.term = term;
-      esService.clickEvent('search', term, $scope.requestid);
 
       esService.search(term)
         .success(function (results) {
