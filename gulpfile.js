@@ -11,8 +11,8 @@ var srcFiles = [
   'gulpfile.js',
 ];
 
-var build_dir = 'dest';
-var build_dir_js = 'dest/js';
+var build_dir = '../wampumbackend/static/ui/wampumfrontend/dest';
+var build_dir_js = '../wampumbackend/static/ui/wampumfrontend/dest/js';
 
 gulp.task('localjs', function() {
   return gulp.src('app/scripts/**/*.js')
