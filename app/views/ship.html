@@ -3,9 +3,12 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div>
         <form>
-        <h3>Shipping your {{ item }}</h3>
+        <h3>Receive postage and shipping supplies for your {{ item }}</h3>
         <label>To:</label>
-        <p ng-repeat="addresspart in mailingaddress">{{ addresspart }}</p>
+        <div style="border: 1px solid #ccc;">
+          <p>Your Address Here Stamp</p>
+          <p style="text-align:center;" ng-repeat="addresspart in mailingaddress">{{ addresspart }}</p>
+        </div>
         <br>
         <h3>Your Address</h3>
         <p>... so we can mail you prepaid postage and a box</p>
