@@ -25,13 +25,13 @@ angular.module('wampumfrontendApp')
       shipService.submitShippingInfo(locationid, item, address_line_1, address_line_2, city, state, zip, email)
         .success(function (data) {
           if (data) {
-            $scope.nothingset = false;
-            $scope.locationid = null;
             $scope.submitted = true;
           }
         })
-        .error(function (data) {
-          console.log(data);
+        .error(function (err) {
+          var re = /address_line_/gi;
+          var new_message = err.message.replace(re, " address line ")
+          $scope.error = new_message;
         })
 
     };

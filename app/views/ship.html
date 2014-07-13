@@ -1,8 +1,7 @@
 <superman>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <div>
-        <form>
+      <div ng-hide="submitted">
         <h3>Receive postage and shipping supplies for your {{ item }}</h3>
         <br>
         <div style="border: 1px solid #ccc;">
@@ -13,29 +12,26 @@
 
         <span ng-show="address">
           <h3>Your Address</h3>
-          <label>Address line 1</label>
-          <input type="text" class="form-control" ng-model="address_line_1"/>
-          <label>Adress line 2</label>
-          <input type="text" class="form-control" ng-model="address_line_2"/>
-          <label>City</label>
-          <input type="text" class="form-control" ng-model="city"/>
-          <statedropdown></statedropdown>
-          <label>Zip</label>
-          <input type="text" class="form-control" ng-model="zip"/>
-          <label>Email</label>
-          <input type="text" class="form-control" ng-model="email"/>
-          <button ng-click="submitShipping(locationid, item, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-success">Submit</button>
+          <form>
+            <label>Address line 1</label>
+            <input type="text" class="form-control" ng-model="address_line_1"/>
+            <label>Adress line 2</label>
+            <input type="text" class="form-control" ng-model="address_line_2"/>
+            <label>City</label>
+            <input type="text" class="form-control" ng-model="city"/>
+            <statedropdown></statedropdown>
+            <label>Zip</label>
+            <input type="text" class="form-control" ng-model="zip"/>
+            <label>Email</label>
+            <input type="text" class="form-control" ng-model="email"/>
+            <button ng-click="submitShipping(locationid, item, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-success">Submit</button>
+            <p style="color: red;">{{ error }}</p>
           </form>
         </span>
-
-
-
       </div>
 
-
-
       <div ng-show="submitted">
-       <p>Thank you for placing your order with Wampum! Your shipping materials will arrive soon. Please email rob@wampum.io with any questions</p>
+       <p>Thanks for placing your order with Wampum! Your shipping materials will arrive soon. Please email rob@wampum.io with any questions</p>
       </div>
 
     </div>
