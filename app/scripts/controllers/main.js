@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', 'uuidService', function ($scope, $routeParams, $location, $cookies, esService, uuidService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', function ($scope, $routeParams, $location, $cookies, esService) {
 
 
     $scope.showAbout = function () {
@@ -16,8 +16,6 @@ angular.module('wampumfrontendApp')
     
     $scope.search = function(term) {
       $scope.motion = false;
-      $scope.requestid = uuidService.createUUID();
-      
       $location.search('search', term);
       $scope.term = term;
 
