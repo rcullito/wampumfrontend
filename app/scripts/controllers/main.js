@@ -79,7 +79,6 @@ angular.module('wampumfrontendApp')
       if (key.which === 13) {
         $('.typeahead').typeahead('close');
         $scope.search($('#searchinput').val());
-        console.log('enter');
         return;
       }
       var current_term = $('#searchinput').val();
