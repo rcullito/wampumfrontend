@@ -6,14 +6,13 @@
         <h3>Receive postage and shipping supplies for your {{ item }}</h3>
         <br>
         <div style="border: 1px solid #ccc;">
-          <p style="padding: 5px 5px;"><button class="btn btn-primary">Enter your mailing address</button></p>
+          <p style="padding: 5px 5px;"><button ng-click="showAddress()" class="btn btn-primary">Enter your mailing address</button></p>
           <p style="text-align:center;" ng-repeat="addresspart in mailingaddress">{{ addresspart }}</p>
         </div>
         <br>
 
         <span ng-show="address">
           <h3>Your Address</h3>
-          <p>... so we can mail you prepaid postage and a box</p>
           <label>Address line 1</label>
           <input type="text" class="form-control" ng-model="address_line_1"/>
           <label>Adress line 2</label>
@@ -23,7 +22,9 @@
           <statedropdown></statedropdown>
           <label>Zip</label>
           <input type="text" class="form-control" ng-model="zip"/>
-          <button ng-click="submitShipping(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)" class="btn btn-success">Submit</button>
+          <label>Email</label>
+          <input type="text" class="form-control" ng-model="email"/>
+          <button ng-click="submitShipping(locationid, item, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-success">Submit</button>
           </form>
         </span>
 

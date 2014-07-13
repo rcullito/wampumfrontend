@@ -6,6 +6,12 @@ angular.module('wampumfrontendApp')
     $scope.locationid = $routeParams.locationid;
     $scope.item = $routeParams.item;
 
+    $scope.address = false;
+
+    $scope.showAddress = function () {
+      $scope.address = !$scope.address;
+    }
+
     shipService.getLocationById($scope.locationid)
       .success(function (location) {
         $scope.mailingaddress = location._source.mailingaddress.split('|');
@@ -14,9 +20,9 @@ angular.module('wampumfrontendApp')
         console.log(err);
       });      
 
-    $scope.submitShipping = function (locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip) {
+    $scope.submitShipping = function (locationid, item, address_line_1, address_line_2, city, state, zip, email) {
 
-      shipService.submitShippingInfo(locationid, item_width, item_height, address_line_1, address_line_2, city, state, zip)
+      shipService.submitShippingInfo(locationid, item, address_line_1, address_line_2, city, state, zip, email)
         .success(function (data) {
           if (data) {
             $scope.nothingset = false;
