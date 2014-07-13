@@ -27,11 +27,9 @@ angular.module('wampumfrontendApp')
             $scope.resultObjects = results;
             $scope.noResults = false;
           } else {
-            esService.clickEvent('no_results', term, $scope.requestid);
             $scope.resultObjects = false;
             $scope.noResults = true;
           }
-          // $scope.motion = false;
           $location.search('search', term);
         })
         .error(function (err) {
@@ -79,6 +77,9 @@ angular.module('wampumfrontendApp')
 
     $('#searchinput').keyup(function (key) {
       if (key.which === 13) {
+        $('.typeahead').typeahead('close');
+        $scope.search($('#searchinput').val());
+        console.log('enter');
         return;
       }
       var current_term = $('#searchinput').val();
@@ -94,10 +95,5 @@ angular.module('wampumfrontendApp')
     $('#gobutton').click(function () {
       $scope.search($('#searchinput').val());
     });
-
-    $scope.hidetypeahead = function () {
-      $('.typeahead').typeahead('close');
-      $scope.search($('#searchinput').val());
-    };
 
 }]);
