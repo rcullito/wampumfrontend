@@ -6,7 +6,7 @@ angular.module('wampumfrontendApp')
     var tags = function () {
       return $http({
         method: 'GET',
-        url: '/tags',
+        url: '/itemlistdata',
       })
     };
 
