@@ -10,18 +10,18 @@ angular.module('wampumfrontendApp')
       });
     };
 
-    var submitShippingInfo = function (locationid, item, address_line_1, address_line_2, city, state, zip, email) {
+    var submitShippingInfo = function (locationid, item, email) {
       return $http({
         method: 'POST',
         url: '/submitshipping',
         data: {
           locationid: locationid,
           item: item,
-          address_line_1: address_line_1,
-          address_line_2: address_line_2,
-          city: city,
-          state: state,
-          zip: zip,
+          // address_line_1: address_line_1,
+          // address_line_2: address_line_2,
+          // city: city,
+          // state: state,
+          // zip: zip,
           email: email
         }
       });
