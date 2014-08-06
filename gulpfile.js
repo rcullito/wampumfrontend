@@ -44,7 +44,7 @@ gulp.task('views', function () {
 
 gulp.task('css', function () {
   // return gulp.src(['app/styles/typeahead.css', 'app/public/css/buttons.css', 'app/styles/bootstrap.css', 'app/styles/main.css'])
-  return gulp.src(['app/public/css/buttons.css', 'app/styles/bootstrap.css', 'app/styles/main.css'])  
+  return gulp.src(['app/styles/bootstrap.css', 'app/styles/main.css'])  
     // uncss here potentially
     .pipe(cssmin())
     .pipe(concat('all.css'))

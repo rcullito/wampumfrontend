@@ -14,3 +14,10 @@ angular.module("wampumfrontendApp")
         templateUrl: "/static/statedropdown.html"
     }
 })
+.directive("brands", function() {
+    return {
+        restrict: "E",
+        transclude: true,
+        templateUrl: "/static/brands.html"
+    }
+})
