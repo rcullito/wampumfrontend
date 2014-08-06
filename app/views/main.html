@@ -1,82 +1,43 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
-
     <div class="row" style="margin-bottom:30px; text-align:center;">
         <h1 style="cursor:pointer;" ng-click="showAbout()">Wampum</h1>
     </div>
 
-    <div ng-show="motion" class="row">
-      <p>wampum: noun. small  shell beads made by North American Indians, strung together and worn as a decorative belt or used as <em>currency</em>.</p>   
-    </div>
+    <p>Wampum allows you to trade in your old clothes for gift cards at stores.</p>
+    <p>wampum: noun. small  shell beads made by North American Indians, strung together and worn as a decorative belt or used as <em>currency</em>.
+    </p>
 
-  </div>
-
-    <!-- as soon as the first keystroke then reoirent the page -->
-    <div ng-hide="resultObjects">
-      <br>
-    </div>
-    <div class="row">
-      <div id="main-search-field" class="col-sm-6 col-sm-offset-3">
-      <!-- change this message once they are on the locations page -->
-        <p class="emphasis">Start by entering your item.</p>
-        <form class="form-horizontal">
-          <div id="scrollable-dropdown-menu" class="input-group">
-            <input style="margin-top: 2px;" id="searchinput"  type="text" ng-model="term" placeholder="jeans, shoes, etc..." class="typeahead form-control input-lg">
-            <span class="input-group-btn">
-              <a id="gobutton" style="font-family:'Avenir Next';" href="#" class="button button-border-primary button-rounded button-large">Go</a>
-            </span>
-          </div>
-        </form>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
       </div>
-    </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">@</div>
+          <input class="form-control" type="email" placeholder="Enter email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputPassword2">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </form>
 
-    <br>
-    <p style="text-align:center;">Or check out the list of items we support <a href="/itemlist">here.</a></p>
 
-  </div>
-</div>
 
-<div ng-show="resultObjects" class="container lower results">
-  <div class="row" ng-repeat="result in resultObjects">
-    <span class="col-sm-10 col-sm-offset-1">
-      <h4><a href="{{ result.website }}" target="_blank">{{ result.name }}</a>&nbsp;&nbsp;
-      <a href="/ship/{{ result.id }}/{{ term }}" class="button button-rounded button-flat-action">Ship It</a>
-      </h4>
-      <p><u>About</u>: {{ result.description }}</p>
-      <p>Location: {{ result.mailingaddress }} 
-      </p>
-      <p>Accepts: {{ result.tags }}</p>
-    </span>
-  </div>
-</div>
-
-<div ng-if="noResults" class="container lower results">
-    <span class="col-sm-10 col-sm-offset-1" style="text-align:center">
-      <p>Sorry! We could not find any results for that. Your search has been noted to us, please check back again soon!</p>
-    </span>
-</div>
-
-<div ng-show="motion" style="line-height: 22px;">
-  <div class="container lower">
-    <div id="about" class="col-sm-8 col-sm-offset-2">
-      <h3>Wampum is the new way to get rid of your old things</h3>
-      <p>Wampum makes it simple to get rid of your unused things. We  start by suggesting locations that will accept your item. When you find one you like, we'll send you the postage and shipping materials so you can send it away without any hassle.</p>     
-      <h4 style="margin-top:25px;">Because the old way was brutal</h4>
-      <p>I wanted to make space in my apartment, and found myself with a pile of old jeans, shoes, and books. I scoured the internet for places that would make good use of them, whether as insulation, or as material for a basketball court, or maybe just another pass through life as a hand me down book. This process was fun, but time consuming, so I started pulling together locations that seemed interesting and made them searchable. But even with the destinations in hand, sending objects via the mail was hard. Multiple trips to CVS: packing tape, stamps, scissors, oddly shaped boxes. The only part I got right on the first try was spilling my breakfast all over the front seat. I stared out my windshield at a woman whistling to herself pleasently as she dropped her Netflix DVD in the mail, and I knew that upcycling deserved an equally palatable solution.
-      </p>
-
-      <h4 style="margin-top:25px;">How does it work?</h4>
-      <p>Wampum assigns a higher weight to donation centers that specialize in just the item that was searched for, although facilities that accept a wide variety of items are listed too. This ranking philosophy is based on the idea that a specialized, personal connection to the end recipient of the product is a powerful motivator in getting individuals to part with their unused belongings.</p>
-
-      <h4 style="margin-top:25px;">How can I get involved?</h4>
-      <p style="margin-bottom: 50px;">Please email rob@wampum.io</p>
-    </div>
   </div>
 </div>
 
 <div class="row">
   <ul id="navigation" class="horizontal-list" style="text-align:center;">
-    <li><a ng-click="showAbout()" href="/">About</a></li>
     <li><a  href="https://medium.com/@wampum" target="_blank">Blog</a></li>
   </ul>
 </div>
