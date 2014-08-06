@@ -6,11 +6,6 @@ body {
 	color: #696969;
 }
 
-.emphasis {
-	font-family:'Avenir Next';
-	font-weight: 400;
-}
-
 h1 {
 	font-family: "hill-house";
 }
@@ -19,56 +14,14 @@ h1 {
     color: rgb(105, 105, 105);
 }
 
-.score {
-	padding: 3px;
-	color: white;
-	font-size: 85%;
-	border-radius:3px;
-}
-
-#about p {
-	font-size: 16px;
-	line-height: 24px;
-/*	margin-bottom: 0;*/
-}
-
-#about p + p {
-    text-indent: 2em;
-    margin-top: 0;
-}
-
-#main-search-field {
-	margin-top: 15px;
-	margin-bottom: 10px;
-}
-
-.main-content {
- margin:0 auto;
- float:none;
-}
-
-#kinetic {
-	padding: 0;
-}
-
-.results p {
-	font-size: 18px;
-}
-
-.lower {
-	background-color: #fff;
-	border-radius: 6px;
-	padding: 60px;
-}
 
 ul {
 	padding-left: 0px;
 }
 
-#blogText p {
-	line-height: 22px;
+label {
+	font-weight: 200;
 }
-
 
 .blog-link {
 	color: #696969;
@@ -94,9 +47,6 @@ ul {
 	color: #6c6c6c;
 }
 
-.current-true a {
-	color: #6c6c6c;
-}
 
 .horizontal-list li {
 	display: inline;
@@ -104,9 +54,4 @@ ul {
 	padding-right: 20px;
 	font-size: 19px;
 	line-height: 30px;
-}
-
-#rain-jacket {
-	height: 200px;
-	overflow:scroll;
 }
