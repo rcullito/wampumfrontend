@@ -6,7 +6,7 @@
 
     <p>Wampum allows you to trade in your old clothes for gift cards at the stores you bought them from.</p>
 
-    <form class="form-inline" role="form">
+    <form ng-show="initialform" style="text-align:center;" class="form-inline" role="form">
       <div class="form-group">
         <clothingtypes></clothingtypes>
       </div>
@@ -14,16 +14,15 @@
         <brands></brands>
       </div>
       <div class="form-group">
-        <button class="btn btn-default">Go</button>
+        <button ng-click="go()" class="btn btn-default">Go</button>
       </div>    
     </form>
   </div>
 
-
   <div class="row">
     <ul id="navigation" class="horizontal-list" style="text-align:center;">
       <li><a  href="https://medium.com/@wampum" target="_blank">Blog</a></li>
-      <li><a ng-click="originofWampum()" href="#">Whats up with the name?</a></li>
+      <li><a ng-click="originofWampum()" href="#">Origins</a></li>
     </ul>
   </div>
 
