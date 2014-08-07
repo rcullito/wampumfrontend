@@ -7,6 +7,7 @@ angular.module('wampumfrontendApp')
       alert('Wampum is a Native American word for shell beads that were used as a form of currency.');
     };
 
+    $scope.clothingtypes = 'chinos';
     $scope.brands = 'jcrew';
 
 }]);

@@ -21,3 +21,10 @@ angular.module("wampumfrontendApp")
         templateUrl: "/static/brands.html"
     }
 })
+.directive("clothingtypes", function() {
+    return {
+        restrict: "E",
+        transclude: true,
+        templateUrl: "/static/clothingtypes.html"
+    }
+})
