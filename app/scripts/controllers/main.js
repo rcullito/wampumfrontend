@@ -11,9 +11,11 @@ angular.module('wampumfrontendApp')
 
     $scope.go = function () {
       $scope.initialform = false;
-    }
+    };
 
+
+    $scope.state = 'MA';
     $scope.clothingtypes = 'chinos';
-    $scope.brands = 'jcrew';
+    $scope.brands = 'thegap';
 
 }]);

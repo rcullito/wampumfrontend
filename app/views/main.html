@@ -4,19 +4,42 @@
         <h1 style="cursor:pointer;" ng-click="showAbout()">Wampum</h1>
     </div>
 
-    <p>Wampum allows you to trade in your old clothes for gift cards at the stores you bought them from.</p>
+    <div ng-show="initialform">
+      <p>Wampum allows you to trade in your old clothes for gift cards at the stores you bought them from.</p>
+      <form style="text-align:center; margin-top:20px; margin-bottom:60px;" class="form-inline" role="form">
+        <div class="form-group">
+          <clothingtypes></clothingtypes>
+        </div>
+        <div class="form-group">
+          <brands></brands>
+        </div>
+        <div class="form-group">
+          <button ng-click="go()" class="btn btn-default">Go</button>
+        </div>    
+      </form>
+    </div>
 
-    <form ng-show="initialform" style="text-align:center;" class="form-inline" role="form">
-      <div class="form-group">
-        <clothingtypes></clothingtypes>
-      </div>
-      <div class="form-group">
-        <brands></brands>
-      </div>
-      <div class="form-group">
-        <button ng-click="go()" class="btn btn-default">Go</button>
-      </div>    
-    </form>
+    <div ng-hide="initialform">
+      <p>We'll mail you the shipping supplies free of charge. After you send your clothing to Wampum to be upcycled we'll mail your gift card.</p>
+      <form style="margin-top:30px;" class="form-inline" role="form">
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="address_line_1" placeholder="adress line 1"/>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="address_line_2" placeholder="adress line 2"/>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="city" placeholder="city"/>
+        </div> 
+        <div class="form-group">
+          <statedropdown></statedropdown>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="zip" placeholder="zip"/>
+        </div>                  
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </div>
 
   <div class="row">
