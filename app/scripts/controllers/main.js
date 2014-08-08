@@ -13,10 +13,15 @@ angular.module('wampumfrontendApp')
       $scope.initialform = true;
     };
 
-    $scope.go = function (clothingtypes, brands) {
+    $scope.begin = function (clothingtypes, brands) {
       $scope.initialform = false;
-      shipService.allMyFavoriteBrands(clothingtypes, brands);
-      // TODO put success handlers here
+      shipService.begin(clothingtypes, brands)
+        .success(function (data) {
+          console.log(data);
+        })
+        .error(function (err) {
+          console.log(err);
+        })
     };
 
 

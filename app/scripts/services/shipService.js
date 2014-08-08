@@ -3,16 +3,21 @@
 angular.module('wampumfrontendApp')
   .service('shipService', ['$http', function ($http) {
 
-    var allMyFavoriteBrands = function (clothingtypes, brands) {
-      console.log(arguments);
-      return true;
-    }
-
+    var begin = function (clothingtype, brand) {
+      return $http({
+        method: 'POST',
+        url: '/begin',
+        data: {
+          clothingtype: clothingtype,
+          brand: brand,
+        }
+      });
+    };
 
     var submitShippingInfo = function (locationid, item, email) {
       return $http({
         method: 'POST',
-        url: '/submitshipping',
+        url: '/submit',
         data: {
           locationid: locationid,
           item: item,
@@ -27,7 +32,7 @@ angular.module('wampumfrontendApp')
     };
 
     return {
-      allMyFavoriteBrands: allMyFavoriteBrands,
+      begin: begin,
       submitShippingInfo: submitShippingInfo
     };
 
