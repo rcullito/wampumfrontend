@@ -17,10 +17,23 @@ angular.module('wampumfrontendApp')
       $scope.initialform = false;
       shipService.begin(clothingtypes, brands)
         .success(function (data) {
-          console.log(data);
+          $scope.secondform = true;
         })
         .error(function (err) {
           console.log(err);
+        })
+    };
+
+    $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip) {
+      console.log(arguments);
+      $scope.submitted = true;
+      shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip)
+        .success(function (data) {
+          $scope.secondform = false;
+          $scope.submitted = true;
+        })
+        .error(function (err) {
+          $scope.error_message = err.message;
         })
     };
 

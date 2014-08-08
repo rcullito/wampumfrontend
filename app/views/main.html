@@ -20,7 +20,7 @@
       </form>
     </div>
 
-    <div ng-hide="initialform">
+    <div ng-show="secondform">
       <p>We'll mail you the shipping supplies free of charge. After you send your clothing to Wampum to be upcycled we'll mail your gift card.</p>
       <form style="margin-top:30px;" class="form-inline" role="form">
         <div class="form-group">
@@ -38,9 +38,15 @@
         <div class="form-group">
           <input type="text" class="form-control" ng-model="zip" placeholder="zip"/>
         </div>                  
-        <button class="btn btn-primary">Submit</button>
+        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary">Submit</button>
+        <p style="color: red;">{{ error_message }}</p>
       </form>
     </div>
+
+    <div ng-show="submitted">
+      <p>Thanks for upcycling with Wampum! Your shipping supplies are on their way, and your gift card will be shortly after that.</p>
+    </div>
+
   </div>
 
   <div class="row">
