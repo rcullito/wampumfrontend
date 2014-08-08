@@ -23,6 +23,7 @@ label {
 	font-weight: 200;
 }
 
+
 .blog-link {
 	color: #696969;
 }
@@ -54,4 +55,45 @@ label {
 	padding-right: 20px;
 	font-size: 19px;
 	line-height: 30px;
+}
+.header-21-sub .control-btn {
+width: 53px;
+height: 53px;
+line-height: 53px;
+margin: 0;
+padding: 0;
+border-radius: 50%;
+text-align: center;
+font-size: 18px;
+font-weight: normal;
+color: #bdc3c7;
+background: #ecf0f1;
+position: absolute;
+left: 50%;
+bottom: 70px;
+margin-left: -26.5px;
+}
+
+.circle {
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	background-color: #ecf0f1;
+	margin: 0 auto;
+	position: relative;
+}
+.circle:after {
+    content: '';
+    position: absolute;
+    border-top: 6px solid #28a2ad;
+    border-right: 6px solid #28a2ad;
+    height: 12px;
+    top: 20px;
+    left: 15px;
+    width: 12px;
+    margin-top: -3px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
 }
