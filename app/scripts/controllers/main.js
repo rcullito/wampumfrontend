@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp')
     };
 
     $scope.originofWampum = function () {
-      alert('Wampum is a Native American word for shell beads that were used as a form of currency.');
+      alert('Wampum is a Native American word for shell beads that were used as a form of currency. Wampum.io is made in Cambridge, Massachusetts');
     };
 
     $scope.contact = function () {
