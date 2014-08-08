@@ -4,6 +4,13 @@ angular.module('wampumfrontendApp')
   .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'shipService', function ($scope, $routeParams, $location, $cookies, shipService) {
 
     $scope.initialform = true;
+    $scope.submitted = false;
+
+    $scope.home = function () {
+      $scope.initialform = true;
+      $scope.secondform = false;
+      $scope.submitted = false;
+    };
 
     $scope.originofWampum = function () {
       alert('Wampum is a Native American word for shell beads that were used as a form of currency.');
@@ -13,9 +20,6 @@ angular.module('wampumfrontendApp')
       alert('Email rob@wampum.io');
     };
 
-    $scope.showAbout = function () {
-      $scope.initialform = true;
-    };
 
     $scope.begin = function (clothingtypes, brands) {
       $scope.initialform = false;
@@ -28,8 +32,8 @@ angular.module('wampumfrontendApp')
         })
     };
 
-    $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip) {
-      shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip)
+    $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {
+      shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)
         .success(function (data) {
           $scope.secondform = false;
           $scope.submitted = true;
@@ -40,7 +44,7 @@ angular.module('wampumfrontendApp')
     };
 
 
-    $scope.state = 'MA';
+    $scope.state = 'state';
     $scope.clothingtypes = 'chinos';
     $scope.brands = 'thegap';
 

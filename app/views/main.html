@@ -1,8 +1,8 @@
 <div class="jumbotron" style="background-color:#fff; padding-top:25px;">
   <div class="container">
     <div class="row" style="margin-bottom:30px; text-align:center;">
-        <h1 style="cursor:pointer;" ng-click="showAbout()">Wampum</h1>
-        <img style="cursor:pointer;" ng-click="showAbout()" src="https://s3.amazonaws.com/wampumimages/appstore_1024.png" widht="150" height="150">      
+        <h1 style="cursor:pointer;" ng-click="home()">Wampum</h1>
+        <img style="cursor:pointer;" ng-click="home()" src="https://s3.amazonaws.com/wampumimages/appstore_1024.png" widht="150" height="150">      
     </div>
 
     <div ng-show="initialform">
@@ -20,25 +20,28 @@
       </form>
     </div>
 
-    <div ng-show="secondform">
+    <div style="text-align:center;" ng-show="secondform">
       <p>We'll mail you the shipping supplies free of charge. After you send your clothing to Wampum to be upcycled we'll mail your gift card.</p>
-      <form style="margin-top:30px;" class="form-inline" role="form">
-        <div class="form-group">
+      <form style="margin-top:30px;"  role="form">
+        <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="address_line_1" placeholder="adress line 1"/>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="address_line_2" placeholder="adress line 2"/>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="city" placeholder="city"/>
         </div> 
-        <div class="form-group">
+        <div class="form-group col-xs-6">
           <statedropdown></statedropdown>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="zip" placeholder="zip"/>
-        </div>                  
-        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary">Submit</button>
+        </div>  
+        <div class="form-group col-xs-6">
+          <input type="text" class="form-control" ng-model="email" placeholder="email"/>
+        </div>                          
+        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
         <p style="color: red;">{{ error_message }}</p>
       </form>
     </div>

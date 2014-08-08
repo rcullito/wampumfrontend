@@ -14,7 +14,7 @@ angular.module('wampumfrontendApp')
       });
     };
 
-    var submitShippingInfo = function (clothingtype, brand, address_line_1, address_line_2, city, state, zip) {
+    var submitShippingInfo = function (clothingtype, brand, address_line_1, address_line_2, city, state, zip, email) {
       return $http({
         method: 'POST',
         url: '/submitshipping',
@@ -26,6 +26,7 @@ angular.module('wampumfrontendApp')
           city: city,
           state: state,
           zip: zip,
+          email: email
         }
       });
     };
