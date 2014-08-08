@@ -9,6 +9,10 @@ angular.module('wampumfrontendApp')
       alert('Wampum is a Native American word for shell beads that were used as a form of currency.');
     };
 
+    $scope.contact = function () {
+      alert('Email rob@wampum.io');
+    };
+
     $scope.showAbout = function () {
       $scope.initialform = true;
     };
@@ -25,7 +29,6 @@ angular.module('wampumfrontendApp')
     };
 
     $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip) {
-      console.log(arguments);
       $scope.submitted = true;
       shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip)
         .success(function (data) {
