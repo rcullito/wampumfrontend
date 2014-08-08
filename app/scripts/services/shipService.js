@@ -3,12 +3,11 @@
 angular.module('wampumfrontendApp')
   .service('shipService', ['$http', function ($http) {
 
-    var getLocationById = function (locationid) {
-      return $http({
-        method: 'GET',
-        url: '/location/' + locationid,
-      });
-    };
+    var allMyFavoriteBrands = function (clothingtypes, brands) {
+      console.log(arguments);
+      return true;
+    }
+
 
     var submitShippingInfo = function (locationid, item, email) {
       return $http({
@@ -28,7 +27,7 @@ angular.module('wampumfrontendApp')
     };
 
     return {
-      getLocationById: getLocationById,
+      allMyFavoriteBrands: allMyFavoriteBrands,
       submitShippingInfo: submitShippingInfo
     };
 

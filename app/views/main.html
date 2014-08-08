@@ -6,7 +6,7 @@
     </div>
 
     <div ng-show="initialform">
-      <p>Wampum allows you to trade in your old clothes for gift cards at the stores you bought them from.</p>
+      <p>Wampum lets you to trade in your old clothes for gift cards at the stores you bought them from.</p>
       <form style="text-align:center; margin-top:20px; margin-bottom:60px;" class="form-inline" role="form">
         <div class="form-group">
           <clothingtypes></clothingtypes>
@@ -15,7 +15,7 @@
           <brands></brands>
         </div>
         <div class="form-group">
-          <button ng-click="go()" class="btn btn-primary">Go</button>
+          <button ng-click="go(clothingtypes, brands)" class="btn btn-primary">Go</button>
         </div>    
       </form>
     </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'esService', function ($scope, $routeParams, $location, $cookies, esService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'shipService', function ($scope, $routeParams, $location, $cookies, shipService) {
 
     $scope.initialform = true;
 
@@ -13,8 +13,10 @@ angular.module('wampumfrontendApp')
       $scope.initialform = true;
     };
 
-    $scope.go = function () {
+    $scope.go = function (clothingtypes, brands) {
       $scope.initialform = false;
+      shipService.allMyFavoriteBrands(clothingtypes, brands);
+      // TODO put success handlers here
     };
 
 
