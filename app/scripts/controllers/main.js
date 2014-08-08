@@ -29,7 +29,6 @@ angular.module('wampumfrontendApp')
     };
 
     $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip) {
-      $scope.submitted = true;
       shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip)
         .success(function (data) {
           $scope.secondform = false;
