@@ -79,3 +79,23 @@ label {
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+
+.circle:hover {
+   background-color: rgb(52, 73, 94); 
+}
+
+.circle:hover:after {
+    content: '';
+    position: absolute;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    height: 12px;
+    top: 20px;
+    left: 20px;
+    width: 12px;
+    margin-top: -3px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+} 
