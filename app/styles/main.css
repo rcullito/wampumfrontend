@@ -116,4 +116,28 @@ label {
     -moz-transform: rotate(135deg);
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
-} 
+}
+
+.jumbotron {
+    padding-top: 30px;
+}
+
+#logo {
+    padding-top: 22px;
+}
+
+#byline {
+    padding-top: 40px;
+}
+
+#beginform {
+    padding-top: 30px;
+}
+
+#circlesection {
+    padding-top: 90px;
+}
+
+#about {
+    padding-top: 200px;
+}
