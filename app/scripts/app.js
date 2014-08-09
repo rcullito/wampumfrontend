@@ -9,6 +9,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
+      .when('/submit/:clothingtypes/:brands', {
+        templateUrl: '/static/submit.html',
+        controller: 'SubmitCtrl',
+      })         
       .when('/locations', {
         templateUrl: '/static/locations.html',
         controller: 'LocationsCtrl',

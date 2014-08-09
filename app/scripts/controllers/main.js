@@ -14,30 +14,7 @@ angular.module('wampumfrontendApp')
       $scope.submitted = false;
     };
 
-    $scope.begin = function (clothingtypes, brands) {
-      $scope.initialform = false;
-      mainService.begin(clothingtypes, brands)
-        .success(function (data) {
-          $scope.secondform = true;
-        })
-        .error(function (err) {
-          console.log(err);
-        })
-    };
 
-    $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {
-      mainService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)
-        .success(function (data) {
-          $scope.secondform = false;
-          $scope.submitted = true;
-        })
-        .error(function (err) {
-          $scope.error_message = err.message;
-        })
-    };
-
-
-    $scope.state = 'state';
     $scope.clothingtypes = 'shirts';
     $scope.brands = 'thegap';
 
