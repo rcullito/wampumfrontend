@@ -38,7 +38,7 @@ angular.module('wampumfrontendApp')
 
 
     $scope.state = 'state';
-    $scope.clothingtypes = 'chinos';
+    $scope.clothingtypes = 'shirts';
     $scope.brands = 'thegap';
 
 }]);
