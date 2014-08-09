@@ -9,14 +9,10 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         controller: 'MainCtrl',
         reloadOnSearch: false
       })
-      .when('/itemlist', {
-        templateUrl: '/static/itemlist.html',
-        controller: 'ItemlistCtrl',
+      .when('/locations', {
+        templateUrl: '/static/locations.html',
+        controller: 'LocationsCtrl',
       })      
-      .when('/ship/:locationid/:item', {
-        templateUrl: '/static/ship.html',
-        controller: 'ShipCtrl',
-      })
       .otherwise({
         redirectTo: '/'
       });

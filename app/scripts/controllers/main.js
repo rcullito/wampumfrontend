@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'shipService', function ($scope, $routeParams, $location, $cookies, shipService) {
+  .controller('MainCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'mainService', function ($scope, $routeParams, $location, $cookies, mainService) {
 
     $scope.initialform = true;
     $scope.submitted = false;
@@ -16,7 +16,7 @@ angular.module('wampumfrontendApp')
 
     $scope.begin = function (clothingtypes, brands) {
       $scope.initialform = false;
-      shipService.begin(clothingtypes, brands)
+      mainService.begin(clothingtypes, brands)
         .success(function (data) {
           $scope.secondform = true;
         })
@@ -26,7 +26,7 @@ angular.module('wampumfrontendApp')
     };
 
     $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {
-      shipService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)
+      mainService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)
         .success(function (data) {
           $scope.secondform = false;
           $scope.submitted = true;
