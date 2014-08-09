@@ -6,6 +6,8 @@ angular.module('wampumfrontendApp')
     $scope.initialform = true;
     $scope.submitted = false;
 
+    smoothScroll.init();
+
     $scope.home = function () {
       $scope.initialform = true;
       $scope.secondform = false;

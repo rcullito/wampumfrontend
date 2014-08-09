@@ -27,7 +27,7 @@ gulp.task('directives', function() {
 });
 
 gulp.task('vendorjs', function () {
-  return gulp.src(['app/public/typeaheadFork.min.js', 'app/public/lodash.min.js'])
+  return gulp.src(['app/public/smooth-scroll.min.js', 'app/public/lodash.min.js'])
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest(build_dir_js));
 });
