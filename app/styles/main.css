@@ -1,4 +1,22 @@
+/* unvisited link */
+.normallink a:link {
+    color: #696969;
+}
 
+/* visited link */
+.normallink a:visited {
+    color: #696969;
+}
+
+/* mouse over link */
+.normallink a:hover {
+    color: #696969;
+}
+
+/* selected link */
+.normallink a:active {
+    color: #696969;
+}
 
 body {
 	background: #fafafa;
