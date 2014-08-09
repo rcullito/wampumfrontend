@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .service('shipService', ['$http', function ($http) {
+  .service('mainService', ['$http', function ($http) {
 
     var begin = function (clothingtype, brand) {
       return $http({
