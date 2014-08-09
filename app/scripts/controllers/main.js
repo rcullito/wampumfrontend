@@ -8,13 +8,6 @@ angular.module('wampumfrontendApp')
 
     smoothScroll.init();
 
-    $scope.home = function () {
-      $scope.initialform = true;
-      $scope.secondform = false;
-      $scope.submitted = false;
-    };
-
-
     $scope.clothingtypes = 'shirts';
     $scope.brands = 'thegap';
 
