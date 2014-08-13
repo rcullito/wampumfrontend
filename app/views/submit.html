@@ -1,6 +1,6 @@
 <superman>
     <div style="text-align:center;" ng-show="secondform">
-      <p>We'll mail you the shipping supplies free of charge. After you send your clothing to Wampum to be upcycled we'll mail your gift card.</p>
+      <p>Once you submit your info, we can send you your gift card and you can send Wampum your clothing to be upcycled!</p>
       <form style="margin-top:40px;"  role="form">
         <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="address_line_1" placeholder="adress line 1"/>
@@ -26,6 +26,13 @@
     </div>
 
     <div ng-show="submitted">
-      <p>Thanks for upcycling with Wampum! Your shipping supplies are on their way, and your gift card will be shortly after that.</p>
+      <p>Thanks for upcycling with Wampum! Your gift card is on its way. In the mean time please send your clothing to:</p>
+      <br>
+      <span style="text-align:center">
+        <p>Wampum Inc.</p>
+        <p>1308 Cambridge St.</p>
+        <p>Cambridge, MA 02139</p>
+      </span>
+
     </div>
 </superman>
