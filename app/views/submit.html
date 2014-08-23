@@ -1,6 +1,13 @@
 <superman>
     <div style="text-align:center;" ng-show="secondform">
+    <!-- make the destination a link -->
+      <p>We think your {{ clothingtypes }} would be a good fit for: <em>Blue Jeans Go Green</em>.</p>
+
+      <label>
+        Do you want a free shipping label to send them there?  <input style="margin-left: 10px;" type="checkbox" ng-model="shippinglabel">
+      </label>
       <p>Once you submit your info, we can send you your gift card and you can send Wampum your clothing to be upcycled!</p>
+
       <form style="margin-top:40px;"  role="form">
         <div class="form-group col-xs-6">
           <input type="text" class="form-control" ng-model="address_line_1" placeholder="adress line 1"/>
