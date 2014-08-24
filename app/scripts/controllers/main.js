@@ -6,6 +6,6 @@ angular.module('wampumfrontendApp')
     smoothScroll.init();
 
     $scope.clothingtypes = 'shirts';
-    $scope.brands = 'thegap';
+    $scope.brands = 'gap';
 
 }]);
