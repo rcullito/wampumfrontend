@@ -8,4 +8,11 @@ angular.module('wampumfrontendApp')
     $scope.clothingtypes = 'shirts';
     $scope.brands = 'gap';
 
+    $scope.$watch('clothingtypes', function(newVal, oldVal) {
+      console.log(newVal);
+      if (newVal === 'other') {
+        $scope.otherclothingtypes = true;
+      }
+    });
+
 }]);
