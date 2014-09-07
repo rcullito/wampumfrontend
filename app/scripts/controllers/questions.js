@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('ReviewsCtrl', [function () {
+  .controller('QuestionsCtrl', [function () {
 
 }]);

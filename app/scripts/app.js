@@ -17,9 +17,9 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/static/locations.html',
         controller: 'LocationsCtrl',
       })   
-      .when('/reviews', {
-        templateUrl: '/static/reviews.html',
-        controller: 'ReviewsCtrl',
+      .when('/questions', {
+        templateUrl: '/static/questions.html',
+        controller: 'QuestionsCtrl',
       })            
       .otherwise({
         redirectTo: '/'
