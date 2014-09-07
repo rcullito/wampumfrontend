@@ -13,6 +13,9 @@ angular.module('wampumfrontendApp')
       if (newVal === 'other') {
         $scope.otherclothingtypes = true;
       }
+      if (newVal !== 'other') {
+        $scope.otherclothingtypes = false;
+      }
     });
 
 }]);
