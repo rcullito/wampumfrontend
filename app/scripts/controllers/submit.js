@@ -21,6 +21,7 @@ angular.module('wampumfrontendApp')
     var clothingSearch = function () {
       mainService.clothingSearch($scope.clothingtypes)
         .success(function (data) {
+          // TODO figure something out for when we don't have any resutls for the other type
           $scope.entry = data[getRandomEntry(data).random_key];
         })
         .error(function (err) {
