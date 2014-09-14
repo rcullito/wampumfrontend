@@ -8,6 +8,12 @@ angular.module('wampumfrontendApp')
     $scope.clothingtypes = 'shirts';
     $scope.brands = 'gap';
 
+    // have another scope var named clothign selection
+    // if clothignselection is other than 
+    // clothing type is the new form ng-model
+    // if it isnt then clothingselectin and 
+    // clothing type are the same
+
     $scope.$watch('clothingtypes', function(newVal, oldVal) {
       console.log(newVal);
       if (newVal === 'other') {
