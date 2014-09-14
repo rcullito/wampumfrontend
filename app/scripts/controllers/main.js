@@ -17,6 +17,7 @@ angular.module('wampumfrontendApp')
     $scope.$watch('clothingselection', function(newVal, oldVal) {
       console.log(newVal);
       if (newVal === 'other') {
+        $scope.clothingtype = undefined;
         $scope.defaultclothing = true;
       }
       if (newVal !== 'other') {
