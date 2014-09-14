@@ -60,7 +60,6 @@ angular.module('wampumfrontendApp')
         })
     };
 
-    $scope.state = 'state';
 
     $scope.upcyclelocation = 'bluejeansgogreen';
 

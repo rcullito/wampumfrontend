@@ -6,5 +6,5 @@ angular.module('wampumfrontendApp')
     console.log('here in the shipping controller');
 
     $scope.clothingtype = $routeParams.clothingtype;
-
+    $scope.state = 'State';
 }]);
