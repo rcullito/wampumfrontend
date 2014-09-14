@@ -25,7 +25,6 @@ angular.module('wampumfrontendApp')
           var resultInfo = getResultInfo(data);
           var resultLength = resultInfo.collection_length;
           if (resultLength) {
-            console.log('we have results');
             var resultKey = resultInfo.random_key;
             $scope.entry = data[resultKey];
             $scope.result_length = resultInfo.collection_length;
