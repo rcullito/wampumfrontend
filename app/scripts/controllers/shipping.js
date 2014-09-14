@@ -1,21 +1,19 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('ShippingCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'locationsService', function ($scope, $routeParams, $location, $cookies, locationsService) {
-
-    console.log('here in the shipping controller');
+  .controller('ShippingCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'mainService', function ($scope, $routeParams, $location, $cookies, mainService) {
 
     $scope.clothingtype = $routeParams.clothingtype;
+    $scope.brand = $routeParams.brand;
+    $scope.locationid = $routeParams.locationid;
     $scope.state = 'State';
-
-    // TODO remove this
-    $scope.shippinglabel = 'yes';
+    $scope.shippingform = true;
 
 
-    $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {
-      mainService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)
+    $scope.submitShippingInfo = function (clothingtype, brand, locationid, full_name, email, address_line_1, address_line_2, city, state, zip) {
+      mainService.submitShippingInfo (clothingtype, brand, locationid, full_name, email, address_line_1, address_line_2, city, state, zip)
         .success(function (data) {
-          $scope.secondform = false;
+          $scope.shippingform = false;
           $scope.submitted = true;
         })
         .error(function (err) {
@@ -24,5 +22,5 @@ angular.module('wampumfrontendApp')
     };
 
 
-    
+
 }]);
