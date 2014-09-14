@@ -5,8 +5,8 @@ angular.module('wampumfrontendApp')
 
     smoothScroll.init();
 
-    $scope.clothingtypes = 'shirts';
-    $scope.brands = 'gap';
+    $scope.clothingselection = 'shirts';
+    $scope.brand = 'gap';
 
     // have another scope var named clothign selection
     // if clothignselection is other than 
@@ -14,13 +14,14 @@ angular.module('wampumfrontendApp')
     // if it isnt then clothingselectin and 
     // clothing type are the same
 
-    $scope.$watch('clothingtypes', function(newVal, oldVal) {
+    $scope.$watch('clothingselection', function(newVal, oldVal) {
       console.log(newVal);
       if (newVal === 'other') {
-        $scope.otherclothingtypes = true;
+        $scope.defaultclothing = true;
       }
       if (newVal !== 'other') {
-        $scope.otherclothingtypes = false;
+        $scope.defaultclothing = false
+        $scope.clothingtype = $scope.clothingselection;
       }
     });
 
