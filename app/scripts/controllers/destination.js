@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('wampumfrontendApp')
-  .controller('SubmitCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'mainService', function ($scope, $routeParams, $location, $cookies, mainService) {
+  .controller('DestinationCtrl', ['$scope', '$routeParams', '$location', '$cookies', 'mainService', function ($scope, $routeParams, $location, $cookies, mainService) {
 
 
-    $scope.clothingtypes = $routeParams.clothingtypes;
-    $scope.brands = $routeParams.brands;
+    $scope.clothingtype = $routeParams.clothingtypes;
+    $scope.brand = $routeParams.brands;
 
     $scope.secondform = true;
 
@@ -19,10 +19,11 @@ angular.module('wampumfrontendApp')
     };
 
     var clothingSearch = function () {
-      mainService.clothingSearch($scope.clothingtypes)
+      mainService.clothingSearch($scope.clothingtype)
         .success(function (data) {
           // TODO figure something out for when we don't have any resutls for the other type
           $scope.entry = data[getRandomEntry(data).random_key];
+          $scope.locationid = $scope.entry.id;
         })
         .error(function (err) {
           console.log(err);
