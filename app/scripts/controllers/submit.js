@@ -9,13 +9,30 @@ angular.module('wampumfrontendApp')
 
     $scope.secondform = true;
 
-    $scope.clothingSearch = mainService.clothingSearch($scope.clothingtypes)
-      .success(function (data) {
-        console.log(data);
-      })
-      .error(function (err) {
-        console.log(err);
-      });
+    var getRandomEntry = function (collection) {
+      var collection_length = collection.length;
+      var random_key = _.random(0, collection_length - 1);
+      return  {
+        random_key: random_key,
+        collection_length: collection_length
+      };
+    };
+
+    var clothingSearch = function () {
+      mainService.clothingSearch($scope.clothingtypes)
+        .success(function (data) {
+          $scope.entry = data[getRandomEntry(data).random_key];
+        })
+        .error(function (err) {
+          console.log(err);
+        });      
+      };
+
+
+    clothingSearch()
+
+    $scope.clothingSearch = clothingSearch;
+    
 
 
     $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {

@@ -6,8 +6,8 @@
     <table class="table">
       <tr>
         <td>Suggested Donation Location: </td>
-        <td><span id="upcyclelocation">Blue Jeans Go Green</span></td>
-        <td><button class="btn btn-info">Shuffle</button></td>
+        <td><span id="upcyclelocation">{{ entry.name }}</span></td>
+        <td><button ng-click="clothingSearch()" class="btn btn-info">Shuffle</button></td>
         <td><button class="btn btn-success">Next</button></td>
       </tr>
     </table>
