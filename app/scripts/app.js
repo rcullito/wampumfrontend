@@ -13,7 +13,7 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/static/destination.html',
         controller: 'DestinationCtrl',
       })   
-      .when('/shipping/:clothingtypes/:brands/:locationid', {
+      .when('/shipping/:clothingtype/:brands/:locationid', {
         templateUrl: '/static/shipping.html',
         controller: 'ShippingCtrl',
       })               

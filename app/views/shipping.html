@@ -1,19 +1,11 @@
 <superman>
-    <!-- <div style="text-align:center;" ng-show="secondform"> -->
-
-    <!-- all we need to move to the next tab is a location id -->
-
-    <p>Great! Now we just need some info so we can send you your gift card</p>
+    <div style="text-align:center;">
 
 
-
-    
-
-<!--       <p>In exchange for your kindness, which email should we send your {{ brands }} gift card to?
-      <input type="text" style="display:inline; width:150px;" class="form-control" ng-model="email"></p>  
+    <p>Great! Now we just need some info so we can send you your gift card.</p>
 
       <label>
-        Do you want a free shipping label for your {{ clothingtypes }}?
+        Do you want a free shipping label for your {{ clothingtype }}?
         <input type="radio" ng-model="shippinglabel" value="yes"> yes
         <input type="radio" ng-model="shippinglabel" value="no"> no <br/>
       </label>
@@ -33,10 +25,21 @@
         </div>
         <div class="form-group col-xs-3">
           <input type="text" class="form-control" ng-model="zip" placeholder="zip"/>
-        </div>                        
+        </div>  
+        <input type="text" style="display:inline; width:150px;" class="form-control" placeholder="email" ng-model="email">                       
         <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
         <p style="color: red;">{{ error_message }}</p>
       </form>
+
+
+       <form ng-show="shippinglabel == 'no'"  role="form">
+        <input type="text" style="display:inline; width:150px;" class="form-control" placeholder="email" ng-model="email"> 
+        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
+
+      <p style="color: red;">{{ error_message }}</p>
+      </form>
+
+
     </div>
 
     <div ng-show="submitted">
@@ -47,7 +50,7 @@
         <p>1308 Cambridge St.</p>
         <p>Cambridge, MA 02139</p>
       </span>
-    </div> -->
+    </div>
 
 
 
