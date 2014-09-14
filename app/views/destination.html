@@ -5,13 +5,13 @@
 
     <p>Awesome! So you're going to be giving away your {{ clothingtype }} and in exchange we'll send you a gift card from {{ brand }}. But first, you get to choose where Wampum upcycles your old clothing.
 
-    <p>We have <b>3</b> locations that accept shirts.</p>
+    <p>We have <b>{{ result_length }}</b> locations that accept {{ clothingtype }}.</p>
 
     <table style="margin-top: 30px;" class="table">
       <tr>
-        <td><span id="upcyclelocation">{{ entry.name }}</span></td>
+        <td>{{ entry.name }}</td>
         <td>{{ entry.description }}</td>
-        <td><button ng-click="clothingSearch()" class="btn btn-info">Shuffle</button></td>
+        <td ng-show="result_length > 1"><button ng-click="clothingSearch()" class="btn btn-info">Shuffle</button></td>
         <td></td>
 
         <td>
