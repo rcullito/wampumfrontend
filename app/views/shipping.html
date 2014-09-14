@@ -1,8 +1,7 @@
 <superman>
     <div style="text-align:center;">
 
-
-    <p>Great! Now we just need some info so we can send you your gift card.</p>
+      <p>Great! Now we just need some info so we can send you your gift card.</p>
 
       <label>
         Do you want a free shipping label for your {{ clothingtype }}?
@@ -10,37 +9,51 @@
         <input type="radio" ng-model="shippinglabel" value="no"> no <br/>
       </label>
 
+    </div>
+
+      <!-- TODO set a max width for this whole form to tighten it up a bit -->
+      <!-- then set a lower and upper border to demarcate -->
       <form ng-show="shippinglabel == 'yes'" style="margin-top:40px;"  role="form">
-        <div class="form-group col-xs-6">
-          <input type="text" class="form-control" ng-model="address_line_1" placeholder="Street Address"/>
-        </div>
-        <div class="form-group col-xs-6">
-          <input type="text" class="form-control" ng-model="address_line_2" placeholder="Apt/Unit"/>
-        </div>
 
-
-        <div class="form-group col-xs-6">
-          <input type="text" class="form-control" ng-model="full_name" placeholder="Full Name"/>
-        </div>
-        <div class="form-group col-xs-6">
+      <span>
+        <div class="form-group col-xs-6 shippingformlowerfields">
+          <label>Full Name</label>
+          <input type="text" class="form-control" ng-model="full_name" placeholder="Last Name"/>
+        </div>        
+        <div class="form-group col-xs-6 shippingformlowerfields">
+          <label>Email</label>
           <input type="text" class="form-control" ng-model="email" placeholder="Email"> 
         </div>
+      </span>
 
+      <span>
+        <div class="form-group col-xs-6 shippingformlowerfields">
+          <label>Home Address</label>
+          <input type="text" class="form-control" ng-model="address_line_1" placeholder="Street Address"/>
+        </div>
+        <div class="form-group col-xs-6 shippingformlowerfields">
+          <label>Apt/Unit</label>
+          <input type="text" class="form-control" ng-model="address_line_2" placeholder="Apt/Unit"/>
+        </div>
+      </span>
 
-   
-
-
-        <div class="form-group col-xs-3">
+      <span>
+        <div class="form-group col-xs-4 shippingformlowerfields">
+          <label>City</label>
           <input type="text" class="form-control" ng-model="city" placeholder="City"/>
         </div> 
-        <div class="form-group col-xs-3">
+        <div class="form-group col-xs-4 shippingformlowerfields">
+          <label>State</label>
           <statedropdown></statedropdown>
         </div>
-        <div class="form-group col-xs-3">
-          <input type="text" class="form-control" ng-model="zip" placeholder="Zip"/>
-        </div>                   
-        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
-        <p style="color: red;">{{ error_message }}</p>
+        <div class="form-group col-xs-4 shippingformlowerfields">
+          <label>Zip Code</label>
+          <input type="text" class="form-control" ng-model="zip" placeholder="000000"/>
+        </div> 
+      </span> 
+                 
+<!--         <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
+        <p style="color: red;">{{ error_message }}</p> -->
       </form>
 
 
@@ -51,8 +64,6 @@
       <p style="color: red;">{{ error_message }}</p>
       </form>
 
-
-    </div>
 
     <div ng-show="submitted">
       <p>Thanks for upcycling with Wampum! Your gift card is on its way. In the mean time please send your clothing to:</p>

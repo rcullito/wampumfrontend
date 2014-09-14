@@ -7,4 +7,8 @@ angular.module('wampumfrontendApp')
 
     $scope.clothingtype = $routeParams.clothingtype;
     $scope.state = 'State';
+
+
+    // TODO remove this
+    $scope.shippinglabel = 'yes'
 }]);
