@@ -1,11 +1,18 @@
 <superman>
     <div style="text-align:center;" ng-show="secondform">
-    <!-- make the destination a link -->
-      <p>Your {{ clothingtypes }} would be a good fit for: <span id="upcyclelocation">Blue Jeans Go Green</span>. 
-      <button class="btn btn-info">Shuffle</button>
-      </p>
 
-      <p>In exchange for your kindness, which email should we send your {{ brands }} gift card to?
+    <!-- all we need to move to the next tab is a location id -->
+
+    <table class="table">
+      <tr>
+        <td>Suggested Donation Location: </td>
+        <td><span id="upcyclelocation">Blue Jeans Go Green</span></td>
+        <td><button class="btn btn-info">Shuffle</button></td>
+        <td><button class="btn btn-success">Next</button></td>
+      </tr>
+    </table>
+
+<!--       <p>In exchange for your kindness, which email should we send your {{ brands }} gift card to?
       <input type="text" style="display:inline; width:150px;" class="form-control" ng-model="email"></p>  
 
       <label>
@@ -37,13 +44,14 @@
 
     <div ng-show="submitted">
       <p>Thanks for upcycling with Wampum! Your gift card is on its way. In the mean time please send your clothing to:</p>
-      <!-- Think about providing a tracking info section -->
       <br>
       <span style="text-align:center">
         <p>Wampum Inc.</p>
         <p>1308 Cambridge St.</p>
         <p>Cambridge, MA 02139</p>
       </span>
+    </div> -->
 
-    </div>
+
+
 </superman>

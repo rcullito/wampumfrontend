@@ -9,6 +9,14 @@ angular.module('wampumfrontendApp')
 
     $scope.secondform = true;
 
+    $scope.clothingSearch = mainService.clothingSearch($scope.clothingtypes)
+      .success(function (data) {
+        console.log(data);
+      })
+      .error(function (err) {
+        console.log(err);
+      });
+
 
     $scope.submitShippingInfo = function (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email) {
       mainService.submitShippingInfo (clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)

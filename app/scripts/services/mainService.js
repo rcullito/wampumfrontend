@@ -14,6 +14,13 @@ angular.module('wampumfrontendApp')
       });
     };
 
+    var clothingSearch = function (clothingtype) {
+      return $http({
+        method: 'GET',
+        url: '/search/' + clothingtype,
+      });
+    };
+
     var submitShippingInfo = function (clothingtype, brand, address_line_1, address_line_2, city, state, zip, email) {
       return $http({
         method: 'POST',
@@ -33,6 +40,7 @@ angular.module('wampumfrontendApp')
 
     return {
       begin: begin,
+      clothingSearch: clothingSearch,
       submitShippingInfo: submitShippingInfo
     };
 
