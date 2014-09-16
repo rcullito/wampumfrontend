@@ -9,12 +9,17 @@ angular.module('wampumfrontendApp')
     $scope.brand = 'gap';
 
     $scope.about = true;
+    $scope.howitworks = false;
 
     $scope.aboutface = function () {
-      $scope.about = !$scope.about;
-    }
+      $scope.about = true;
+      $scope.howitworks = false;
+    };
 
-    // $scope.howitworks = true;
+    $scope.howitworksface = function () {
+      $scope.howitworks = true;
+      $scope.about = false;
+    };
 
     $scope.$watch('clothingselection', function(newVal, oldVal) {
       if (newVal === 'other') {
