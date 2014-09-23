@@ -1,14 +1,23 @@
 <superman>
-  <p>We have <b>{{ result_length }}</b> locations that accept {{ clothingtype }}.</p>
-  <p>Awesome! So you're going to be giving away your {{ clothingtype }} and in exchange we'll send you a gift card from {{ brand }}. But first, you get to choose where Wampum upcycles your old clothing.
+  <span style="text-align:center;">
+
+
+
+    <p>We have <b>{{ result_length }}</b><ng-pluralize count="result_length"
+    when="{'one': ' location that accepts ',
+        'other': ' locations that accept '}">
+    </ng-pluralize>{{ clothingtype }}.</p>
+
+
+
+    <p>Awesome! So you're going to be giving away your {{ clothingtype }} and in exchange we'll send you a gift card from {{ brand }}. But first, you get to choose where Wampum upcycles your old clothing.
+    </p>
+  </span>
 
   <table style="margin-top: 30px;" class="table">
-    <tr>
+    <tr ng-repeat="entry in entries">
       <td>{{ entry.name }}</td>
       <td>{{ entry.description }}</td>
-      <td ng-show="result_length > 1"><button ng-click="clothingSearch()" class="btn btn-info">Shuffle</button></td>
-      <td></td>
-
       <td>
       <div class="form-group">
         <a href="/shipping/{{clothingtype}}/{{brand}}/{{entry.id}}">

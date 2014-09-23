@@ -9,32 +9,19 @@ angular.module('wampumfrontendApp')
 
     $scope.secondform = true;
 
-    var getResultInfo = function (collection) {
-      var collection_length = collection.length;
-      var random_key = _.random(0, collection_length - 1);
-      return  {
-        random_key: random_key,
-        collection_length: collection_length
-      };
-    };
-
     var clothingSearch = function () {
       mainService.clothingSearch($scope.clothingtype)
         .success(function (data) {
-          // TODO figure something out for when we don't have any resutls for the other type
-          var resultInfo = getResultInfo(data);
-          var resultLength = resultInfo.collection_length;
-          if (resultLength) {
-            var resultKey = resultInfo.random_key;
-            $scope.entry = data[resultKey];
-            $scope.result_length = resultInfo.collection_length;
+          if (data.length) {
+            $scope.entries = data;
+            $scope.result_length = data.length;
           } else {
-            $scope.result_length = 1;
-            $scope.entry = {
+            $scope.entries = [{
               name: 'Wampum Warehouse',
               description: "Wampum Warehouse is where we accept items that are currently not accepted by any of our partners. We'll accept any type of clothing!",
               id: 0
-            };
+            }];
+            $scope.result_length = 1;
           }
         })
         .error(function (err) {
