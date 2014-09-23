@@ -1,18 +1,7 @@
 <superman>
     <div ng-show="shippingform" style="text-align:center;">
-
       <p>Great! Now we just need your address so we can send you the shipping label and your gift card.</p>
-
-<!--       <label>
-        Do you want a free shipping label for your {{ clothingtype }}?
-        <input type="radio" ng-model="shippinglabel" value="yes"> yes
-        <input type="radio" ng-model="shippinglabel" value="no"> no <br/>
-      </label> -->
-
     </div>
-
-      <!-- TODO set a max width for this whole form to tighten it up a bit -->
-      <!-- then set a lower and upper border to demarcate -->
       <form ng-show="shippingform" style="margin-left: auto; margin-right: auto; max-width:800px;"  role="form">
         <span>
           <div class="form-group col-xs-6 shippingformlowerfields">
@@ -59,18 +48,7 @@
             <p style="color: red;">{{ error_message }}</p>
           </div>
         </span>
-
       </form>
-
-
-<!--        <form ng-show="shippinglabel == 'no'"  role="form">
-        <input type="text" style="display:inline; width:150px;" class="form-control" placeholder="Email" ng-model="email"> 
-        <button ng-click="submitShippingInfo(clothingtypes, brands, address_line_1, address_line_2, city, state, zip, email)" class="btn btn-primary">Submit</button>
-
-      <p style="color: red;">{{ error_message }}</p>
-      </form>
- -->
-
     <div ng-show="submitted">
       <p>Thanks for upcycling with Wampum! Your gift card and shipping label are on their way.</p>
     </div>
