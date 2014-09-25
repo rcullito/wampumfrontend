@@ -116,7 +116,7 @@ angular.module('wampumfrontendApp')
 
       var sortTimeout = setTimeout(function() {
         d3.select("input").property("checked", true).each(change);
-      }, 4000);
+      }, 2000);
 
       function change() {
         console.log('changed');
@@ -141,6 +141,9 @@ angular.module('wampumfrontendApp')
           .selectAll("g")
             .delay(delay);
       }
+
+      // works once
+      $scope.woot = change;
 
 
 }]);
