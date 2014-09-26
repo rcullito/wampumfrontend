@@ -185,4 +185,12 @@ label {
   display: none;
 }
 
+.learnmore  {
+    margin-top: 100px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: #91a8ba;
+}
+
 
