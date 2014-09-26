@@ -50,7 +50,7 @@
           <div class="col-xs-8 shippingformlowerfields">
           </div>
           <div class="form-group col-xs-4 shippingformlowerfields" style="text-align:right">
-            <button style="font-family: hill-house;" ng-click="submitShippingInfo(clothingtype, brand, locationid, full_name, email, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary btn-block">Submit</button>
+            <button style="font-family: hill-house;" ng-click="submitShippingInfo(brand,full_name, email, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary btn-block">Submit</button>
             <p style="color: red;">{{ error_message }}</p>
           </div>
         </span>
@@ -94,7 +94,7 @@
         </div> 
 
         <div style="margin-top:40px;">
-          <button style="font-family: hill-house;" ng-click="submitShippingInfo(clothingtype, brand, locationid, full_name, email, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary btn-block">Submit</button>
+          <button style="font-family: hill-house;" ng-click="submitShippingInfo(brand, full_name, email, address_line_1, address_line_2, city, state, zip)" class="btn btn-primary btn-block">Submit</button>
           <p style="color: red;">{{ error_message }}</p>
         </div>
 
@@ -103,6 +103,6 @@
       <!-- end of mobile version -->
 
     <div ng-show="submitted">
-      <p>Thanks for upcycling with Wampum! Your gift card and shipping label are on their way.</p>
+      <p>Thanks for upcycling with Wampum! Your box and shipping label are on their way.</p>
     </div>
 </superman>
