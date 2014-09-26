@@ -8,12 +8,8 @@ angular.module('wampumfrontendApp', ['ngRoute', 'ngCookies'])
         templateUrl: '/static/main.html',
         controller: 'MainCtrl',
         reloadOnSearch: false
-      })
-      .when('/destination/:clothingtypes/:brands', {
-        templateUrl: '/static/destination.html',
-        controller: 'DestinationCtrl',
-      })   
-      .when('/shipping/:clothingtype/:brand/:locationid', {
+      }) 
+      .when('/shipping', {
         templateUrl: '/static/shipping.html',
         controller: 'ShippingCtrl',
       })               

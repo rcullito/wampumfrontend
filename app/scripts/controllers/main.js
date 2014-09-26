@@ -6,7 +6,6 @@ angular.module('wampumfrontendApp')
     smoothScroll.init();
 
     $scope.clothingselection = 'shirts';
-    $scope.brand = 'amazon';
 
     $scope.additional = 'about';
 

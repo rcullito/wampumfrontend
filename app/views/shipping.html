@@ -1,19 +1,23 @@
 <superman>
     <div ng-show="shippingform" style="text-align:center;">
-      <p>Great! Now we just need your address so we can send you box, shipping label, and gift card.</p>
+      <p>Great! The following information will get the pieces moving.</p>
     </div>
     <!-- beginning of desktop version -->
       <form ng-show="shippingform" class="hidden-xs"
        style="margin-left: auto; margin-right: auto; max-width:768px;"  role="form">
         <span>
-          <div class="form-group col-xs-6 shippingformlowerfields">
+          <div class="form-group col-xs-4 shippingformlowerfields">
             <label>Full Name</label>
             <input type="text" class="form-control" ng-model="full_name" placeholder="Full Name"/>
           </div>        
-          <div class="form-group col-xs-6 shippingformlowerfields">
+          <div class="form-group col-xs-4 shippingformlowerfields">
             <label>Email</label>
             <input type="text" class="form-control" ng-model="email" placeholder="Email"> 
           </div>
+          <div class="form-group col-xs-4 shippingformlowerfields">   
+            <label>Gift card retailer</label>      
+            <brands></brands>
+          </div>          
         </span>
 
         <span>
@@ -64,6 +68,10 @@
           <label>Email</label>
           <input type="text" class="form-control" ng-model="email" placeholder="Email"> 
         </div>
+        <div class="form-group">   
+          <label>Gift card retailer</label>      
+          <brands></brands>
+        </div>         
         <div class="form-group">
             <label>Home Address</label>
             <input type="text" class="form-control" ng-model="address_line_1" placeholder="Street Address"/>

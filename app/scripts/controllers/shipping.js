@@ -8,6 +8,7 @@ angular.module('wampumfrontendApp')
     $scope.locationid = $routeParams.locationid;
     $scope.state = 'State';
     $scope.shippingform = true;
+    $scope.brand = 'amazon';
 
 
     $scope.submitShippingInfo = function (clothingtype, brand, locationid, full_name, email, address_line_1, address_line_2, city, state, zip) {
