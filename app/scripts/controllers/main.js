@@ -24,7 +24,7 @@ angular.module('wampumfrontendApp')
       }
     });
 
-    var div_width = document.getElementById("howitworks").offsetWidth;
+    var div_width = document.getElementById("howitworkslower").offsetWidth;
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
         // width = 960 - margin.right - margin.left,
@@ -41,7 +41,7 @@ angular.module('wampumfrontendApp')
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
 
-    var svg = d3.select("#howitworks").append("svg")
+    var svg = d3.select("#howitworkslower").append("svg")
         .attr("width", width + margin.right + margin.left)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -132,6 +132,7 @@ angular.module('wampumfrontendApp')
 
       // Normalize for fixed-depth.
       nodes.forEach(function(d) { d.y = d.depth * 180; });
+      // nodes.forEach(function(d) { d.y = d.depth * 50; });
 
       // Update the nodes…
       var node = svg.selectAll("g.node")

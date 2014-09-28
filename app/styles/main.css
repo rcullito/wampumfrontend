@@ -213,4 +213,9 @@ label {
   stroke-width: 1.5px;
 }
 
+#howitworkslower {
+  position: relative;
+  overflow: auto;
+}
+
 
