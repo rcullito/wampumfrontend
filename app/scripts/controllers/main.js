@@ -26,7 +26,7 @@ angular.module('wampumfrontendApp')
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
         width = 960 - margin.right - margin.left,
-        height = 800 - margin.top - margin.bottom;
+        height = 400 - margin.top - margin.bottom;
         
     var i = 0,
         duration = 750,
@@ -38,7 +38,7 @@ angular.module('wampumfrontendApp')
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#howitworks").append("svg")
         .attr("width", width + margin.right + margin.left)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -140,7 +140,7 @@ angular.module('wampumfrontendApp')
 
       nodeEnter.append("circle")
           .attr("r", 1e-6)
-          .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+          .style("fill", function(d) { return d._children ? "#bba3d0" : "#fff"; });
 
       nodeEnter.append("text")
           .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
@@ -156,7 +156,7 @@ angular.module('wampumfrontendApp')
 
       nodeUpdate.select("circle")
           .attr("r", 4.5)
-          .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+          .style("fill", function(d) { return d._children ? "#bba3d0" : "#fff"; });
 
       nodeUpdate.select("text")
           .style("fill-opacity", 1);
