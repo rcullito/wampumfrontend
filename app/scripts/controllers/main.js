@@ -28,7 +28,8 @@ angular.module('wampumfrontendApp')
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
         // width = 960 - margin.right - margin.left,
-        width = div_width - margin.right - margin.left,
+        // width = div_width - margin.right - margin.left,
+        width = 500,
         height = 400 - margin.top - margin.bottom;
         
     var i = 0,

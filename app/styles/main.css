@@ -214,9 +214,9 @@ label {
 }
 
 #howitworkslower {
-  position: relative;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow:auto;
 }
 
 
