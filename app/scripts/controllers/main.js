@@ -7,12 +7,6 @@ angular.module('wampumfrontendApp')
 
     $scope.clothingselection = 'shirts';
 
-    $scope.additional = 'about';
-
-    $scope.transition = function (newstate) {
-      $scope.additional = newstate;
-    };
-
     $scope.$watch('brand', function(newVal, oldVal) {
       if (newVal === 'other') {
         $scope.clothingtype = undefined;
@@ -49,7 +43,7 @@ angular.module('wampumfrontendApp')
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var flare = {
-     "name": "box",
+     "name": "your box",
      "children": [
       {
        "name": "shirts",
