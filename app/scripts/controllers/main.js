@@ -24,8 +24,11 @@ angular.module('wampumfrontendApp')
       }
     });
 
+    var div_width = document.getElementById("howitworks").offsetWidth;
+
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
-        width = 960 - margin.right - margin.left,
+        // width = 960 - margin.right - margin.left,
+        width = div_width - margin.right - margin.left,
         height = 400 - margin.top - margin.bottom;
         
     var i = 0,
@@ -113,14 +116,16 @@ angular.module('wampumfrontendApp')
         d.children = null;
       }
     }
-
-    root.children.forEach(collapse);
+    // we could not collapse 1 of the nodes
+    var unspecial_children = _.filter(root.children, function (child) {
+      return child.name !== "jewelry";
+    });
+    unspecial_children.forEach(collapse);
     update(root);
 
     d3.select(self.frameElement).style("height", "800px");
 
     function update(source) {
-
       // Compute the new tree layout.
       var nodes = tree.nodes(root).reverse(),
           links = tree.links(nodes);
