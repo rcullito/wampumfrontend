@@ -11,8 +11,10 @@ angular.module('wampumfrontendApp')
     $scope.brand = 'amazon';
 
 
-    $scope.submitShippingInfo = function (brand, full_name, email, address_line_1, address_line_2, city, state, zip) {
-      mainService.submitShippingInfo (brand, full_name, email, address_line_1, address_line_2, city, state, zip)
+    $scope.submitShippingInfo = function (full_name, email) {
+
+      console.log('submitted to the helper');
+      mainService.submitShippingInfo (full_name, email)
         .success(function (data) {
           $scope.shippingform = false;
           $scope.submitted = true;
