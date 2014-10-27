@@ -19,9 +19,14 @@
 }
 
 body {
-	background: #fafafa;
+	/*background: #fafafa;*/
+  background-image: url('http://b-i.forbesimg.com/kenrapoza/files/2013/04/Shanghai-sunrise.jpg');
 	font-family:'Avenir Next';
 	color: #696969;
+}
+
+.container {
+  max-width: 800px;
 }
 
 h1 {
@@ -137,6 +142,7 @@ label {
 
 #byline {
     padding-top: 44px;
+    line-height: 150%;
 }
 
 #beginform {
