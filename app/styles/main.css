@@ -88,49 +88,6 @@ label {
 	line-height: 30px;
 }
 
-.circle {
-	height: 50px;
-	width: 50px;
-	border-radius: 25px;
-	background-color: #ecf0f1;
-	margin: 0 auto;
-	position: relative;
-}
-.circle:after {
-    content: '';
-    position: absolute;
-    border-top: 3px solid rgb(190, 190,190);
-    border-right: 3px solid rgb(190, 190,190);
-    height: 12px;
-    top: 20px;
-    left: 20px;
-    width: 12px;
-    margin-top: -3px;
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
-    transform: rotate(135deg);
-}
-
-.circle:hover {
-   background-color: rgb(52, 73, 94); 
-}
-
-.circle:hover:after {
-    content: '';
-    position: absolute;
-    border-top: 3px solid white;
-    border-right: 3px solid white;
-    height: 12px;
-    top: 20px;
-    left: 20px;
-    width: 12px;
-    margin-top: -3px;
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
-    transform: rotate(135deg);
-}
 
 .jumbotron {
     padding-top: 30px;
@@ -154,7 +111,7 @@ label {
 }
 
 #howitworks {
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 #sitemap {
